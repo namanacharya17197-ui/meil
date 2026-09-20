@@ -64,15 +64,17 @@
       "name": "Zojila Tunnel Project - Portal 1 & 2",
       "location": "Kashmir & Ladakh Connectivity",
       "subsidiary_bu": "MEIL Roads & Infra",
-      "scope1_tco2e": 48920,
+      "scope1_tco2e": 48950,
       "scope2_tco2e": 12180,
       "scope3_tco2e": 18500,
       "turnover_cr": 3850.0,
       "safe_man_hours": 8420000,
       "energy_mix": "18.4% Solar Microgrid",
-      "water_recycled_pct": 44.2,
-      "audit_status": "Flagged Variance",
-      "status_category": "due high"
+      "water_recycled_pct": 45.2,
+      "audit_status": "Stage-2 In Progress",
+      "status_category": "due high",
+      "version": 2,
+      "updatedAt": "2026-09-20T17:20:51Z"
     },
     {
       "id": "proj-042",

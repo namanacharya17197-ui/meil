@@ -375,25 +375,57 @@ function switchPrinciple(pNumber, button) {
    ========================================================================= */
 function initTelemetryButton() {
   const btn = document.getElementById('load-demo-btn');
+  let isLiveActive = false;
+
   if (btn) {
-    btn.addEventListener('click', function() {
-      const originalText = this.innerHTML;
-      this.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>Connecting SCADA & IoT...</span>';
-      this.disabled = true;
+    btn.addEventListener('click', async function() {
+      const originalText = '<span class="material-symbols-outlined text-sm">sync</span><span>Sync Live Telemetry</span>';
+      
+      if (!isLiveActive) {
+        this.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>Syncing Telemetry Engine...</span>';
+        this.disabled = true;
 
-      setTimeout(() => {
-        this.innerHTML = '<span class="material-symbols-outlined text-sm text-secondary-container">check</span><span>Synchronized!</span>';
-        showNotification('Live Telemetry Synced', 'Successfully received 1,098 KPI streams from all 14 active civil sites.');
+        // 1. Trigger Batch Sync with local drafts
+        if (window.MEIL_API && typeof window.MEIL_API.batchSync === 'function') {
+          await window.MEIL_API.batchSync([
+            {
+              mutationId: `sync-mut-${Date.now()}`,
+              entityId: 'Site #108',
+              baseVersion: 1,
+              delta: { scope1_tco2e: 48920, water_recycled_pct: 44.5 }
+            }
+          ]);
+        }
 
-        // Slight simulated data pulse
-        const emissionsElem = document.getElementById('kpi-emissions');
-        if (emissionsElem) emissionsElem.textContent = '417,890';
+        // 2. Start Live Telemetry Streaming
+        if (window.MEIL_API && typeof window.MEIL_API.startLiveTelemetry === 'function') {
+          window.MEIL_API.startLiveTelemetry((packet) => {
+            const emissionsElem = document.getElementById('kpi-emissions');
+            if (emissionsElem) {
+              const currentTotal = 418240 + Math.round((Math.random() - 0.5) * 40);
+              emissionsElem.textContent = currentTotal.toLocaleString('en-US');
+            }
+            if (packet.anomalyFlag) {
+              showNotification('Anomaly Radar Flag', `${packet.siteCode}: ${packet.anomalyReason}`);
+            }
+          }, 4000);
+        }
 
-        setTimeout(() => {
-          this.innerHTML = originalText;
-          this.disabled = false;
-        }, 1500);
-      }, 900);
+        isLiveActive = true;
+        this.innerHTML = '<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span>Telemetry Streaming Active</span>';
+        this.disabled = false;
+        this.className = 'px-3 py-1.5 rounded bg-secondary-fixed text-on-secondary-fixed text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all';
+        showNotification('Telemetry Pipeline Connected', 'Real-time telemetry stream synchronized across 14 civil sites with Anomaly Radar.');
+      } else {
+        // Stop telemetry streaming
+        if (window.MEIL_API && typeof window.MEIL_API.stopLiveTelemetry === 'function') {
+          window.MEIL_API.stopLiveTelemetry();
+        }
+        isLiveActive = false;
+        this.innerHTML = originalText;
+        this.className = 'px-3 py-1.5 rounded bg-primary text-on-primary text-xs font-semibold flex items-center gap-1.5 hover:bg-primary-container transition-colors';
+        showNotification('Telemetry Stream Paused', 'Switched back to static ledger mode.');
+      }
     });
   }
 

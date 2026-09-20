@@ -177,8 +177,30 @@ class MEILApiHandler(SimpleHTTPRequestHandler):
             self._send_json(db.get("audit_logs", []))
         elif path == "/api/brsr/indicators":
             self._send_json(db.get("brsr_indicators", []))
+        elif path == "/api/telemetry/live":
+            projects = db.get("projects", [])
+            active = projects[0] if projects else {"site_code": "Site #108", "name": "Zojila Tunnel Project"}
+            import random
+            j_diesel = round(2400 + random.random() * 400)
+            j_grid = round(11500 + random.random() * 800)
+            j_solar = round(3800 + random.random() * 400)
+            is_spike = j_diesel > 2650
+            self._send_json({
+                "packetId": f"pkt-{int(time.time()*1000)}",
+                "siteCode": active.get("site_code"),
+                "siteName": active.get("name"),
+                "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "metrics": {
+                    "dieselKL": j_diesel,
+                    "gridMWh": j_grid,
+                    "solarMWh": j_solar,
+                    "scope1_tco2e": round((j_diesel * 1000 * 2.6865) / 1000.0, 2),
+                    "scope2_tco2e": round(j_grid * 0.716, 2)
+                },
+                "anomalyFlag": is_spike,
+                "anomalyReason": "Diesel consumption spike (+34.2%) detected by Anomaly Radar" if is_spike else None
+            })
         else:
-            # Fall back to serving static frontend files
             super().do_GET()
 
     def do_POST(self):
@@ -198,6 +220,80 @@ class MEILApiHandler(SimpleHTTPRequestHandler):
             db["energy_consumption"].insert(0, record)
             save_db(db)
             self._send_json({"success": True, "record": record})
+
+        elif path == "/api/telemetry/batch-sync":
+            mutations = body.get("mutations", [])
+            results = []
+            projects = db.get("projects", [])
+            for m in mutations:
+                m_id = m.get("mutationId")
+                e_id = m.get("entityId")
+                base_v = m.get("baseVersion", 1)
+                delta = m.get("delta", {})
+
+                found = next((p for p in projects if p.get("id") == e_id or p.get("site_code") == e_id), None)
+                if not found:
+                    new_item = {
+                        "id": e_id,
+                        "site_code": delta.get("site_code", e_id),
+                        "name": delta.get("name", "New Project"),
+                        "version": 1,
+                        "updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                    }
+                    new_item.update(delta)
+                    projects.append(new_item)
+                    results.append({"mutationId": m_id, "entityId": e_id, "status": "APPLIED", "confirmedRecord": new_item})
+                else:
+                    curr_v = found.get("version", 1)
+                    if curr_v > base_v:
+                        results.append({
+                            "mutationId": m_id,
+                            "entityId": e_id,
+                            "status": "CONFLICT",
+                            "serverRecord": dict(found),
+                            "clientBaseVersion": base_v
+                        })
+                    else:
+                        found.update(delta)
+                        found["version"] = curr_v + 1
+                        found["updatedAt"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                        results.append({"mutationId": m_id, "entityId": e_id, "status": "APPLIED", "confirmedRecord": found})
+            save_db(db)
+            self._send_json({"success": True, "results": results, "syncedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())})
+
+        elif path == "/api/reconcile":
+            drafts = body.get("localDrafts", [])
+            synced = []
+            audit_entries = []
+            conflicts = 0
+            projects = db.get("projects", [])
+
+            for d in drafts:
+                d_id = d.get("id") or d.get("site_code")
+                existing = next((p for p in projects if p.get("id") == d_id or p.get("site_code") == d_id), None)
+                if not existing:
+                    projects.append(d)
+                    synced.append(d)
+                else:
+                    for k, v in d.items():
+                        if k not in ["id", "site_code"] and v is not None:
+                            existing[k] = v
+                    existing["updatedAt"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                    synced.append(existing)
+                    conflicts += 1
+                    audit_entries.append({
+                        "entityId": d_id,
+                        "action": "RECONCILED",
+                        "note": f"Merged local draft for {d.get('name', d_id)}"
+                    })
+            save_db(db)
+            self._send_json({
+                "success": True,
+                "synced": synced,
+                "conflictsResolved": conflicts,
+                "auditEntries": audit_entries,
+                "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            })
 
         elif path == "/api/evidence/upload":
             file_name = body.get("fileName", "evidence_document.pdf")
