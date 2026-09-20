@@ -79,7 +79,7 @@ function navigateTo(path, updateHash = true) {
   if (targetElement) {
     targetElement.classList.remove('hidden');
   } else {
-    // Render high-fidelity generic fallback for auxiliary links
+    // Render dedicated section view for sidebar routes
     const fallback = document.getElementById('view-generic-fallback');
     if (fallback) {
       const titleElem = document.getElementById('genericModuleTitle');
@@ -100,7 +100,19 @@ function navigateTo(path, updateHash = true) {
         else if (path.includes('radar') || path.includes('anomaly')) iconElem.textContent = 'radar';
         else if (path.includes('chat') || path.includes('gemini')) iconElem.textContent = 'auto_awesome';
         else if (path.includes('audit')) iconElem.textContent = 'history_edu';
+        else if (path.includes('reporting') || path.includes('cycle')) iconElem.textContent = 'event_repeat';
+        else if (path.includes('hierarchy') || path.includes('organization')) iconElem.textContent = 'account_tree';
+        else if (path.includes('approval') || path.includes('workflow')) iconElem.textContent = 'how_to_reg';
+        else if (path.includes('entry') || path.includes('sheet')) iconElem.textContent = 'table_chart';
+        else if (path.includes('core')) iconElem.textContent = 'verified';
+        else if (path.includes('gap')) iconElem.textContent = 'analytics';
         else iconElem.textContent = 'domain';
+      }
+
+      // Render dedicated module interface
+      const contentContainer = document.getElementById('genericModuleContent');
+      if (contentContainer) {
+        contentContainer.innerHTML = renderModuleSpecificContent(path, readableName);
       }
 
       fallback.classList.remove('hidden');
@@ -677,8 +689,583 @@ function initRoleSelector() {
   if (roleSelect) {
     roleSelect.addEventListener('change', (e) => {
       const selectedRole = e.target.value;
-      showNotification('Active Governance Role Changed', `Switched to "${selectedRole}". Permissions & audit headers synchronized.`);
+      showNotification('Active Governance Role Changed', `Switched to "${selectedRole}". Permissions & audit headers updated.`);
     });
   }
+}
+
+/* =========================================================================
+   13. DEDICATED MODULE VIEW RENDERERS (SAB SECTION ALAG ALAG KAAM KARE)
+   ========================================================================= */
+function renderModuleSpecificContent(path, title) {
+  // 1. Reporting Cycles And Status Matrix (Dedicated Screen)
+  if (path === 'reporting-cycles-and-status-matrix') {
+    return `
+      <div class="space-y-4">
+        <!-- Top Metrics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="text-xs font-semibold text-secondary uppercase">Active Reporting Cycle</div>
+            <div class="text-xl font-bold text-primary mt-1">Q2 FY 2025-26</div>
+            <div class="text-xs text-secondary-container font-medium mt-0.5">Due in 41 Days</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="text-xs font-semibold text-secondary uppercase">Overall Submission Progress</div>
+            <div class="text-xl font-bold text-primary mt-1">84.6%</div>
+            <div class="w-full bg-surface-container-high h-1.5 rounded mt-2 overflow-hidden">
+              <div class="bg-secondary h-full rounded" style="width: 84.6%"></div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="text-xs font-semibold text-secondary uppercase">Division Sign-Offs</div>
+            <div class="text-xl font-bold text-primary mt-1">5 of 7 Completed</div>
+            <div class="text-xs text-secondary font-medium mt-0.5">Stage-2 Assurance in Review</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="text-xs font-semibold text-secondary uppercase">Auditor Verification</div>
+            <div class="text-xl font-bold text-primary mt-1">EY Certified</div>
+            <div class="text-xs text-secondary font-medium mt-0.5">Stage-2 Reasonable</div>
+          </div>
+        </div>
+
+        <!-- Matrix Table -->
+        <div class="rounded-lg bg-surface-container border border-surface-container-high overflow-hidden shadow-sm">
+          <div class="p-3 bg-surface-container-high/60 flex items-center justify-between border-b border-surface-container-high">
+            <div class="font-bold text-sm text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-base text-secondary">event_repeat</span>
+              <span>Division &amp; Subsidiary Submission Matrix (Q2 FY26)</span>
+            </div>
+            <button class="px-3 py-1 rounded bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container" onclick="showNotification('Reminders Sent', 'Automated email alerts dispatched to pending BU submitters.')">
+              Send Reminders
+            </button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-surface-container-high text-on-surface uppercase font-semibold">
+                <tr>
+                  <th class="p-3">Division / Entity</th>
+                  <th class="p-3">Data Owner</th>
+                  <th class="p-3">Cycle</th>
+                  <th class="p-3">Progress</th>
+                  <th class="p-3">Status</th>
+                  <th class="p-3">Assurance Audit</th>
+                  <th class="p-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container-high text-on-surface">
+                <tr class="hover:bg-surface-container-high/40">
+                  <td class="p-3 font-semibold text-primary">MEIL Hydro (Polavaram Spillway)</td>
+                  <td class="p-3">M. Suresh (Lead Auditor)</td>
+                  <td class="p-3">Q2 FY26</td>
+                  <td class="p-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-16 bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+                        <div class="bg-primary h-full" style="width: 92%"></div>
+                      </div>
+                      <span class="font-bold">92%</span>
+                    </div>
+                  </td>
+                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold text-[11px]">Approved</span></td>
+                  <td class="p-3 text-secondary font-medium">EY Stage-2 Verified</td>
+                  <td class="p-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="inspectSite('Polavaram Multi-Purpose Irrigation Project', 'MEIL Hydro Division', '76,400', '19,840', 'Stage-2 Certified')">Inspect</button></td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/40">
+                  <td class="p-3 font-semibold text-primary">MEIL Roads &amp; Infra (Zojila Tunnel)</td>
+                  <td class="p-3">P. R. Sharma (Site Engg)</td>
+                  <td class="p-3">Q2 FY26</td>
+                  <td class="p-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-16 bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+                        <div class="bg-amber-500 h-full" style="width: 78%"></div>
+                      </div>
+                      <span class="font-bold">78%</span>
+                    </div>
+                  </td>
+                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold text-[11px]">Flagged Variance</span></td>
+                  <td class="p-3 text-secondary font-medium">Diesel Spike Re-audit</td>
+                  <td class="p-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="inspectSite('Zojila Tunnel Project - Portal 1 & 2', 'MEIL Roads & Infra', '48,920', '12,180', 'Flagged Variance')">Inspect</button></td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/40">
+                  <td class="p-3 font-semibold text-primary">MEIL Hydro (Kaleshwaram Lift III)</td>
+                  <td class="p-3">T. Venkat (Package Head)</td>
+                  <td class="p-3">Q2 FY26</td>
+                  <td class="p-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-16 bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+                        <div class="bg-blue-500 h-full" style="width: 85%"></div>
+                      </div>
+                      <span class="font-bold">85%</span>
+                    </div>
+                  </td>
+                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold text-[11px]">Under Review</span></td>
+                  <td class="p-3 text-secondary font-medium">Grid Bill Despatch Match</td>
+                  <td class="p-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="inspectSite('Kaleshwaram Lift Irrigation - Link III', 'MEIL Hydro Division', '24,310', '34,100', 'Review Pending')">Inspect</button></td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/40">
+                  <td class="p-3 font-semibold text-primary">Drillmec S.p.A. (Piacenza, Italy)</td>
+                  <td class="p-3">G. Rossi (European ESG)</td>
+                  <td class="p-3">Q2 FY26</td>
+                  <td class="p-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-16 bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+                        <div class="bg-primary h-full" style="width: 95%"></div>
+                      </div>
+                      <span class="font-bold">95%</span>
+                    </div>
+                  </td>
+                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold text-[11px]">Approved</span></td>
+                  <td class="p-3 text-secondary font-medium">ISPRA Verified</td>
+                  <td class="p-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="showNotification('Drillmec Package', 'Italian manufacturing rig assembly verified against EU Taxonomy.')">Inspect</button></td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/40">
+                  <td class="p-3 font-semibold text-primary">Megha City Gas (CGD Networks)</td>
+                  <td class="p-3">A. K. Jain (O&amp;M Head)</td>
+                  <td class="p-3">Q2 FY26</td>
+                  <td class="p-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-16 bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+                        <div class="bg-primary h-full" style="width: 88%"></div>
+                      </div>
+                      <span class="font-bold">88%</span>
+                    </div>
+                  </td>
+                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold text-[11px]">Approved</span></td>
+                  <td class="p-3 text-secondary font-medium">Internal Sign-off</td>
+                  <td class="p-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="showNotification('City Gas Package', 'City gas PNG throughput & fugitive leak logs audited.')">Inspect</button></td>
+                </tr>
+                <tr class="hover:bg-surface-container-high/40">
+                  <td class="p-3 font-semibold text-primary">Olectra Greentech (EV Mobility)</td>
+                  <td class="p-3">R. Patel (Sustainability Lead)</td>
+                  <td class="p-3">Q2 FY26</td>
+                  <td class="p-3">
+                    <div class="flex items-center gap-2">
+                      <div class="w-16 bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+                        <div class="bg-primary h-full" style="width: 91%"></div>
+                      </div>
+                      <span class="font-bold">91%</span>
+                    </div>
+                  </td>
+                  <td class="p-3"><span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold text-[11px]">Approved</span></td>
+                  <td class="p-3 text-secondary font-medium">Stage-2 Certified</td>
+                  <td class="p-3 text-right"><button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="showNotification('Olectra Package', 'Electric bus battery lifecycle & zero tailpipe fleet verified.')">Inspect</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. SDG Alignment (Dedicated Screen)
+  if (path === 'sdg-alignment') {
+    return `
+      <div class="space-y-4">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+          <h2 class="text-base font-bold text-primary mb-1">UN Sustainable Development Goals (SDG) Alignment</h2>
+          <p class="text-xs text-secondary">Mapping MEIL mega-infrastructure packages against national NGRBC principles and 2030 Agenda targets.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="p-4 rounded-lg bg-surface-container border-l-4 border-blue-500">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-blue-500 text-white flex items-center justify-center font-bold text-xs">6</span>
+              <span class="font-bold text-sm text-primary">Clean Water &amp; Sanitation</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2">Zero Liquid Discharge (ZLD) treatment deployed across 14 batching units. 38.5% total wastewater recycled on-site.</p>
+            <div class="mt-3 text-xs font-semibold text-secondary">Performance: 52.8% Recycled at Polavaram</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border-l-4 border-amber-500">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-amber-500 text-white flex items-center justify-center font-bold text-xs">7</span>
+              <span class="font-bold text-sm text-primary">Affordable &amp; Clean Energy</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2">Transitioning remote package power from high-speed diesel to captive solar microgrids and high-tension transmission bays.</p>
+            <div class="mt-3 text-xs font-semibold text-secondary">Renewable Mix: 28.4% Corporate Total</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border-l-4 border-emerald-500">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">9</span>
+              <span class="font-bold text-sm text-primary">Industry, Innovation &amp; Infra</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2">100% fly-ash blended Portland Pozzolana Cement (PPC) and precision tunnel boring machines to minimize environmental spoil.</p>
+            <div class="mt-3 text-xs font-semibold text-secondary">Compliance: ISO 14001 Certified</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border-l-4 border-rose-500">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-rose-500 text-white flex items-center justify-center font-bold text-xs">8</span>
+              <span class="font-bold text-sm text-primary">Decent Work &amp; Economic Growth</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2">Zero Fatalities across 46.8 Million safe man-hours. Lost Time Injury Frequency Rate (LTIFR) maintained at 0.14.</p>
+            <div class="mt-3 text-xs font-semibold text-secondary">Workforce: 41,350 Employees Covered</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border-l-4 border-indigo-500">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-indigo-500 text-white flex items-center justify-center font-bold text-xs">12</span>
+              <span class="font-bold text-sm text-primary">Responsible Consumption</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2">64.2% excavated rock spoil reused for road embankments and river training structures in irrigation schemes.</p>
+            <div class="mt-3 text-xs font-semibold text-secondary">Circularity: 100% Hazardous Waste Logged</div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border-l-4 border-teal-500">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-teal-500 text-white flex items-center justify-center font-bold text-xs">13</span>
+              <span class="font-bold text-sm text-primary">Climate Action</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2">Scope 1 &amp; 2 turnover intensity reduced from 15.8 to 14.2 tCO₂e / ₹ Cr turnover, in line with MEIL 2030 net reduction.</p>
+            <div class="mt-3 text-xs font-semibold text-secondary">SEBI BRSR Core Target: 12.0 by FY28</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 3. Project Map (Dedicated Screen)
+  if (path === 'project-map') {
+    return `
+      <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-primary">Site #108 • Zojila Tunnel</span>
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[11px] font-bold">Kashmir &amp; Ladakh</span>
+            </div>
+            <p class="text-xs text-secondary mt-1">Package 1 &amp; 2 Twin-tube tunnel boring and sub-zero ventilation works.</p>
+            <div class="mt-3 text-xs space-y-1">
+              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">48,920 tCO₂e (Scope 1)</span></div>
+              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Solar Microgrid + High-Power DG</span></div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-primary">Site #042 • Polavaram Project</span>
+              <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[11px] font-bold">Andhra Pradesh</span>
+            </div>
+            <p class="text-xs text-secondary mt-1">Multi-purpose irrigation spillway, concrete diaphragm walls and hydro intake.</p>
+            <div class="mt-3 text-xs space-y-1">
+              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">76,400 tCO₂e (Scope 1)</span></div>
+              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Dedicated Hydro Transmission</span></div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-primary">Site #014 • Kaleshwaram Link III</span>
+              <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-800 text-[11px] font-bold">Telangana</span>
+            </div>
+            <p class="text-xs text-secondary mt-1">Underground pump houses and high-tension canal lifts.</p>
+            <div class="mt-3 text-xs space-y-1">
+              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">34,100 tCO₂e (Scope 2 Grid)</span></div>
+              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Southern Grid CEA v19</span></div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-primary">Site #INT-09 • Mongol Refinery</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[11px] font-bold">Sainshand, Mongolia</span>
+            </div>
+            <p class="text-xs text-secondary mt-1">International EPC EPC-3 (Utilities) and EPC-4 (Captive Power Plant).</p>
+            <div class="mt-3 text-xs space-y-1">
+              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">32,150 tCO₂e</span></div>
+              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Substation Grid (12% Renew)</span></div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-primary">Drillmec S.p.A. Plant</span>
+              <span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 text-[11px] font-bold">Piacenza, Italy</span>
+            </div>
+            <p class="text-xs text-secondary mt-1">Automated heavy oil &amp; geothermal drilling rig fabrication facility.</p>
+            <div class="mt-3 text-xs space-y-1">
+              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">5,420 tCO₂e (Scope 2)</span></div>
+              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Northern Italy Grid</span></div>
+            </div>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-primary">Megha City Gas Package</span>
+              <span class="px-2 py-0.5 rounded bg-teal-100 text-teal-800 text-[11px] font-bold">Pan-India CGD</span>
+            </div>
+            <p class="text-xs text-secondary mt-1">Geographical Area (GA) pipeline networks and compressed natural gas stations.</p>
+            <div class="mt-3 text-xs space-y-1">
+              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">12,600 tCO₂e</span></div>
+              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Piped Natural Gas (PNG)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 4. Organization Hierarchy (Dedicated Screen)
+  if (path === 'organization-hierarchy-tree') {
+    return `
+      <div class="space-y-4">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+          <div class="font-bold text-sm text-primary">Corporate Governance &amp; Entity Hierarchy</div>
+          <div class="text-xs text-secondary mt-0.5">Four-tier regulatory hierarchy structure configured for SEBI BRSR consolidated reporting.</div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-low border border-surface-container space-y-3">
+          <div class="p-3 rounded bg-primary text-on-primary font-bold text-sm flex items-center justify-between">
+            <span>Level 1: Megha Engineering &amp; Infrastructures Limited (MEIL Corporate Group)</span>
+            <span class="text-xs font-normal">CIN: U45200TG2006PLC050277</span>
+          </div>
+          <div class="pl-6 border-l-2 border-primary space-y-2">
+            <div class="p-2.5 rounded bg-surface-container font-semibold text-xs text-primary flex items-center justify-between">
+              <span>├── MEIL Hydro &amp; Water Division</span>
+              <span class="text-secondary font-normal">Polavaram, Kaleshwaram, Kundah Packages</span>
+            </div>
+            <div class="p-2.5 rounded bg-surface-container font-semibold text-xs text-primary flex items-center justify-between">
+              <span>├── MEIL Roads, Transport &amp; Tunnels Division</span>
+              <span class="text-secondary font-normal">Zojila Tunnel, Char Dham, Highway Packages</span>
+            </div>
+            <div class="p-2.5 rounded bg-surface-container font-semibold text-xs text-primary flex items-center justify-between">
+              <span>├── Drillmec S.p.A. (Subsidiary - 100% Owned)</span>
+              <span class="text-secondary font-normal">Piacenza (Italy), Houston (USA)</span>
+            </div>
+            <div class="p-2.5 rounded bg-surface-container font-semibold text-xs text-primary flex items-center justify-between">
+              <span>├── Megha City Gas Distribution Pvt Ltd (Subsidiary)</span>
+              <span class="text-secondary font-normal">16 Geographical Areas (CGD)</span>
+            </div>
+            <div class="p-2.5 rounded bg-surface-container font-semibold text-xs text-primary flex items-center justify-between">
+              <span>├── Olectra Greentech Limited (Listed Entity)</span>
+              <span class="text-secondary font-normal">Electric Bus &amp; Insulator Manufacturing</span>
+            </div>
+            <div class="p-2.5 rounded bg-surface-container font-semibold text-xs text-primary flex items-center justify-between">
+              <span>└── ICOMM Tele Limited (Defense &amp; Telecom Infra)</span>
+              <span class="text-secondary font-normal">Telecom Towers, Solar Structurals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 5. BRSR Section A (Dedicated Screen)
+  if (path === 'brsr-section-a-general') {
+    return `
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+          <h2 class="text-sm font-bold text-primary">SEBI BRSR Section A: General Disclosures</h2>
+          <p class="text-secondary mt-0.5">Statutory corporate disclosures pursuant to Regulation 34(2)(f) of the LODR Regulations.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="p-3 bg-surface-container rounded space-y-2">
+            <div class="font-bold text-primary">Corporate Identity</div>
+            <div><span class="text-secondary">Company Name:</span> <span class="font-semibold text-on-surface">Megha Engineering &amp; Infrastructures Ltd</span></div>
+            <div><span class="text-secondary">CIN:</span> <span class="font-semibold text-on-surface">U45200TG2006PLC050277</span></div>
+            <div><span class="text-secondary">Year of Incorporation:</span> <span class="font-semibold text-on-surface">2006</span></div>
+            <div><span class="text-secondary">Registered Address:</span> <span class="font-semibold text-on-surface">S-2, Technocrat Industrial Estate, Balanagar, Hyderabad - 500037</span></div>
+          </div>
+          <div class="p-3 bg-surface-container rounded space-y-2">
+            <div class="font-bold text-primary">Workforce Demographics</div>
+            <div><span class="text-secondary">Permanent Employees:</span> <span class="font-semibold text-on-surface">12,450</span></div>
+            <div><span class="text-secondary">Contractual Workforce:</span> <span class="font-semibold text-on-surface">28,900</span></div>
+            <div><span class="text-secondary">Female Participation Ratio:</span> <span class="font-semibold text-on-surface">14.8% Overall (22.0% KMP/Board)</span></div>
+            <div><span class="text-secondary">CSR Disbursed (FY26):</span> <span class="font-semibold text-on-surface">₹ 84.50 Crores</span></div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 6. BRSR Section B (Dedicated Screen)
+  if (path === 'brsr-section-b-management-and-process') {
+    return `
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+          <h2 class="text-sm font-bold text-primary">SEBI BRSR Section B: Management &amp; Process Disclosures</h2>
+          <p class="text-secondary mt-0.5">Policy governance, leadership oversight, and compliance commitment across all 9 NGRBC principles.</p>
+        </div>
+        <div class="p-3 bg-surface-container rounded">
+          <table class="w-full text-left">
+            <thead class="uppercase font-semibold text-secondary border-b border-surface-container-high">
+              <tr>
+                <th class="p-2">NGRBC Principle</th>
+                <th class="p-2">Policy Approved by Board?</th>
+                <th class="p-2">Web Link Available?</th>
+                <th class="p-2">Internal Audit Review</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-high text-on-surface">
+              <tr><td class="p-2 font-medium">P1: Ethics, Bribery &amp; Anti-Corruption</td><td class="p-2 text-primary font-bold">Yes (Board Resolution #24)</td><td class="p-2">meil.in/governance/p1</td><td class="p-2 text-secondary font-semibold">Verified</td></tr>
+              <tr><td class="p-2 font-medium">P2: Product Sustainability &amp; LCA</td><td class="p-2 text-primary font-bold">Yes (ESG Committee)</td><td class="p-2">meil.in/governance/p2</td><td class="p-2 text-secondary font-semibold">Verified</td></tr>
+              <tr><td class="p-2 font-medium">P3: Employee Safety &amp; Well-being</td><td class="p-2 text-primary font-bold">Yes (EHS Directorate)</td><td class="p-2">meil.in/governance/p3</td><td class="p-2 text-secondary font-semibold">Verified</td></tr>
+              <tr><td class="p-2 font-medium">P6: Environmental Stewardship</td><td class="p-2 text-primary font-bold">Yes (Board Resolution #31)</td><td class="p-2">meil.in/governance/p6</td><td class="p-2 text-secondary font-semibold">Verified</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  // 7. BRSR Core 9 Attributes (Dedicated Screen)
+  if (path === 'brsr-core-9-attributes') {
+    return `
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high flex items-center justify-between">
+          <div>
+            <h2 class="text-sm font-bold text-primary">SEBI Mandatory Core 9 Quantitative Attributes</h2>
+            <p class="text-secondary mt-0.5">Audited in accordance with SEBI circular SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122.</p>
+          </div>
+          <span class="px-3 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-bold">Reasonable Assurance</span>
+        </div>
+        <div class="p-3 bg-surface-container rounded">
+          <table class="w-full text-left">
+            <thead class="uppercase font-semibold text-secondary border-b border-surface-container-high">
+              <tr>
+                <th class="p-2">#</th>
+                <th class="p-2">Core Parameter</th>
+                <th class="p-2">FY26 Performance</th>
+                <th class="p-2">Intensity Metric</th>
+                <th class="p-2">Assurance Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-high text-on-surface">
+              <tr><td class="p-2">1</td><td class="p-2 font-semibold">Greenhouse Gas Emissions (Scope 1 &amp; 2)</td><td class="p-2 font-bold text-primary">418,240 tCO₂e</td><td class="p-2">14.20 tCO₂e / ₹ Cr</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">2</td><td class="p-2 font-semibold">Water Withdrawal &amp; Consumption</td><td class="p-2 font-bold text-primary">1,480,200 KL</td><td class="p-2">38.5% Recycled ZLD</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">3</td><td class="p-2 font-semibold">Energy Footprint &amp; Renewable Ratio</td><td class="p-2 font-bold text-primary">1,820,400 GJ</td><td class="p-2">28.4% Clean Mix</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">4</td><td class="p-2 font-semibold">Waste Management &amp; Circular Spoil</td><td class="p-2 font-bold text-primary">48,200 MT Spoil</td><td class="p-2">64.2% Reused</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">5</td><td class="p-2 font-semibold">Employee Well-being &amp; LTIFR</td><td class="p-2 font-bold text-primary">0 Fatalities</td><td class="p-2">0.14 LTIFR</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">6</td><td class="p-2 font-semibold">Gender Diversity in Workforce</td><td class="p-2 font-bold text-primary">14.8% Female Ratio</td><td class="p-2">22.0% in KMP</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">7</td><td class="p-2 font-semibold">Fair Minimum &amp; Living Wages</td><td class="p-2 font-bold text-primary">100% Equal Pay</td><td class="p-2">1.00 Ratio</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">8</td><td class="p-2 font-semibold">Job Creation in Tier-2/3 Towns</td><td class="p-2 font-bold text-primary">24,500 Local Jobs</td><td class="p-2">82.0% Regional Staff</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+              <tr><td class="p-2">9</td><td class="p-2 font-semibold">Ethical Sourcing &amp; Anti-Corruption</td><td class="p-2 font-bold text-primary">100% Vendor Signoff</td><td class="p-2">0 Bribery Incidents</td><td class="p-2 text-secondary font-bold">EY Stage-2 Certified</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  // 8. Project Quick-Entry Sheet (Dedicated Screen)
+  if (path === 'project-quick-entry-sheet') {
+    return `
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+          <div class="font-bold text-sm text-primary">Rapid Telemetry &amp; Consumption Log Sheet</div>
+          <div class="text-secondary mt-0.5">Quick data entry for site environmental engineers and civil package coordinators.</div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-low border border-surface-container space-y-3">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div>
+              <label class="font-bold text-secondary">Package Site</label>
+              <select class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface">
+                <option>Site #108 • Zojila Tunnel Portal 1 &amp; 2</option>
+                <option>Site #042 • Polavaram Spillway Works</option>
+                <option>Site #014 • Kaleshwaram Pump House</option>
+                <option>Site #INT-09 • Mongol Oil Refinery</option>
+              </select>
+            </div>
+            <div>
+              <label class="font-bold text-secondary">Diesel Consumption (KL)</label>
+              <input type="number" value="120" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold">
+            </div>
+            <div>
+              <label class="font-bold text-secondary">Grid Electricity (MWh)</label>
+              <input type="number" value="450" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold">
+            </div>
+            <div>
+              <label class="font-bold text-secondary">Water Recycled (KL)</label>
+              <input type="number" value="820" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold">
+            </div>
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button class="px-4 py-2 rounded bg-primary text-on-primary font-semibold hover:bg-primary-container" onclick="showNotification('Quick Entry Recorded', 'Entry successfully added to site consumption ledger.')">
+              Submit to Asset Ledger
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 9. Audit Trail Log (Dedicated Screen)
+  if (path === 'audit-trail-log') {
+    return `
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high flex items-center justify-between">
+          <div>
+            <h2 class="text-sm font-bold text-primary">Immutable Compliance Audit Trail Log</h2>
+            <p class="text-secondary mt-0.5">Permanent cryptographic chronological log of all emission factor overrides, file uploads, and sign-offs.</p>
+          </div>
+          <button class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface text-primary font-semibold" onclick="showNotification('Export Initiated', 'Audit trail log exported as certified CSV.')">Export CSV</button>
+        </div>
+        <div class="p-3 bg-surface-container rounded divide-y divide-surface-container-high">
+          <div class="py-2.5 flex items-start justify-between">
+            <div>
+              <div class="font-bold text-primary">K. V. Rao (Chief Sustainability Officer) • <span class="text-secondary font-normal">Factor Override</span></div>
+              <div class="text-on-surface-variant mt-0.5">Modified High-Speed Diesel factor to 2.6865. Justification: SEBI BRSR Q2 National Lab Calibration Update.</div>
+            </div>
+            <span class="text-[11px] text-secondary">10 mins ago</span>
+          </div>
+          <div class="py-2.5 flex items-start justify-between">
+            <div>
+              <div class="font-bold text-primary">M. Suresh (Lead Auditor) • <span class="text-secondary font-normal">Scope 2 Grid Verification</span></div>
+              <div class="text-on-surface-variant mt-0.5">Scope 2 emissions verified against Southern Regional Load Despatch Centre monthly statements.</div>
+            </div>
+            <span class="text-[11px] text-secondary">Yesterday</span>
+          </div>
+          <div class="py-2.5 flex items-start justify-between">
+            <div>
+              <div class="font-bold text-primary">S. K. Verma (Site Engineer) • <span class="text-secondary font-normal">Evidence Vault Upload</span></div>
+              <div class="text-on-surface-variant mt-0.5">Attached heavy equipment diesel logbooks with SHA-256 verification registered.</div>
+            </div>
+            <span class="text-[11px] text-secondary">2 days ago</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 10. Gemini Copilot & AI Modules
+  if (path.includes('gemini') || path.includes('narrative') || path.includes('chat') || path.includes('gap') || path.includes('anomaly')) {
+    return `
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold text-[10px]">GEMINI ESG COPILOT</span>
+            <span class="font-bold text-sm text-primary">${title}</span>
+          </div>
+          <p class="text-secondary mt-1">Generative regulatory narrative engine powered by Google Gemini, trained on SEBI BRSR Core guidelines and ISO 14064 GHG standards.</p>
+        </div>
+        <div class="p-4 bg-surface-container-low rounded-lg border border-surface-container space-y-3">
+          <label class="font-bold text-secondary">Select Disclosure Principle / Focus Area</label>
+          <select class="w-full p-2.5 rounded bg-surface border border-surface-container text-on-surface font-medium" id="aiPrincipleSelect">
+            <option>Principle 6: Energy &amp; Decarbonization Roadmap</option>
+            <option>Principle 3: Workforce Safety &amp; LTIFR Zero-Harm Narrative</option>
+            <option>Principle 8: CSR Discretionary Spend &amp; Community Uplift</option>
+            <option>SEBI Core 9: External Assurance Verification Statement</option>
+          </select>
+          <div>
+            <label class="font-bold text-secondary">Contextual Guidance / Auditor Notes</label>
+            <textarea class="w-full mt-1 p-2.5 rounded bg-surface border border-surface-container text-on-surface" rows="3" placeholder="Add specific package context (e.g. Polavaram hydel spillway concrete curing water reuse)..."></textarea>
+          </div>
+          <div class="flex justify-end gap-2">
+            <button class="px-4 py-2 rounded bg-primary text-on-primary font-semibold hover:bg-primary-container" onclick="showNotification('Draft Generated', 'Gemini AI generated formal SEBI BRSR narrative. Review in Report Generator.')">
+              Generate Draft Narrative
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Default clean layout for other screens
+  return `
+    <div class="space-y-4 text-xs">
+      <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
+        <h2 class="text-sm font-bold text-primary">${title}</h2>
+        <p class="text-secondary mt-0.5">Enterprise ESG reporting and data analytics subsystem for MEIL Group operations.</p>
+      </div>
+      <div class="p-6 rounded-lg bg-surface-container-low border border-surface-container flex flex-col items-center justify-center text-center space-y-2">
+        <span class="material-symbols-outlined text-4xl text-secondary">verified</span>
+        <div class="font-bold text-base text-primary">${title} Active</div>
+        <p class="text-secondary max-w-md">Data ledger and regulatory indicators are accessible through the primary executive workflows.</p>
+        <div class="flex gap-2 pt-2">
+          <button class="px-3 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-primary font-semibold" onclick="navigateTo('executive-dashboard')">Executive Dashboard</button>
+          <button class="px-3 py-1.5 rounded bg-primary text-on-primary font-semibold hover:bg-primary-container" onclick="navigateTo('brsr-section-c-principle-wise-performance')">BRSR Section C</button>
+        </div>
+      </div>
+    </div>
+  `;
 }
 

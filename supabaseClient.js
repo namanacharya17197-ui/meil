@@ -46,27 +46,8 @@ async function checkSupabaseConnection() {
   }
 }
 
-// Update UI badge in top navigation
 function updateSupabaseUIBadge(connected, label) {
-  const badge = document.getElementById('supabaseStatusBadge');
-  if (badge) {
-    if (connected) {
-      badge.className = 'hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold border border-secondary/30';
-      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>Supabase: ${label}</span>`;
-    } else {
-      badge.className = 'hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold border border-outline-variant/30 cursor-pointer';
-      badge.title = 'Click to see Supabase connection details';
-      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary-container"></span><span>Supabase: Ready</span>`;
-      badge.onclick = () => {
-        alert(
-          "SUPABASE STATUS\n\n" +
-          "Project URL: " + SUPABASE_CONFIG.url + "\n" +
-          "API Key: Configured (Active)\n\n" +
-          "To complete initial table sync, open your Supabase SQL Editor and execute the provided 'supabase_schema.sql' script."
-        );
-      };
-    }
-  }
+  // Status badge removed per user requirement
 }
 
 // Fetch Sites / Projects from Supabase

@@ -30,12 +30,7 @@ const MEIL_API = (function () {
   }
 
   function updateApiStatusIndicator(online, mode) {
-    const badge = document.getElementById('supabaseStatusBadge');
-    if (!badge) return;
-    if (online) {
-      badge.className = 'hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold border border-secondary/30';
-      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>API Server: Dual-Mode Live</span>`;
-    }
+    // Badge removed per user requirement
   }
 
   // Get active role from selector
