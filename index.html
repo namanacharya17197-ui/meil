@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>MEIL ESG Connect - Executive Dashboard & BRSR Reporting Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .page-view { transition: opacity 0.15s ease-in-out; }
+
+    /* Dark Mode Theme Overrides */
+    html.dark {
+      color-scheme: dark;
+    }
+    html.dark body {
+      background-color: #0b1320;
+      color: #e2e8f0;
+    }
+    html.dark .bg-surface {
+      background-color: #0b1320 !important;
+    }
+    html.dark .bg-surface-container-lowest {
+      background-color: #111c2e !important;
+      border-color: #1e293b;
+    }
+    html.dark .bg-surface-container-low {
+      background-color: #16243b !important;
+    }
+    html.dark .bg-surface-container {
+      background-color: #1e304d !important;
+    }
+    html.dark .bg-surface-container-high {
+      background-color: #273e63 !important;
+    }
+    html.dark .text-on-surface {
+      color: #f1f5f9 !important;
+    }
+    html.dark .text-on-surface-variant {
+      color: #94a3b8 !important;
+    }
+    html.dark .text-primary {
+      color: #cbd5e1 !important;
+    }
+    html.dark h1.text-primary, html.dark h2.text-primary, html.dark h3.text-primary, html.dark h4.text-primary {
+      color: #f8fafc !important;
+    }
+    html.dark .text-secondary {
+      color: #93c5fd !important;
+    }
+    html.dark header {
+      background-color: rgba(17, 28, 46, 0.95) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html.dark footer {
+      background-color: #111c2e !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html.dark input, html.dark select, html.dark textarea {
+      background-color: #16243b !important;
+      color: #f8fafc !important;
+      border-color: #334155;
+    }
+    html.dark .divide-surface-container > * {
+      border-color: #1e293b !important;
+    }
+    html.dark .border-surface-container {
+      border-color: #1e293b !important;
+    }
+    html.dark .border-surface-container-high {
+      border-color: #273e63 !important;
+    }
+    html.dark #unitConverterModal > div,
+    html.dark #editFactorModal > div,
+    html.dark #inspectSiteModal > div {
+      background-color: #111c2e !important;
+      color: #f8fafc !important;
+      border: 1px solid #273e63;
+    }
+    html.dark .sticky.bottom-4 {
+      background-color: rgba(17, 28, 46, 0.95) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#f9f9f9",
+            "on-tertiary-fixed-variant": "#8e0f28",
+            "surface-container-high": "#e8e8e8",
+            "on-background": "#1a1c1c",
+            "secondary-fixed-dim": "#accaea",
+            "primary-fixed-dim": "#b0c9e8",
+            "tertiary": "#320007",
+            "primary": "#00152a",
+            "on-primary-fixed": "#011d35",
+            "on-primary-fixed-variant": "#314863",
+            "inverse-on-surface": "#f1f1f1",
+            "tertiary-container": "#590013",
+            "on-primary-container": "#7a92b0",
+            "outline-variant": "#c3c6ce",
+            "surface": "#f9f9f9",
+            "secondary": "#44617d",
+            "surface-dim": "#dadada",
+            "on-tertiary-fixed": "#40000b",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e2e2e2",
+            "surface-container-highest": "#e2e2e2",
+            "inverse-primary": "#b0c9e8",
+            "on-tertiary-container": "#f25d6a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1a1c1c",
+            "on-secondary-fixed": "#001d33",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#2f3131",
+            "error": "#ba1a1a",
+            "surface-tint": "#49607c",
+            "on-surface-variant": "#43474d",
+            "tertiary-fixed-dim": "#ffb3b5",
+            "tertiary-fixed": "#ffdada",
+            "on-secondary-container": "#45627e",
+            "secondary-fixed": "#cee5ff",
+            "outline": "#74777e",
+            "surface-container-low": "#f4f3f3",
+            "on-secondary-fixed-variant": "#2c4964",
+            "surface-container": "#eeeeee",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#d1e4ff",
+            "primary-container": "#102a43",
+            "surface-bright": "#f9f9f9",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#bfddfe"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Manrope", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "display-lg": ["Manrope", "sans-serif"],
+            "label-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-md": ["Manrope", "sans-serif"],
+            "headline-lg": ["Manrope", "sans-serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "title-md": ["Inter", "sans-serif"],
+            "title-lg": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+
+  <!-- Left Sidebar Navigation Drawer -->
+  <aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container text-on-primary z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.08)]">
+    <!-- Brand Title -->
+    <div class="h-16 px-space-md flex items-center justify-between bg-primary shrink-0">
+      <div class="flex items-center gap-space-sm cursor-pointer" onclick="navigateTo('executive-dashboard')">
+        <div class="w-2 h-6 bg-on-tertiary-container rounded"></div>
+        <div class="flex flex-col">
+          <span class="font-title-lg text-title-lg tracking-tight text-on-primary font-bold leading-none">MEIL ESG</span>
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container leading-none mt-1">Connect Platform</span>
+        </div>
+      </div>
+      <span class="material-symbols-outlined text-on-primary-container text-base cursor-pointer hover:text-on-primary transition-colors" title="Collapse sidebar">dock_to_right</span>
+    </div>
+
+    <!-- Navigation Menu Items -->
+    <div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-lg" id="sidebar-nav-container">
+      
+      <!-- 1. Overview & Home -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">1. Overview &amp; Home</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all bg-primary text-on-primary font-title-md border-l-2 border-on-tertiary-container shadow-sm" data-path="executive-dashboard" href="#executive-dashboard">
+            <span class="material-symbols-outlined text-lg">dashboard</span>
+            <span>Executive Dashboard</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="sdg-alignment" href="#sdg-alignment">
+            <span class="material-symbols-outlined text-lg">spa</span>
+            <span>SDG Alignment</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="project-map" href="#project-map">
+            <span class="material-symbols-outlined text-lg">map</span>
+            <span>Project Map</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- 2. Governance & Structure -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">2. Governance &amp; Structure</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="organization-hierarchy-tree" href="#organization-hierarchy-tree">
+            <span class="material-symbols-outlined text-lg">account_tree</span>
+            <span>Organization Hierarchy</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="reporting-cycles-and-status-matrix" href="#reporting-cycles-and-status-matrix">
+            <span class="material-symbols-outlined text-lg">event_repeat</span>
+            <span>Reporting Cycles Matrix</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- 3. Data Collection -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">3. Data Collection</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-section-a-general" href="#brsr-section-a-general">
+            <span class="material-symbols-outlined text-lg">description</span>
+            <span>BRSR Section A (General)</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-section-b-management-and-process" href="#brsr-section-b-management-and-process">
+            <span class="material-symbols-outlined text-lg">fact_check</span>
+            <span>BRSR Section B (Process)</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-section-c-principle-wise-performance" href="#brsr-section-c-principle-wise-performance">
+            <span class="material-symbols-outlined text-lg">rule</span>
+            <span>BRSR Section C (P1-P9)</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="project-quick-entry-sheet" href="#project-quick-entry-sheet">
+            <span class="material-symbols-outlined text-lg">table_chart</span>
+            <span>Project Quick-Entry Sheet</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- 4. ESG Analytics & Engine -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">4. ESG Analytics &amp; Engine</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="calculation-and-emission-engine" href="#calculation-and-emission-engine">
+            <span class="material-symbols-outlined text-lg">calculate</span>
+            <span>Calculation &amp; Emission</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-core-9-attributes" href="#brsr-core-9-attributes">
+            <span class="material-symbols-outlined text-lg">verified</span>
+            <span>BRSR Core 9 Attributes</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="multi-level-consolidation-and-drilldown" href="#multi-level-consolidation-and-drilldown">
+            <span class="material-symbols-outlined text-lg">layers</span>
+            <span>Consolidation &amp; Drilldown</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="data-quality-and-anomaly-radar" href="#data-quality-and-anomaly-radar">
+            <span class="material-symbols-outlined text-lg">radar</span>
+            <span>Anomaly Radar</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- 5. Assurance & Reports -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">5. Assurance &amp; Reports</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="review-and-approval-workflow" href="#review-and-approval-workflow">
+            <span class="material-symbols-outlined text-lg">how_to_reg</span>
+            <span>Review &amp; Approval</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="audit-trail-log" href="#audit-trail-log">
+            <span class="material-symbols-outlined text-lg">history_edu</span>
+            <span>Audit Trail Log</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-report-generator" href="#brsr-report-generator">
+            <span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+            <span>BRSR PDF / XBRL</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- 6. AI Assistant -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm flex items-center justify-between">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">6. AI Assistant</span>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 bg-tertiary-container text-on-tertiary-container rounded">GEMINI</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="gemini-copilot-draft-narratives" href="#gemini-copilot-draft-narratives">
+            <span class="material-symbols-outlined text-lg">auto_awesome</span>
+            <span>Draft Narratives</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="anomaly-explainer" href="#anomaly-explainer">
+            <span class="material-symbols-outlined text-lg">psychology</span>
+            <span>Anomaly Explainer</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="gap-analysis" href="#gap-analysis">
+            <span class="material-symbols-outlined text-lg">analytics</span>
+            <span>Gap Analysis</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="ask-esg-chat" href="#ask-esg-chat">
+            <span class="material-symbols-outlined text-lg">forum</span>
+            <span>Ask ESG Chat</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- 7. Administration -->
+      <nav class="space-y-space-sm">
+        <div class="px-space-sm">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">7. Administration</span>
+        </div>
+        <div class="space-y-0.5">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="emission-library" href="#emission-library">
+            <span class="material-symbols-outlined text-lg">library_books</span>
+            <span>Emission Library</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="indicator-master" href="#indicator-master">
+            <span class="material-symbols-outlined text-lg">tune</span>
+            <span>Indicator Master</span>
+          </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="guided-tour" href="#guided-tour">
+            <span class="material-symbols-outlined text-lg">explore</span>
+            <span>Guided Tour</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Sidebar Bottom Status Badge -->
+    <div class="p-space-sm bg-primary shrink-0">
+      <div class="flex items-center justify-between px-space-sm py-2 bg-primary-container rounded">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+          <span class="font-label-sm text-label-sm text-on-primary-container">SEBI BRSR Engine</span>
+        </div>
+        <span class="font-label-sm text-label-sm font-semibold text-secondary-container">v3.4 Active</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Viewport Wrap -->
+  <div class="pl-72 flex flex-col min-h-screen">
+    
+    <!-- Top Executive Header -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg">
+      <div class="flex items-center gap-space-md">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('executive-dashboard')">
+          <img alt="MEIL Corporate Logo" class="h-8 w-auto object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqwIIWwvHWjhencO4WzN8zsSftw7KvTVK5Xe52Q0ZAVEQE1wpZHr-qxm2mCrlhjaEJwoqPk12mfauX32taAa_fAWNtbTjKDbKCoHuTzwTNR-MtDreyjPH_z6DGuap-92lLMp9V2QwI8JgMvmq2VGESr7uKBjWJtLj4PePpA4H4YqyQjkg9Pk9ge62QtDeDC39bEUGnmt2WtPqoSlwjYmwhAbA9vID3deBR90Q-H4QXed8IWLVNO5w33ZVWFFUICQKjT9s">
+          <span class="font-headline-sm text-xs font-bold tracking-wider text-on-tertiary-container uppercase px-1.5 py-0.5 rounded bg-surface-container">ESG CONNECT</span>
+        </div>
+        <div class="hidden xl:flex items-center bg-surface-container-low px-3 py-1.5 rounded gap-2 text-on-surface-variant font-label-md text-label-md">
+          <span class="material-symbols-outlined text-base text-secondary">domain</span>
+          <span class="font-semibold text-on-surface">Group</span>
+          <span class="text-outline-variant">&gt;</span>
+          <span class="hover:text-on-surface cursor-pointer">Subsidiary</span>
+          <span class="text-outline-variant">&gt;</span>
+          <span class="hover:text-on-surface cursor-pointer">Hydro BU</span>
+          <span class="text-outline-variant">&gt;</span>
+          <span class="text-secondary font-medium">Polavaram Site</span>
+        </div>
+        <div class="flex items-center bg-surface-container-low px-2.5 py-1 rounded gap-1.5 font-label-md text-label-md">
+          <span class="material-symbols-outlined text-base text-secondary">calendar_month</span>
+          <select class="bg-transparent text-on-surface font-semibold focus:outline-none cursor-pointer pr-1" id="globalFiscalYearSelect">
+            <option value="FY26">FY 2025-26</option>
+            <option value="FY25">FY 2024-25</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-space-md">
+        <!-- Supabase Cloud Connection Status Badge -->
+        <div id="supabaseStatusBadge" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold border border-outline-variant/30">
+          <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+          <span>Supabase: Initializing...</span>
+        </div>
+
+        <div class="flex items-center bg-surface-container px-3 py-1 rounded gap-2">
+          <span class="material-symbols-outlined text-base text-on-tertiary-container">switch_account</span>
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Role:</span>
+          <select class="bg-transparent text-on-surface font-label-md text-label-md font-semibold focus:outline-none cursor-pointer" id="roleSelector">
+            <option>Group ESG Admin</option>
+            <option>Subsidiary Approver</option>
+            <option>Business Unit Reviewer</option>
+            <option>Project Data Entry User</option>
+            <option>Auditor/Assurance Provider</option>
+            <option>Board Viewer</option>
+          </select>
+        </div>
+        <button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Notifications" onclick="showNotification('Alert', 'SEBI BRSR Core Filing window closes in 42 days. Stage-2 verification active.')">
+          <span class="material-symbols-outlined text-xl">notifications</span>
+          <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+        </button>
+        <!-- Dark / Light Theme Toggle Button -->
+        <button class="p-2 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container transition-colors flex items-center justify-center cursor-pointer" id="themeToggleBtn" title="Toggle Dark / Light Theme" onclick="toggleTheme()">
+          <span class="material-symbols-outlined text-xl" id="themeToggleIcon">dark_mode</span>
+        </button>
+        <div class="flex items-center gap-2 pl-2 border-l border-outline-variant/30">
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          </div>
+          <div class="hidden md:flex flex-col">
+            <span class="font-label-md text-label-md font-semibold text-on-surface leading-tight">K. V. Rao</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Chief Sustainability Officer</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="w-full pt-16 bg-surface flex-1 px-space-lg py-space-lg">
+
+      <!-- ========================================================================= -->
+      <!-- SCREEN 1: EXECUTIVE DASHBOARD -->
+      <!-- ========================================================================= -->
+      <section id="view-executive-dashboard" class="page-view flex flex-col w-full space-y-space-lg pb-12">
+        <!-- Top Ticker: Anomaly Radar & SEBI Regulatory Countdown -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-center">
+          <div class="lg:col-span-8 bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary-container"></div>
+            <div class="flex items-start sm:items-center gap-space-sm pl-2">
+              <span class="flex h-2.5 w-2.5 relative mt-1 sm:mt-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-tertiary-container opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+              </span>
+              <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-tertiary-container px-2 py-0.5 rounded bg-tertiary-fixed">Anomaly Flag</span>
+              <span class="font-body-sm text-body-sm text-on-surface">
+                Spike (<span class="font-semibold text-tertiary-container">+48% YoY</span>) in Diesel Consumption detected at <span class="font-semibold text-on-surface">Site #108 • Zojila West Portal</span>.
+              </span>
+            </div>
+            <button class="shrink-0 flex items-center gap-1.5 px-3 py-1 bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md rounded transition-colors self-end sm:self-auto" onclick="showAnomalyReason()">
+              <span class="material-symbols-outlined text-sm text-on-tertiary-container">psychology</span>
+              <span>Gemini AI Reason</span>
+            </button>
+          </div>
+          <div class="lg:col-span-4 bg-primary text-on-primary p-space-md rounded-lg shadow-sm flex items-center justify-between">
+            <div class="flex items-center gap-space-sm">
+              <span class="material-symbols-outlined text-secondary-container">alarm_on</span>
+              <div class="flex flex-col">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container">SEBI Filing Deadline</span>
+                <span class="font-headline-sm text-headline-sm font-bold text-on-primary leading-tight">42 Days Remaining</span>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded font-label-sm text-label-sm bg-primary-container text-secondary-container font-semibold">BRSR Core FY26</span>
+          </div>
+        </div>
+
+        <!-- Executive Filter & Completeness Command Header -->
+        <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-lg">
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-space-sm">
+              <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">MEIL Group ESG Command</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Auditable Data Aggregation Engine</span>
+            </div>
+            <h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Executive Sustainability Performance Matrix</h1>
+          </div>
+          <!-- Controls -->
+          <div class="flex flex-wrap items-center gap-space-sm w-full xl:w-auto">
+            <div class="flex items-center bg-surface-container-low px-3 py-1.5 rounded gap-2">
+              <span class="material-symbols-outlined text-base text-secondary">domain</span>
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Scope:</span>
+              <select class="bg-transparent text-primary font-label-md text-label-md font-semibold focus:outline-none cursor-pointer" id="dashScopeFilter">
+                <option>All Entities / Group Consolidated</option>
+                <option>MEIL Hydro &amp; Lift Irrigation</option>
+                <option>Olectra Greentech EV Mobility</option>
+                <option>Drillmec International SpA</option>
+                <option>Megha City Gas Distribution</option>
+                <option>MEIL Roads &amp; Highways</option>
+              </select>
+            </div>
+            <div class="flex items-center bg-surface-container-low px-3 py-1.5 rounded gap-2">
+              <span class="material-symbols-outlined text-base text-secondary">pie_chart</span>
+              <select class="bg-transparent text-primary font-label-md text-label-md font-semibold focus:outline-none cursor-pointer">
+                <option>Consolidated (100% Boundary)</option>
+                <option>Operational Control (GHG Protocol)</option>
+                <option>Equity Share Approach</option>
+              </select>
+            </div>
+            <button class="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md rounded shadow-sm transition-colors" id="load-demo-btn">
+              <span class="material-symbols-outlined text-sm">refresh</span>
+              <span>Load Live Telemetry</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Completeness & Audit Tally Ribbon -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+          <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-medium">Data Completeness</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="font-headline-md text-headline-md font-bold text-primary">84.6%</span>
+                <span class="font-label-sm text-label-sm text-secondary font-semibold">1,098 of 1,298 KPIs</span>
+              </div>
+            </div>
+            <div class="relative w-12 h-12">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                <path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+                <path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="84.6, 100" stroke-linecap="round" stroke-width="3.5"></path>
+              </svg>
+              <span class="absolute inset-0 flex items-center justify-center font-label-sm text-label-sm font-bold text-primary">85%</span>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-medium">Pending Approvals</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="font-headline-md text-headline-md font-bold text-primary">12</span>
+                <span class="font-label-sm text-label-sm text-secondary">Site Submissions</span>
+              </div>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+              <span class="material-symbols-outlined text-xl">pending_actions</span>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-medium">Active Radar Alerts</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="font-headline-md text-headline-md font-bold text-tertiary-container">3</span>
+                <span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant font-semibold">Variance &gt;25%</span>
+              </div>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container">
+              <span class="material-symbols-outlined text-xl">warning</span>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-medium">Auditor Status</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="font-headline-md text-headline-md font-bold text-primary">Verified</span>
+                <span class="font-label-sm text-label-sm text-secondary">Stage-2 Assurance</span>
+              </div>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-xl">verified_user</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 High-Impact ESG Metric Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+          <!-- Card 1: Emissions -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary">Scope 1 &amp; 2 GHG Emissions</span>
+                <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container text-primary">BRSR Principle 6</span>
+              </div>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="font-display-lg text-display-lg font-bold text-primary tracking-tight" id="kpi-emissions">418,240</span>
+                <span class="font-title-md text-title-md font-medium text-secondary">tCO₂e</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="flex items-center text-secondary font-semibold font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-base">trending_down</span> -6.4% YoY
+                </span>
+                <span class="text-on-surface-variant font-body-sm text-body-sm">(FY Target: -8.0%)</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 bg-surface-container-low p-2.5 rounded flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Intensity Metric</span>
+              <span class="font-title-md text-title-md font-bold text-primary">14.2 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">tCO₂e / ₹ Cr Turnover</span></span>
+            </div>
+          </div>
+
+          <!-- Card 2: Energy -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary">Total Energy Consumption</span>
+                <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-secondary-fixed text-on-secondary-fixed">28.4% Clean Mix</span>
+              </div>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="font-display-lg text-display-lg font-bold text-primary tracking-tight">1,842,500</span>
+                <span class="font-title-md text-title-md font-medium text-secondary">GJ</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="flex items-center text-secondary font-semibold font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-base">bolt</span> Renewable Share
+                </span>
+                <span class="text-on-surface-variant font-body-sm text-body-sm">Up from 21.2% in FY25</span>
+              </div>
+            </div>
+            <div class="mt-4 space-y-1.5">
+              <div class="flex justify-between font-label-sm text-label-sm font-semibold text-on-surface">
+                <span>Renewable: 523,270 GJ</span>
+                <span>Grid &amp; Fossil: 1,319,230 GJ</span>
+              </div>
+              <div class="w-full h-2 rounded bg-surface-container overflow-hidden flex">
+                <div class="bg-secondary h-full" style="width: 28.4%"></div>
+                <div class="bg-outline-variant h-full" style="width: 71.6%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Water Stewardship -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary">Water Withdrawn &amp; Recycled</span>
+                <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container text-primary">Hydrological Zero</span>
+              </div>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="font-display-lg text-display-lg font-bold text-primary tracking-tight">4.82</span>
+                <span class="font-title-md text-title-md font-medium text-secondary">Million kL</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="flex items-center text-secondary font-semibold font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-base">waves</span> 38.5% Recycled On-Site
+                </span>
+                <span class="text-on-surface-variant font-body-sm text-body-sm">in Tunneling &amp; Irrigation</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 bg-surface-container-low p-2.5 rounded flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Treated Effluent Discharge</span>
+              <span class="font-title-md text-title-md font-bold text-primary">100% <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">CPCB Compliant</span></span>
+            </div>
+          </div>
+
+          <!-- Card 4: Health & Safety LTIFR -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary">Health &amp; Safety (LTIFR)</span>
+                <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-tertiary-fixed text-tertiary-container">Zero Fatalities</span>
+              </div>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="font-display-lg text-display-lg font-bold text-primary tracking-tight">0.14</span>
+                <span class="font-title-md text-title-md font-medium text-secondary">/ Mn Man-Hours</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-secondary font-semibold font-label-md text-label-md">46.8 Million Safe Hours</span>
+                <span class="text-on-surface-variant font-body-sm text-body-sm">Global EPC Benchmark: 0.32</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 bg-surface-container-low p-2.5 rounded flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Near-Miss Reporting Rate</span>
+              <span class="font-title-md text-title-md font-bold text-primary">98.4% <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">Resolution SLA</span></span>
+            </div>
+          </div>
+
+          <!-- Card 5: Inclusivity & Diversity -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary">Workforce &amp; Governance</span>
+                <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container text-primary">BRSR Principle 3 &amp; 5</span>
+              </div>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="font-display-lg text-display-lg font-bold text-primary tracking-tight">14.8%</span>
+                <span class="font-title-md text-title-md font-medium text-secondary">Women Workforce</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-secondary font-semibold font-label-md text-label-md">22.0% Women in KMP / Board</span>
+                <span class="text-on-surface-variant font-body-sm text-body-sm">(+3.2% YoY)</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 bg-surface-container-low p-2.5 rounded flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Total Permanent Workforce</span>
+              <span class="font-title-md text-title-md font-bold text-primary">34,180 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">Engineers &amp; Staff</span></span>
+            </div>
+          </div>
+
+          <!-- Card 6: CSR Expenditure -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-secondary">CSR Social Value Creation</span>
+                <span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-primary-fixed text-primary">102% Target Met</span>
+              </div>
+              <div class="flex items-baseline gap-2 mt-2">
+                <span class="font-display-lg text-display-lg font-bold text-primary tracking-tight">₹ 84.5</span>
+                <span class="font-title-md text-title-md font-medium text-secondary">Crores Disbursed</span>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-secondary font-semibold font-label-md text-label-md">48 High-Impact Programs</span>
+                <span class="text-on-surface-variant font-body-sm text-body-sm">Tribal healthcare &amp; potable water</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 bg-surface-container-low p-2.5 rounded flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Beneficiary Footprint</span>
+              <span class="font-title-md text-title-md font-bold text-primary">610,000+ <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">Rural Citizens</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dual Visualizations: Trajectory Chart & Subsidiary Scope Split -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+          <!-- Chart 1: Monthly Trajectory (Dual Axis Concept in SVG) -->
+          <div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col justify-between">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm mb-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 class="font-title-lg text-title-lg font-bold text-primary">GHG Emission Trajectory (FY 2025-26)</h2>
+                  <span class="px-2 py-0.5 text-label-sm font-label-sm rounded bg-surface-container text-on-surface-variant font-semibold">Actual vs Budgeted</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-secondary mt-0.5">Dual-axis telemetry tracking consolidated tCO₂e against Decarbonization Roadmap</p>
+              </div>
+              <div class="flex items-center gap-4 text-label-sm font-label-sm text-on-surface-variant">
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 bg-primary rounded-xs"></span>Actual tCO₂e</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-1 bg-on-tertiary-container"></span>Budget Ceiling</div>
+              </div>
+            </div>
+            <!-- SVG Chart -->
+            <div class="w-full h-64 relative mt-2">
+              <svg class="w-full h-full" fill="none" viewBox="0 0 700 240">
+                <line class="text-surface-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="40" x2="680" y1="20" y2="20"></line>
+                <line class="text-surface-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="40" x2="680" y1="65" y2="65"></line>
+                <line class="text-surface-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="40" x2="680" y1="110" y2="110"></line>
+                <line class="text-surface-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="40" x2="680" y1="155" y2="155"></line>
+                <line class="text-surface-container-high" stroke="currentColor" stroke-width="1.5" x1="40" x2="680" y1="200" y2="200"></line>
+                <text class="text-secondary font-label-sm text-[10px]" fill="currentColor" text-anchor="end" x="32" y="24">45k</text>
+                <text class="text-secondary font-label-sm text-[10px]" fill="currentColor" text-anchor="end" x="32" y="69">35k</text>
+                <text class="text-secondary font-label-sm text-[10px]" fill="currentColor" text-anchor="end" x="32" y="114">25k</text>
+                <text class="text-secondary font-label-sm text-[10px]" fill="currentColor" text-anchor="end" x="32" y="159">15k</text>
+                <text class="text-secondary font-label-sm text-[10px]" fill="currentColor" text-anchor="end" x="32" y="204">0</text>
+                <!-- Monthly Bars -->
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="120" rx="2" width="28" x="75" y="80"><title>Apr: 24,100 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="89" y="218">Apr</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="128" rx="2" width="28" x="128" y="72"><title>May: 25,600 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="142" y="218">May</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="110" rx="2" width="28" x="181" y="90"><title>Jun: 22,000 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="195" y="218">Jun</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="75" rx="2" width="28" x="234" y="125"><title>Jul: 15,000 tCO2e (Monsoon)</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="248" y="218">Jul</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="82" rx="2" width="28" x="287" y="118"><title>Aug: 16,400 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="301" y="218">Aug</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="115" rx="2" width="28" x="340" y="85"><title>Sep: 23,000 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="354" y="218">Sep</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="135" rx="2" width="28" x="393" y="65"><title>Oct: 27,000 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="407" y="218">Oct</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="142" rx="2" width="28" x="446" y="58"><title>Nov: 28,400 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="460" y="218">Nov</text>
+                <rect class="fill-primary hover:opacity-80 transition-opacity cursor-pointer" height="150" rx="2" width="28" x="499" y="50"><title>Dec: 30,000 tCO2e</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="513" y="218">Dec</text>
+                <rect class="fill-secondary hover:opacity-80 transition-opacity cursor-pointer" height="132" rx="2" width="28" x="552" y="68"><title>Jan: 26,400 tCO2e (Current)</title></rect>
+                <text class="text-primary font-bold font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="566" y="218">Jan*</text>
+                <rect class="fill-surface-container-high cursor-pointer" height="126" rx="2" width="28" x="605" y="74"><title>Feb: 25,200 tCO2e (Estimate)</title></rect>
+                <text class="text-on-surface-variant font-label-sm text-[11px]" fill="currentColor" text-anchor="middle" x="619" y="218">Feb(E)</text>
+                <!-- Budget Target Line -->
+                <path class="text-on-tertiary-container" d="M 89 75 L 142 70 L 195 82 L 248 115 L 301 108 L 354 80 L 407 60 L 460 55 L 513 48 L 566 60 L 619 65" fill="none" stroke="currentColor" stroke-dasharray="3 3" stroke-width="2.5"></path>
+                <circle class="fill-tertiary-container stroke-surface-container-lowest stroke-2" cx="566" cy="68" r="4.5"></circle>
+              </svg>
+            </div>
+            <div class="mt-4 flex items-center justify-between text-body-sm font-body-sm text-secondary bg-surface-container-low p-2 rounded">
+              <span>Year-to-Date Budget variance: <strong class="text-primary">-12,480 tCO₂e favorable</strong> against CAPEX expansion baseline.</span>
+              <button class="font-label-sm text-label-sm text-secondary hover:text-primary font-semibold underline" onclick="downloadSampleCSV()">Download CSV Data</button>
+            </div>
+          </div>
+
+          <!-- Chart 2: Subsidiary Scope Breakdown -->
+          <div class="lg:col-span-5 bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <h2 class="font-title-lg text-title-lg font-bold text-primary">Subsidiary Scope Footprint</h2>
+                <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">FY26 YTD</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-secondary mb-4">Emissions distributed by active operational entity</p>
+              
+              <!-- Stacked Subsidiary Progress Rows -->
+              <div class="space-y-3.5">
+                <div>
+                  <div class="flex justify-between font-label-md text-label-md mb-1">
+                    <span class="font-semibold text-primary">MEIL Hydro &amp; Irrigation</span>
+                    <span class="text-on-surface font-semibold">184,200 tCO₂e (44%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded overflow-hidden flex">
+                    <div class="bg-primary h-full" style="width: 72%" title="Scope 1: 72%"></div>
+                    <div class="bg-secondary h-full" style="width: 28%" title="Scope 2: 28%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-md text-label-md mb-1">
+                    <span class="font-semibold text-primary">MEIL Roads &amp; Highways</span>
+                    <span class="text-on-surface font-semibold">108,700 tCO₂e (26%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded overflow-hidden flex">
+                    <div class="bg-primary h-full" style="width: 80%" title="Scope 1: 80%"></div>
+                    <div class="bg-secondary h-full" style="width: 20%" title="Scope 2: 20%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-md text-label-md mb-1">
+                    <span class="font-semibold text-primary">Drillmec International SpA</span>
+                    <span class="text-on-surface font-semibold">54,340 tCO₂e (13%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded overflow-hidden flex">
+                    <div class="bg-primary h-full" style="width: 45%" title="Scope 1: 45%"></div>
+                    <div class="bg-secondary h-full" style="width: 55%" title="Scope 2: 55%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-md text-label-md mb-1">
+                    <span class="font-semibold text-primary">Megha City Gas Distribution</span>
+                    <span class="text-on-surface font-semibold">39,120 tCO₂e (9%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded overflow-hidden flex">
+                    <div class="bg-primary h-full" style="width: 88%" title="Scope 1: 88%"></div>
+                    <div class="bg-secondary h-full" style="width: 12%" title="Scope 2: 12%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-md text-label-md mb-1">
+                    <span class="font-semibold text-primary">Olectra Greentech (EV Mobility)</span>
+                    <span class="text-on-surface font-semibold">21,480 tCO₂e (5%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded overflow-hidden flex">
+                    <div class="bg-primary h-full" style="width: 25%" title="Scope 1: 25%"></div>
+                    <div class="bg-secondary h-full" style="width: 75%" title="Scope 2: 75%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-md text-label-md mb-1">
+                    <span class="font-semibold text-primary">ICOMM Tele Limited</span>
+                    <span class="text-on-surface font-semibold">10,400 tCO₂e (3%)</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded overflow-hidden flex">
+                    <div class="bg-primary h-full" style="width: 35%" title="Scope 1: 35%"></div>
+                    <div class="bg-secondary h-full" style="width: 65%" title="Scope 2: 65%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-secondary border-t-0">
+              <div class="flex items-center gap-3">
+                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> Scope 1 (Direct Fleet &amp; Gensets)</span>
+                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> Scope 2 (Purchased Electricity)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Emitting Mega-Projects Audit Table -->
+        <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col space-y-space-md">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+            <div>
+              <h2 class="font-title-lg text-title-lg font-bold text-primary">Key Infrastructure Assets &amp; Site Audit Ledger</h2>
+              <p class="font-body-sm text-body-sm text-secondary">BRSR Core quantitative tracking across active mega civil construction contracts</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Quick Filter:</span>
+              <button class="site-filter-btn px-2.5 py-1 text-label-sm font-label-sm rounded font-medium bg-primary text-on-primary" data-filter="all" onclick="filterSites('all', this)">All Active Sites</button>
+              <button class="site-filter-btn px-2.5 py-1 text-label-sm font-label-sm rounded font-medium bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" data-filter="due" onclick="filterSites('due', this)">Audit Due</button>
+              <button class="site-filter-btn px-2.5 py-1 text-label-sm font-label-sm rounded font-medium bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" data-filter="high" onclick="filterSites('high', this)">High Intensity</button>
+            </div>
+          </div>
+          <!-- Data Table Container -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-body-md text-body-md" id="sitesAuditTable">
+              <thead>
+                <tr class="bg-surface-container-low text-secondary font-label-md text-label-md uppercase tracking-wider">
+                  <th class="py-3 px-4 rounded-l font-semibold">Project / Asset Name</th>
+                  <th class="py-3 px-4 font-semibold">Subsidiary BU</th>
+                  <th class="py-3 px-4 font-semibold">Scope 1 (tCO₂e)</th>
+                  <th class="py-3 px-4 font-semibold">Scope 2 (tCO₂e)</th>
+                  <th class="py-3 px-4 font-semibold">Energy Mix</th>
+                  <th class="py-3 px-4 font-semibold">Water Recycled</th>
+                  <th class="py-3 px-4 font-semibold">Audit Assurance</th>
+                  <th class="py-3 px-4 text-right rounded-r font-semibold">Action</th>
+                </tr>
+              </thead>
+              <tbody class="text-on-surface font-normal">
+                <!-- Row 1: Zojila -->
+                <tr class="site-row hover:bg-surface-container-low/60 transition-colors" data-category="due high">
+                  <td class="py-3 px-4">
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md font-semibold text-primary">Zojila Tunnel Project - Portal 1 &amp; 2</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Kashmir &amp; Ladakh Connectivity • Site #108</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 font-medium text-secondary">MEIL Roads &amp; Infra</td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">48,920</td>
+                  <td class="py-3 px-4 tabular-nums text-on-surface">12,180</td>
+                  <td class="py-3 px-4">
+                    <span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface">18.4% Solar Microgrid</span>
+                  </td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">44.2%</td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-tertiary-fixed text-tertiary-container">
+                      <span class="material-symbols-outlined text-xs">flag</span> Flagged Variance
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="inspectSite('Site #108 • Zojila Tunnel', 'MEIL Roads & Infra', '48,920', '12,180', 'Flagged Variance (+48% Diesel YoY)')">
+                      Inspect
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 2: Polavaram -->
+                <tr class="site-row hover:bg-surface-container-low/60 transition-colors" data-category="high">
+                  <td class="py-3 px-4">
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md font-semibold text-primary">Polavaram Multi-Purpose Irrigation Project</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Andhra Pradesh Spillway &amp; Hydel Works • Site #042</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 font-medium text-secondary">MEIL Hydro Division</td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">76,400</td>
+                  <td class="py-3 px-4 tabular-nums text-on-surface">19,840</td>
+                  <td class="py-3 px-4">
+                    <span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface">32.6% Hydro Dedicated</span>
+                  </td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">52.8%</td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-secondary-fixed text-on-secondary-fixed">
+                      <span class="material-symbols-outlined text-xs">verified</span> Stage-2 Certified
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="inspectSite('Site #042 • Polavaram Irrigation', 'MEIL Hydro Division', '76,400', '19,840', 'Stage-2 Certified (Clean)')">
+                      Inspect
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 3: Kaleshwaram -->
+                <tr class="site-row hover:bg-surface-container-low/60 transition-colors" data-category="due">
+                  <td class="py-3 px-4">
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md font-semibold text-primary">Kaleshwaram Lift Irrigation - Link III</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Telangana Underground Pump Houses • Site #014</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 font-medium text-secondary">MEIL Hydro Division</td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">24,310</td>
+                  <td class="py-3 px-4 tabular-nums text-on-surface">34,100</td>
+                  <td class="py-3 px-4">
+                    <span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface">41.0% High-Tension Renew</span>
+                  </td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">31.0%</td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container text-secondary">
+                      <span class="material-symbols-outlined text-xs">schedule</span> Review Pending
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="inspectSite('Site #014 • Kaleshwaram Link III', 'MEIL Hydro Division', '24,310', '34,100', 'Review Pending sign-off')">
+                      Inspect
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 4: Mongol Refinery -->
+                <tr class="site-row hover:bg-surface-container-low/60 transition-colors" data-category="">
+                  <td class="py-3 px-4">
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md font-semibold text-primary">Mongol Oil Refinery EPC-3 &amp; EPC-4</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Sainshand, Mongolia International EPC • Site #INT-09</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 font-medium text-secondary">MEIL Industrial Plant</td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">32,150</td>
+                  <td class="py-3 px-4 tabular-nums text-on-surface">15,400</td>
+                  <td class="py-3 px-4">
+                    <span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface">12.0% Substation Grid</span>
+                  </td>
+                  <td class="py-3 px-4 font-semibold tabular-nums text-primary">26.5%</td>
+                  <td class="py-3 px-4">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-secondary-fixed text-on-secondary-fixed">
+                      <span class="material-symbols-outlined text-xs">verified</span> Stage-2 Certified
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right">
+                    <button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="inspectSite('Site #INT-09 • Mongol Oil Refinery', 'MEIL Industrial Plant', '32,150', '15,400', 'Stage-2 Certified')">
+                      Inspect
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bottom Floating Governance Action Bar -->
+        <div class="sticky bottom-4 z-30 bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+          <div class="flex items-center gap-space-sm">
+            <div class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-base">security</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-label-md text-label-md font-bold text-primary">SEBI BRSR Assurance Cycle FY 2025-26</span>
+              <span class="font-body-sm text-body-sm text-secondary">Audit Trail: Immutably locked by E&amp;Y / Certified External ESG Assurer</span>
+            </div>
+          </div>
+          <!-- Rapid Actions -->
+          <div class="flex items-center gap-space-sm w-full md:w-auto justify-end">
+            <button class="flex items-center gap-1.5 px-3 py-2 bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md font-semibold rounded transition-colors" onclick="navigateTo('gap-analysis')">
+              <span class="material-symbols-outlined text-base text-secondary">analytics</span>
+              <span>Run Gap Analysis</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-3 py-2 bg-secondary text-on-secondary hover:bg-on-primary-fixed-variant font-label-md text-label-md font-semibold rounded transition-colors shadow-sm" onclick="navigateTo('brsr-report-generator')">
+              <span class="material-symbols-outlined text-base">picture_as_pdf</span>
+              <span>Generate BRSR Report</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-3 py-2 bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold rounded transition-colors shadow-sm" onclick="launchGuidedTour()">
+              <span class="material-symbols-outlined text-base text-secondary-container">explore</span>
+              <span>Launch Guided Tour</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCREEN 2: BRSR SECTION C (PRINCIPLE-WISE PERFORMANCE) -->
+      <!-- ========================================================================= -->
+      <section id="view-brsr-section-c-principle-wise-performance" class="page-view hidden flex flex-col w-full space-y-space-lg pb-space-xl">
+        <!-- Top Executive Header & Cycle Context Banner -->
+        <div class="bg-primary text-on-primary p-space-lg rounded-xl shadow-md relative overflow-hidden">
+          <div class="absolute right-0 top-0 w-96 h-full bg-gradient-to-l from-secondary/20 via-transparent to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold uppercase tracking-wider">SEBI Core Mandate</span>
+                <span class="px-2 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm">NGRBC Principles Framework</span>
+                <span class="text-on-primary-container font-body-sm text-body-sm flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  FY 2025-26 Annual Audit Cycle
+                </span>
+              </div>
+              <h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-primary">
+                BRSR Section C: Principle-wise Performance Indicators
+              </h1>
+              <p class="font-body-md text-body-md text-on-primary-container max-w-3xl">
+                National Voluntary Guidelines &amp; SEBI BRSR quantitative and qualitative reporting on Environmental, Social, and Governance performance for Polavaram Hydro &amp; Civil Works Package.
+              </p>
+            </div>
+            <!-- Live Verification Badge & Save Status -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md shrink-0 bg-primary-container/80 p-space-md rounded-lg">
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary-container"></span>
+                </span>
+                <div class="flex flex-col">
+                  <span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-primary">BRSR Engine v3.4</span>
+                  <span class="font-body-sm text-body-sm text-on-primary-container">Schema Validated</span>
+                </div>
+              </div>
+              <div class="h-8 w-px bg-on-primary-container/20 hidden sm:block"></div>
+              <div class="flex items-center gap-1.5 text-on-primary-container font-body-sm text-body-sm">
+                <span class="material-symbols-outlined text-base text-secondary-fixed">cloud_done</span>
+                <span>Auto-saved at <span class="text-on-primary font-semibold" id="autoSaveTime">14:32 IST</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Meter Strip -->
+          <div class="mt-space-lg pt-space-md bg-primary-container/40 p-space-sm rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+            <div class="flex-1 space-y-1.5 max-w-xl">
+              <div class="flex items-center justify-between font-label-sm text-label-sm">
+                <span class="text-on-primary-container font-semibold uppercase">Section C Overall Completion</span>
+                <span class="text-on-primary font-bold">72% Completed (38 / 53 Indicators)</span>
+              </div>
+              <div class="w-full h-2 bg-primary rounded-full overflow-hidden">
+                <div class="h-full bg-secondary-container rounded-full" style="width: 72%;"></div>
+              </div>
+            </div>
+            <div class="flex-1 space-y-1.5 max-w-xl">
+              <div class="flex items-center justify-between font-label-sm text-label-sm">
+                <span class="text-on-tertiary-container font-semibold uppercase flex items-center gap-1">
+                  <span class="material-symbols-outlined text-xs text-on-tertiary-container">eco</span>
+                  Active Focus: Principle 6 (Environment)
+                </span>
+                <span class="text-on-primary font-bold">85% Completed</span>
+              </div>
+              <div class="w-full h-2 bg-primary rounded-full overflow-hidden">
+                <div class="h-full bg-on-tertiary-container rounded-full" style="width: 85%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Principles Tab Navigation Matrix (P1 through P9) -->
+        <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm overflow-x-auto">
+          <div class="flex items-center gap-2 min-w-max" id="principleTabsBar">
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="1" onclick="switchPrinciple(1, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P1</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Integrity &amp; Ethics</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">100% Done</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="2" onclick="switchPrinciple(2, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P2</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Product Lifecycle</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">90% Done</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="3" onclick="switchPrinciple(3, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P3</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Employee Wellbeing</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">88% Done</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="4" onclick="switchPrinciple(4, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P4</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Stakeholder Rights</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">65% Done</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="5" onclick="switchPrinciple(5, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P5</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Human Rights</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">80% Done</span>
+              </div>
+            </button>
+            <!-- ACTIVE: P6 Environment -->
+            <button class="principle-tab flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-on-primary shadow-sm text-left active" data-p="6" onclick="switchPrinciple(6, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold">P6</span>
+              <div class="flex flex-col pr-2">
+                <span class="font-label-sm text-label-sm font-bold text-on-primary flex items-center gap-1">
+                  Environment &amp; Climate
+                  <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                </span>
+                <span class="font-body-sm text-body-sm text-secondary-fixed text-[11px]">Active • 85% Completed</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="7" onclick="switchPrinciple(7, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P7</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Public Policy Advocacy</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">50% Done</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="8" onclick="switchPrinciple(8, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P8</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Inclusive Growth / CSR</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">75% Done</span>
+              </div>
+            </button>
+            <button class="principle-tab flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left group" data-p="9" onclick="switchPrinciple(9, this)">
+              <span class="w-6 h-6 rounded flex items-center justify-center bg-surface-variant font-label-sm text-label-sm font-bold text-on-surface">P9</span>
+              <div class="flex flex-col pr-1">
+                <span class="font-label-sm text-label-sm font-semibold text-on-surface truncate">Customer Value</span>
+                <span class="font-body-sm text-body-sm text-secondary text-[11px]">92% Done</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Multi-Column Content Area -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+          <!-- Left 8 Columns: Parameter Entry Forms -->
+          <div class="xl:col-span-8 space-y-space-lg">
+            <!-- Module Meta Header / Inline Controls -->
+            <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+              <div class="flex items-center gap-space-sm">
+                <div class="p-2 rounded bg-secondary-container text-on-secondary-container">
+                  <span class="material-symbols-outlined text-xl">energy_savings_leaf</span>
+                </div>
+                <div>
+                  <div class="font-headline-sm text-headline-sm text-primary font-bold" id="principleSectionTitle">
+                    Principle 6: Environmental Performance Metrics
+                  </div>
+                  <div class="font-body-sm text-body-sm text-secondary">
+                    SEBI BRSR Core Attributes 1-4 • Essential Indicators (Mandatory) &amp; Leadership Disclosures
+                  </div>
+                </div>
+              </div>
+              <!-- Inline Quick Utilities -->
+              <div class="flex items-center gap-2">
+                <button class="flex items-center gap-1 px-3 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium transition-colors" id="toggleUnitModalBtn">
+                  <span class="material-symbols-outlined text-base text-secondary">swap_horiz</span>
+                  <span>Unit Converter</span>
+                </button>
+                <button class="flex items-center gap-1 px-3 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium transition-colors" onclick="exportTemplate()">
+                  <span class="material-symbols-outlined text-base text-secondary">file_download</span>
+                  <span>Export Template</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Parameter 1: Energy Consumption -->
+            <div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-md">
+              <div class="flex items-start justify-between">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">P6-EI-01</span>
+                    <span class="font-title-md text-title-md font-bold text-on-surface">Energy Consumption &amp; Renewable vs Non-Renewable Mix</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Report energy from all renewable and non-renewable captive and purchased sources.
+                  </p>
+                </div>
+                <label class="flex items-center gap-1.5 text-secondary cursor-pointer hover:text-primary">
+                  <input class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox">
+                  <span class="font-label-sm text-label-sm">Mark N/A</span>
+                </label>
+              </div>
+              <!-- Table Structure for Parameter 1 -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-left font-body-sm text-body-sm">
+                  <thead>
+                    <tr class="bg-surface-container font-label-md text-label-md text-secondary uppercase tracking-wider">
+                      <th class="py-2.5 px-3 rounded-l">Parameter Source</th>
+                      <th class="py-2.5 px-3">UoM</th>
+                      <th class="py-2.5 px-3 font-semibold">Current FY 2025-26</th>
+                      <th class="py-2.5 px-3">Prior FY 2024-25</th>
+                      <th class="py-2.5 px-3">Delta / Trend</th>
+                      <th class="py-2.5 px-3 rounded-r text-center">Audit Ref</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-surface-container">
+                    <!-- Row 1 -->
+                    <tr class="hover:bg-surface-container-low transition-colors">
+                      <td class="py-3 px-3">
+                        <div class="font-semibold text-on-surface">Grid Electricity (State DISCOM)</div>
+                        <div class="text-[11px] text-on-surface-variant">HT Industrial Connection 33kV Line</div>
+                      </td>
+                      <td class="py-3 px-3 text-secondary font-medium">MWh</td>
+                      <td class="py-3 px-3">
+                        <input class="energy-calc-input w-32 px-2.5 py-1 rounded bg-surface-container-low focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary font-bold text-on-surface text-right tabular-nums" id="inputGridMwh" type="number" step="0.1" value="14250.80">
+                      </td>
+                      <td class="py-3 px-3 text-on-surface-variant tabular-nums">16,100.00</td>
+                      <td class="py-3 px-3">
+                        <span class="inline-flex items-center gap-0.5 text-secondary font-semibold text-xs">
+                          <span class="material-symbols-outlined text-xs">arrow_downward</span> -11.48%
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-center">
+                        <span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer text-lg" title="View attached DISCOM bills">attachment</span>
+                      </td>
+                    </tr>
+                    <!-- Row 2 -->
+                    <tr class="hover:bg-surface-container-low transition-colors">
+                      <td class="py-3 px-3">
+                        <div class="font-semibold text-on-surface">Captive Solar Photovoltaic</div>
+                        <div class="text-[11px] text-on-surface-variant">2.4 MW On-site Rooftop &amp; Camp Array</div>
+                      </td>
+                      <td class="py-3 px-3 text-secondary font-medium">MWh</td>
+                      <td class="py-3 px-3">
+                        <input class="energy-calc-input w-32 px-2.5 py-1 rounded bg-surface-container-low focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary font-bold text-on-surface text-right tabular-nums" id="inputSolarMwh" type="number" step="0.1" value="3480.20">
+                      </td>
+                      <td class="py-3 px-3 text-on-surface-variant tabular-nums">2,810.00</td>
+                      <td class="py-3 px-3">
+                        <span class="inline-flex items-center gap-0.5 text-primary font-semibold text-xs">
+                          <span class="material-symbols-outlined text-xs">arrow_upward</span> +23.85%
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-center">
+                        <span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer text-lg" title="Solar SCADA export verified">verified</span>
+                      </td>
+                    </tr>
+                    <!-- Row 3 -->
+                    <tr class="hover:bg-surface-container-low transition-colors">
+                      <td class="py-3 px-3">
+                        <div class="font-semibold text-on-surface">High Speed Diesel (HSD)</div>
+                        <div class="text-[11px] text-on-surface-variant">Stationary DG Sets &amp; Earthmoving Heavy Fleet</div>
+                      </td>
+                      <td class="py-3 px-3 text-secondary font-medium">Kilolitres (KL)</td>
+                      <td class="py-3 px-3">
+                        <input class="energy-calc-input w-32 px-2.5 py-1 rounded bg-surface-container-low focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary font-bold text-on-surface text-right tabular-nums" id="inputDieselKl" type="number" step="0.1" value="894.40">
+                      </td>
+                      <td class="py-3 px-3 text-on-surface-variant tabular-nums">980.25</td>
+                      <td class="py-3 px-3">
+                        <span class="inline-flex items-center gap-0.5 text-secondary font-semibold text-xs">
+                          <span class="material-symbols-outlined text-xs">arrow_downward</span> -8.76%
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-center">
+                        <span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer text-lg">attachment</span>
+                      </td>
+                    </tr>
+                    <!-- Row 4 -->
+                    <tr class="hover:bg-surface-container-low transition-colors">
+                      <td class="py-3 px-3">
+                        <div class="font-semibold text-on-surface">Piped Natural Gas (PNG) / LPG</div>
+                        <div class="text-[11px] text-on-surface-variant">Worker township &amp; batching plant heaters</div>
+                      </td>
+                      <td class="py-3 px-3 text-secondary font-medium">GJ</td>
+                      <td class="py-3 px-3">
+                        <input class="energy-calc-input w-32 px-2.5 py-1 rounded bg-surface-container-low focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary font-bold text-on-surface text-right tabular-nums" id="inputPngGj" type="number" step="0.1" value="412.00">
+                      </td>
+                      <td class="py-3 px-3 text-on-surface-variant tabular-nums">405.00</td>
+                      <td class="py-3 px-3">
+                        <span class="inline-flex items-center gap-0.5 text-on-surface-variant font-semibold text-xs">
+                          +1.73%
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-center">
+                        <span class="material-symbols-outlined text-secondary hover:text-primary cursor-pointer text-lg">attachment</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Parameter Aggregate Bar -->
+              <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col sm:flex-row items-center justify-between gap-2 text-on-surface">
+                <div class="flex items-center gap-3">
+                  <span class="font-label-sm text-label-sm uppercase font-semibold text-secondary">Renewable Energy Ratio:</span>
+                  <span class="font-headline-sm text-headline-sm font-bold text-primary" id="renewableRatioDisplay">19.63%</span>
+                  <span class="text-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-semibold">+3.8% vs FY24</span>
+                </div>
+                <div class="text-xs text-on-surface-variant font-medium">
+                  Total Energy Equivalency: <strong class="text-on-surface" id="totalGjDisplay">71,842.1 GJ</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Parameter 2: GHG Scope 1, 2, 3 Emissions -->
+            <div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-md">
+              <div class="flex items-start justify-between">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">P6-EI-02</span>
+                    <span class="font-title-md text-title-md font-bold text-on-surface">Greenhouse Gas (GHG) Emissions Inventory</span>
+                    <span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold">ISO 14064</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Report gross direct (Scope 1), energy indirect (Scope 2), and key value chain (Scope 3) emissions in metric tonnes CO₂ equivalent (tCO₂e).
+                  </p>
+                </div>
+                <button class="text-secondary hover:text-primary flex items-center gap-1 font-label-sm text-label-sm" onclick="navigateTo('calculation-and-emission-engine')">
+                  <span class="material-symbols-outlined text-base">functions</span>
+                  <span>Emission Factors</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+                <!-- Scope 1 Card -->
+                <div class="bg-surface-container-low p-space-md rounded-lg space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="font-label-sm text-label-sm font-bold uppercase text-secondary">Scope 1 (Direct)</span>
+                    <span class="material-symbols-outlined text-base text-primary">local_gas_station</span>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="text-2xl font-bold text-primary font-headline-sm tabular-nums" id="scope1Display">2,397.0 <span class="text-xs font-normal text-secondary">tCO₂e</span></div>
+                    <div class="text-xs text-on-surface-variant flex items-center justify-between">
+                      <span>FY24: 2,627.1 tCO₂e</span>
+                      <span class="text-secondary font-semibold">-8.76%</span>
+                    </div>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant bg-surface-container-lowest p-2 rounded">
+                    Diesel fleet mobile combustion + back-up genset operations. CEA EF 2.68 kg/L.
+                  </div>
+                </div>
+                <!-- Scope 2 Card -->
+                <div class="bg-surface-container-low p-space-md rounded-lg space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="font-label-sm text-label-sm font-bold uppercase text-secondary">Scope 2 (Indirect Grid)</span>
+                    <span class="material-symbols-outlined text-base text-primary">bolt</span>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="text-2xl font-bold text-primary font-headline-sm tabular-nums" id="scope2Display">10,118.1 <span class="text-xs font-normal text-secondary">tCO₂e</span></div>
+                    <div class="text-xs text-on-surface-variant flex items-center justify-between">
+                      <span>FY24: 11,431.0 tCO₂e</span>
+                      <span class="text-secondary font-semibold">-11.48%</span>
+                    </div>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant bg-surface-container-lowest p-2 rounded">
+                    Calculated using CEA CO₂ Baseline Database v19 (0.710 tCO₂/MWh Southern Grid).
+                  </div>
+                </div>
+                <!-- Scope 3 Card -->
+                <div class="bg-surface-container-low p-space-md rounded-lg space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="font-label-sm text-label-sm font-bold uppercase text-secondary">Scope 3 (Upstream)</span>
+                    <span class="material-symbols-outlined text-base text-primary">local_shipping</span>
+                  </div>
+                  <div class="space-y-1">
+                    <div class="text-2xl font-bold text-primary font-headline-sm tabular-nums">18,450.0 <span class="text-xs font-normal text-secondary">tCO₂e</span></div>
+                    <div class="text-xs text-on-surface-variant flex items-center justify-between">
+                      <span>FY24: 17,900.0 tCO₂e</span>
+                      <span class="text-tertiary font-semibold">+3.07%</span>
+                    </div>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant bg-surface-container-lowest p-2 rounded">
+                    Logistics of reinforcement steel and Portland cement to project site.
+                  </div>
+                </div>
+              </div>
+              <!-- Inline Emission Intensity metric -->
+              <div class="flex flex-col sm:flex-row items-center justify-between bg-surface-container px-3 py-2 rounded font-body-sm text-body-sm">
+                <span class="text-on-surface-variant font-medium">Turnover-based GHG Intensity (Scope 1 + 2):</span>
+                <span class="font-semibold text-primary">3.12 tCO₂e / Crore INR Revenue (Target: &lt; 3.50)</span>
+              </div>
+            </div>
+
+            <!-- Parameter 3: Water Withdrawal, Consumption & Zero Liquid Discharge -->
+            <div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-md">
+              <div class="flex items-start justify-between">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">P6-EI-03</span>
+                    <span class="font-title-md text-title-md font-bold text-on-surface">Water Withdrawal, Consumption &amp; Effluent Recycling</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Disclose water source extraction, recycling efficiency, and Zero Liquid Discharge (ZLD) operational compliance.
+                  </p>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">ZLD Active</span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                <div class="space-y-3">
+                  <div>
+                    <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Surface Water Withdrawal (River Source)</label>
+                    <div class="flex rounded shadow-sm">
+                      <input class="w-full px-3 py-2 rounded-l bg-surface-container-low focus:outline-none focus:ring-1 focus:ring-primary font-medium text-on-surface tabular-nums" type="number" value="385200">
+                      <span class="px-3 py-2 bg-surface-container font-label-sm text-label-sm text-secondary rounded-r flex items-center">Kilolitres (KL)</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Groundwater Borewell Extraction</label>
+                    <div class="flex rounded shadow-sm">
+                      <input class="w-full px-3 py-2 rounded-l bg-surface-container-low focus:outline-none focus:ring-1 focus:ring-primary font-medium text-on-surface tabular-nums" type="number" value="12450">
+                      <span class="px-3 py-2 bg-surface-container font-label-sm text-label-sm text-secondary rounded-r flex items-center">Kilolitres (KL)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div>
+                    <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Treated Wastewater Recycled / Reused On-Site</label>
+                    <div class="flex rounded shadow-sm">
+                      <input class="w-full px-3 py-2 rounded-l bg-surface-container-low focus:outline-none focus:ring-1 focus:ring-primary font-medium text-on-surface tabular-nums" type="number" value="142000">
+                      <span class="px-3 py-2 bg-surface-container font-label-sm text-label-sm text-secondary rounded-r flex items-center">Kilolitres (KL)</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Recycled Water Proportion (%)</label>
+                    <div class="flex items-center justify-between p-2 rounded bg-surface-container text-on-surface">
+                      <span class="font-headline-sm text-headline-sm font-bold text-primary">35.71%</span>
+                      <span class="text-xs text-secondary font-medium">Reused for dust suppression &amp; curing</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Parameter 4: Waste Management & Circularity -->
+            <div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-md">
+              <div class="flex items-start justify-between">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">P6-EI-04</span>
+                    <span class="font-title-md text-title-md font-bold text-on-surface">Solid &amp; Hazardous Waste Management</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Authorized recycler manifests, hazardous waste storage permits, and construction scrap recycling streams.
+                  </p>
+                </div>
+                <button class="text-xs text-secondary hover:text-primary flex items-center gap-1" onclick="showNotification('Manifest Ledger', '26 Recycler Manifests for Q3 verified against CPCB Portal.')">
+                  <span class="material-symbols-outlined text-sm">history</span>
+                  <span>Manifests Log</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-space-sm text-center">
+                <div class="p-space-sm rounded-lg bg-surface-container-low">
+                  <div class="text-xs font-semibold text-secondary uppercase">Used Lube Oil</div>
+                  <div class="text-lg font-bold text-primary mt-1">42.8 KL</div>
+                  <div class="text-[11px] text-secondary">100% to CPCB Recycler</div>
+                </div>
+                <div class="p-space-sm rounded-lg bg-surface-container-low">
+                  <div class="text-xs font-semibold text-secondary uppercase">Scrap Structural Steel</div>
+                  <div class="text-lg font-bold text-primary mt-1">1,280 MT</div>
+                  <div class="text-[11px] text-secondary">Re-melted / Smelted</div>
+                </div>
+                <div class="p-space-sm rounded-lg bg-surface-container-low">
+                  <div class="text-xs font-semibold text-secondary uppercase">C&amp;D Concrete Debris</div>
+                  <div class="text-lg font-bold text-primary mt-1">8,450 MT</div>
+                  <div class="text-[11px] text-secondary">Embankment sub-base</div>
+                </div>
+                <div class="p-space-sm rounded-lg bg-surface-container-low">
+                  <div class="text-xs font-semibold text-secondary uppercase">Lead Acid Batteries</div>
+                  <div class="text-lg font-bold text-primary mt-1">320 Units</div>
+                  <div class="text-[11px] text-secondary">EPR Buyback Buyout</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Parameter 5: Ecological Sensitivity & Clearances -->
+            <div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-md">
+              <div class="flex items-start justify-between">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">P6-EI-05</span>
+                    <span class="font-title-md text-title-md font-bold text-on-surface">Ecological Sensitivity &amp; Environmental Clearances</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Proximity to Protected Areas (Eco-Sensitive Zones) and Consent to Operate (CTO) status.
+                  </p>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-bold text-secondary">Statutory Compliance</span>
+              </div>
+              <div class="space-y-3">
+                <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-2">
+                  <div>
+                    <div class="font-label-sm text-label-sm font-bold text-on-surface">Papikonda National Park Buffer Zone Verification</div>
+                    <div class="text-xs text-on-surface-variant">Distance: 14.2 km from package right-of-way (Outside 10km statutory ESZ core)</div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shrink-0">Clear of Core ESZ</span>
+                </div>
+                <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-2">
+                  <div>
+                    <div class="font-label-sm text-label-sm font-bold text-on-surface">APPCB Consent to Operate (CTO Air &amp; Water)</div>
+                    <div class="text-xs text-on-surface-variant">Order No: APPCB/VJA/VJA/1042/CTO/2023 • Valid through 31-Dec-2028</div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm font-bold text-secondary shrink-0">Valid &amp; Compliant</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right 4 Columns: Side Verification, Evidence Vault & Action Center -->
+          <div class="xl:col-span-4 space-y-space-lg">
+            <!-- Evidence Attachment Center -->
+            <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm space-y-space-md">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-xl">folder_shared</span>
+                  <span class="font-title-md text-title-md font-bold text-on-surface">Evidence Vault</span>
+                </div>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-secondary" id="vaultFileCount">3 Files Attached</span>
+              </div>
+              <!-- Drag & Drop Zone -->
+              <div class="p-space-md rounded-lg bg-surface-container-low flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container transition-colors border border-dashed border-outline-variant" onclick="triggerFileUpload()">
+                <span class="material-symbols-outlined text-3xl text-secondary mb-1">cloud_upload</span>
+                <span class="font-label-sm text-label-sm font-bold text-on-surface">Upload Audit Evidence</span>
+                <span class="text-[11px] text-on-surface-variant">PDF, XLSX, Scanned Certifications (Max 25MB)</span>
+              </div>
+              <!-- Uploaded Evidence Chips -->
+              <div class="space-y-2" id="evidenceChipsContainer">
+                <div class="flex items-center justify-between p-2 rounded bg-surface-container text-on-surface text-xs">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="material-symbols-outlined text-base text-secondary shrink-0">picture_as_pdf</span>
+                    <span class="truncate font-medium">DISCOM_Power_Bills_Q1_Q4_FY26.pdf</span>
+                  </div>
+                  <span class="material-symbols-outlined text-base text-secondary cursor-pointer hover:text-error shrink-0" onclick="this.parentElement.remove(); updateVaultCount();">close</span>
+                </div>
+                <div class="flex items-center justify-between p-2 rounded bg-surface-container text-on-surface text-xs">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="material-symbols-outlined text-base text-secondary shrink-0">picture_as_pdf</span>
+                    <span class="truncate font-medium">APPCB_Consent_to_Operate_Renewal.pdf</span>
+                  </div>
+                  <span class="material-symbols-outlined text-base text-secondary cursor-pointer hover:text-error shrink-0" onclick="this.parentElement.remove(); updateVaultCount();">close</span>
+                </div>
+                <div class="flex items-center justify-between p-2 rounded bg-surface-container text-on-surface text-xs">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="material-symbols-outlined text-base text-secondary shrink-0">table_view</span>
+                    <span class="truncate font-medium">Heavy_DG_Fuel_Logbooks_Audit.xlsx</span>
+                  </div>
+                  <span class="material-symbols-outlined text-base text-secondary cursor-pointer hover:text-error shrink-0" onclick="this.parentElement.remove(); updateVaultCount();">close</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomaly Engine Pre-Check Card -->
+            <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-xl">radar</span>
+                  <span class="font-title-md text-title-md font-bold text-on-surface">Auto-Anomaly Radar</span>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Passed</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Statistical deviation check against Polavaram historical baseline and EPC industry benchmark.
+              </p>
+              <div class="space-y-2 pt-1 font-body-sm text-body-sm">
+                <div class="flex items-center gap-2 text-on-surface">
+                  <span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                  <span>Grid energy drop aligns with solar commissioning</span>
+                </div>
+                <div class="flex items-center gap-2 text-on-surface">
+                  <span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                  <span>Diesel fuel consumption variance is within ±10%</span>
+                </div>
+                <div class="flex items-center gap-2 text-on-surface">
+                  <span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+                  <span>ZLD recycling ratio matches water mass-balance model</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Internal Review & Verification Comments -->
+            <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm space-y-space-md">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-xl">speaker_notes</span>
+                  <span class="font-title-md text-title-md font-bold text-on-surface">Audit Discussion</span>
+                </div>
+                <span class="font-label-sm text-label-sm text-secondary" id="notesCountBadge">2 Notes</span>
+              </div>
+              <div class="space-y-3" id="auditNotesList">
+                <div class="p-space-sm rounded-lg bg-surface-container-low space-y-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-on-surface">M. Suresh (Lead Auditor)</span>
+                    <span class="text-on-surface-variant">Yesterday 17:40</span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant">
+                    Scope 2 emissions verified against Southern Regional Load Despatch Centre monthly billing statements. All clear for sign-off.
+                  </p>
+                </div>
+                <div class="p-space-sm rounded-lg bg-surface-container-low space-y-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-bold text-on-surface">K. V. Rao (Group CSO)</span>
+                    <span class="text-on-surface-variant">Today 09:15</span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant">
+                    Please double check if recycled water quantity includes batching plant washout reuse.
+                  </p>
+                </div>
+              </div>
+              <!-- Add Note Box -->
+              <div class="pt-2">
+                <textarea class="w-full p-2 text-xs rounded bg-surface-container-low focus:outline-none focus:ring-1 focus:ring-primary text-on-surface resize-none" id="newAuditNoteText" placeholder="Add internal compliance note or clarification..." rows="2"></textarea>
+                <div class="flex justify-end mt-1">
+                  <button class="px-3 py-1 bg-secondary text-on-secondary rounded font-label-sm text-label-sm font-semibold hover:bg-primary transition-colors" onclick="postAuditNote()">
+                    Post Note
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persistent Master Action Footer -->
+        <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-space-md sticky bottom-4 z-30">
+          <div class="flex items-center gap-space-md">
+            <div class="flex items-center gap-2 text-secondary font-body-sm text-body-sm">
+              <span class="material-symbols-outlined text-base">verified_user</span>
+              <span>SEBI BRSR Core Schema 2025 Compliant</span>
+            </div>
+            <span class="hidden md:inline text-outline-variant">•</span>
+            <span class="text-xs text-on-surface-variant hidden md:inline">Last modified by K. V. Rao</span>
+          </div>
+          <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+            <button class="px-4 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center gap-1.5" onclick="saveDraftAction()">
+              <span class="material-symbols-outlined text-base">save</span>
+              <span>Save Draft</span>
+            </button>
+            <button class="px-4 py-2 rounded bg-secondary hover:bg-primary text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1.5" onclick="runValidationAction()">
+              <span class="material-symbols-outlined text-base">fact_check</span>
+              <span>Run Validation</span>
+            </button>
+            <button class="px-5 py-2 rounded bg-tertiary-container hover:bg-tertiary text-on-tertiary font-label-md text-label-md font-bold shadow transition-colors flex items-center gap-2" onclick="submitForReviewAction()">
+              <span class="material-symbols-outlined text-lg">send_and_archive</span>
+              <span>Submit for BU Review</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCREEN 3: CALCULATION & EMISSION ENGINE -->
+      <!-- ========================================================================= -->
+      <section id="view-calculation-and-emission-engine" class="page-view hidden flex flex-col w-full space-y-space-lg">
+        <!-- Top Hero Bar / Engine Status Header -->
+        <div class="bg-surface-container-lowest p-space-lg rounded shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+          <div class="flex flex-col gap-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">Engine Control Active</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">verified</span>
+                GHG Protocol &amp; SEBI BRSR Rule Engine v3.2
+              </span>
+              <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Baseline DB: CEA v19 • IPCC AR6
+              </span>
+            </div>
+            <h1 class="font-headline-md text-headline-md text-primary mt-1 tracking-tight">Calculation &amp; Emission Engine</h1>
+            <p class="font-body-sm text-body-sm text-secondary">
+              Auditable multi-tiered deterministic GHG quantifier powering MEIL infrastructure divisions, site operations, and SEBI Core 9 verification pipelines.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="px-3 py-2 rounded bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5 font-semibold" id="btnRecalc">
+              <span class="material-symbols-outlined text-base text-secondary">sync</span>
+              <span>Recalculate Group Totals</span>
+            </button>
+            <button class="px-3 py-2 rounded bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-1.5 font-semibold" onclick="showNotification('Formula Export', 'Formula definitions exported to MEIL_GHG_Formulas_2026.pdf')">
+              <span class="material-symbols-outlined text-base text-secondary">description</span>
+              <span>Export Audit Formulas</span>
+            </button>
+            <button class="px-4 py-2 rounded bg-primary text-on-primary hover:bg-primary-container transition-all font-label-md text-label-md flex items-center gap-2 font-semibold shadow-sm" id="btnRunPipeline">
+              <span class="material-symbols-outlined text-base text-secondary-container">play_circle</span>
+              <span>Run Verification Pipeline</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Strip: High-Level Consolidations -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+          <!-- Total Gross Carbon -->
+          <div class="bg-surface-container-lowest p-space-md rounded shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+            <div class="flex items-center justify-between text-secondary">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Total Corporate Footprint</span>
+              <span class="material-symbols-outlined text-base">co2</span>
+            </div>
+            <div class="mt-3">
+              <div class="flex items-baseline gap-2">
+                <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight" id="engineGrossCarbon">541,617</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">tCO2e</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm mt-1">
+                <span class="material-symbols-outlined text-sm text-on-tertiary-container">arrow_downward</span>
+                <span class="text-on-tertiary-container font-semibold">-4.2%</span>
+                <span>vs FY24 Normalized Base</span>
+              </div>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 mt-3 overflow-hidden">
+              <div class="bg-primary h-1.5 rounded-full" style="width: 78%"></div>
+            </div>
+          </div>
+          <!-- Scope 1 Direct -->
+          <div class="bg-surface-container-lowest p-space-md rounded shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+            <div class="flex items-center justify-between text-secondary">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Scope 1 • Direct Combustion</span>
+              <span class="material-symbols-outlined text-base">local_fire_department</span>
+            </div>
+            <div class="mt-3">
+              <div class="flex items-baseline gap-2">
+                <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">128,450</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">tCO2e</span>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-1">
+                <span>23.7% of gross emissions • 42.15k kL HSD</span>
+              </div>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 mt-3 overflow-hidden">
+              <div class="bg-secondary h-1.5 rounded-full" style="width: 24%"></div>
+            </div>
+          </div>
+          <!-- Scope 2 Grid -->
+          <div class="bg-surface-container-lowest p-space-md rounded shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-secondary-fixed-dim"></div>
+            <div class="flex items-center justify-between text-secondary">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Scope 2 • Electricity Import</span>
+              <span class="material-symbols-outlined text-base">bolt</span>
+            </div>
+            <div class="mt-3">
+              <div class="flex items-baseline gap-2">
+                <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">131,887</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">tCO2e</span>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-1">
+                <span>24.3% share • 184.2 GWh Southern Grid</span>
+              </div>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 mt-3 overflow-hidden">
+              <div class="bg-primary-container h-1.5 rounded-full" style="width: 25%"></div>
+            </div>
+          </div>
+          <!-- Scope 3 Value Chain -->
+          <div class="bg-surface-container-lowest p-space-md rounded shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
+            <div class="flex items-center justify-between text-secondary">
+              <span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Scope 3 • Upstream Capital</span>
+              <span class="material-symbols-outlined text-base text-on-tertiary-container">hub</span>
+            </div>
+            <div class="mt-3">
+              <div class="flex items-baseline gap-2">
+                <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">281,280</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">tCO2e</span>
+              </div>
+              <div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-1">
+                <span>51.9% aggregate • Steel, Cement &amp; Freight</span>
+              </div>
+            </div>
+            <div class="w-full bg-surface-container rounded-full h-1.5 mt-3 overflow-hidden">
+              <div class="bg-tertiary-container h-1.5 rounded-full" style="width: 52%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Interactive Formula Cards: Scope 1, Scope 2, Scope 3 -->
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-space-md">
+          <!-- Scope 1 Formula Card -->
+          <div class="bg-surface-container-lowest rounded shadow-sm flex flex-col">
+            <div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                <span class="font-title-md text-title-md text-primary font-semibold">Scope 1 • Direct Formula</span>
+              </div>
+              <span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary font-semibold">Tier 3 Method</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+              <div class="space-y-space-sm">
+                <p class="font-label-sm text-label-sm uppercase text-secondary font-semibold">Equation Structure (IPCC Guidelines 2006)</p>
+                <div class="p-space-sm rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface flex flex-wrap items-center gap-2">
+                  <span class="font-semibold text-primary">Emissions (tCO2e)</span>
+                  <span class="text-secondary">=</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">Activity Data [AD]</span>
+                  <span class="text-secondary">×</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">NCV</span>
+                  <span class="text-secondary">×</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">EF</span>
+                  <span class="text-secondary">×</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">OF</span>
+                </div>
+                <div class="space-y-2 pt-2">
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">High-Speed Diesel (HSD)</span>
+                    <span class="font-semibold font-mono text-primary">42,150 kL</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Net Calorific Value (NCV)</span>
+                    <span class="font-semibold font-mono text-primary">38.6 MJ/kg</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Emission Factor (EF)</span>
+                    <span class="font-semibold font-mono text-primary">74.1 tCO2/TJ</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Oxidation Factor (OF)</span>
+                    <span class="font-semibold font-mono text-primary">1.00 (Complete)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-3 bg-surface-container-low p-space-sm rounded flex items-center justify-between">
+                <div>
+                  <span class="font-label-sm text-label-sm uppercase text-secondary font-semibold block">Calculated Result</span>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">128,450.2 tCO2e</span>
+                </div>
+                <span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope 2 Formula Card -->
+          <div class="bg-surface-container-lowest rounded shadow-sm flex flex-col">
+            <div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                <span class="font-title-md text-title-md text-primary font-semibold">Scope 2 • Grid Electricity</span>
+              </div>
+              <span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary font-semibold">Location-Based</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+              <div class="space-y-space-sm">
+                <p class="font-label-sm text-label-sm uppercase text-secondary font-semibold">Equation Structure (CEA Baseline v19)</p>
+                <div class="p-space-sm rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface flex flex-wrap items-center gap-2">
+                  <span class="font-semibold text-primary">Emissions (tCO2e)</span>
+                  <span class="text-secondary">=</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">Electricity Consumed [MWh]</span>
+                  <span class="text-secondary">×</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">EF (kg CO2/kWh)</span>
+                </div>
+                <div class="space-y-2 pt-2">
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Electricity Consumed</span>
+                    <span class="font-semibold font-mono text-primary">184,200 MWh</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Grid Factor (CEA v19)</span>
+                    <span class="font-semibold font-mono text-primary">0.716 kg CO2/kWh</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Grid Zone Classification</span>
+                    <span class="font-semibold text-primary">Southern Region (SR)</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Transmission Loss Inclusions</span>
+                    <span class="font-semibold text-primary">Excluded (Scope 3 Cat 3)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-3 bg-surface-container-low p-space-sm rounded flex items-center justify-between">
+                <div>
+                  <span class="font-label-sm text-label-sm uppercase text-secondary font-semibold block">Calculated Result</span>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">131,887.2 tCO2e</span>
+                </div>
+                <span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope 3 Formula Card -->
+          <div class="bg-surface-container-lowest rounded shadow-sm flex flex-col">
+            <div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span>
+                <span class="font-title-md text-title-md text-primary font-semibold">Scope 3 • Upstream Chain</span>
+              </div>
+              <span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-on-tertiary-container font-semibold">SEBI Core 9 Mandate</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+              <div class="space-y-space-sm">
+                <p class="font-label-sm text-label-sm uppercase text-secondary font-semibold">Hybrid Spend &amp; Physical Allocation</p>
+                <div class="p-space-sm rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface flex flex-wrap items-center gap-2">
+                  <span class="font-semibold text-primary">∑ Scope 3</span>
+                  <span class="text-secondary">=</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">Cat 1 (Goods)</span>
+                  <span class="text-secondary">+</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">Cat 2 (Assets)</span>
+                  <span class="text-secondary">+</span>
+                  <span class="bg-surface-container px-1.5 py-0.5 rounded text-primary font-mono">Cat 3 (FERA)</span>
+                </div>
+                <div class="space-y-2 pt-2">
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Cat 1: Steel, Concrete, Piping</span>
+                    <span class="font-semibold font-mono text-primary">198,420 tCO2e</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Cat 2: Heavy Machineries &amp; Drills</span>
+                    <span class="font-semibold font-mono text-primary">54,120 tCO2e</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Cat 3: Fuel T&amp;D Upstream Losses</span>
+                    <span class="font-semibold font-mono text-primary">28,740 tCO2e</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                    <span class="text-secondary">Direct Supplier Primary Data</span>
+                    <span class="font-semibold text-primary">64.5% Coverage</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-3 bg-surface-container-low p-space-sm rounded flex items-center justify-between">
+                <div>
+                  <span class="font-label-sm text-label-sm uppercase text-secondary font-semibold block">Calculated Result</span>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">281,280.0 tCO2e</span>
+                </div>
+                <span class="material-symbols-outlined text-secondary text-2xl">check_circle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intensity & Normalization Metrics + Currency Unit Converter Grid -->
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-space-md">
+          <!-- Normalization & Intensity Calculator (2 cols) -->
+          <div class="xl:col-span-2 bg-surface-container-lowest rounded shadow-sm p-space-md flex flex-col justify-between">
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-sm gap-2">
+                <div>
+                  <h2 class="font-title-lg text-title-lg text-primary font-semibold">Intensity Calculator &amp; SEBI Normalization</h2>
+                  <p class="font-body-sm text-body-sm text-secondary">
+                    Standardized physical and financial ratios matching BRSR Principle 6 Core metrics.
+                  </p>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
+                  FY 2025-26 Active
+                </span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-md">
+                <!-- Metric 1 -->
+                <div class="p-space-md rounded bg-surface-container-low flex flex-col justify-between">
+                  <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Turnover Intensity</span>
+                  <div class="my-2">
+                    <div class="flex items-baseline gap-1.5">
+                      <span class="font-headline-md text-headline-md text-primary font-bold">14.20</span>
+                      <span class="font-label-sm text-label-sm text-secondary">tCO2e / ₹ Cr</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-tertiary-container font-medium mt-1">
+                      ↓ 10.1% vs FY24 (15.80)
+                    </p>
+                  </div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">
+                    Turnover Base: ₹38,142 Cr
+                  </div>
+                </div>
+                <!-- Metric 2 -->
+                <div class="p-space-md rounded bg-surface-container-low flex flex-col justify-between">
+                  <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Man-Hour Intensity</span>
+                  <div class="my-2">
+                    <div class="flex items-baseline gap-1.5">
+                      <span class="font-headline-md text-headline-md text-primary font-bold">2.84</span>
+                      <span class="font-label-sm text-label-sm text-secondary">tCO2e / 1k MH</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-secondary font-medium mt-1">
+                      ↓ 3.7% vs FY24 (2.95)
+                    </p>
+                  </div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">
+                    Total Hours: 190.7M Safe Hours
+                  </div>
+                </div>
+                <!-- Metric 3 -->
+                <div class="p-space-md rounded bg-surface-container-low flex flex-col justify-between">
+                  <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Physical Execution</span>
+                  <div class="my-2">
+                    <div class="flex items-baseline gap-1.5">
+                      <span class="font-headline-md text-headline-md text-primary font-bold">412.6</span>
+                      <span class="font-label-sm text-label-sm text-secondary">tCO2e / KM</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-secondary font-medium mt-1">
+                      Solar: 88.3 tCO2e / MW
+                    </p>
+                  </div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">
+                    Highways: 340 KM Commissioned
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between gap-2 text-secondary font-body-sm text-body-sm bg-surface p-space-sm rounded">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm text-primary">info</span>
+                SEBI BRSR Core KPI 1.1: Scope 1 + Scope 2 intensity per Rupee turnover calculated via audited GAAP revenue ledger.
+              </span>
+              <button class="font-label-sm text-label-sm font-semibold text-primary hover:text-secondary underline" onclick="showNotification('Methodology Note', 'Downloaded SEBI BRSR Core Quantification Standard v3.2')">
+                Download Methodology Note
+              </button>
+            </div>
+          </div>
+
+          <!-- Currency & Unit Exchange Converter (1 col) -->
+          <div class="bg-surface-container-lowest rounded shadow-sm p-space-md flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-space-sm">
+                <h2 class="font-title-lg text-title-lg text-primary font-semibold">Exchange &amp; Units</h2>
+                <span class="material-symbols-outlined text-secondary">currency_exchange</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-secondary mb-space-sm">
+                Multi-currency expenditure conversions utilizing SEBI-mandated FY average rates for international JV sites.
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-primary">USD ($) → INR (₹)</span>
+                    <span class="font-label-sm text-label-sm bg-surface-container-high px-1.5 py-0.5 rounded text-secondary">US Projects</span>
+                  </div>
+                  <span class="font-mono font-semibold text-primary">₹83.42 / USD</span>
+                </div>
+                <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-primary">EUR (€) → INR (₹)</span>
+                    <span class="font-label-sm text-label-sm bg-surface-container-high px-1.5 py-0.5 rounded text-secondary">Italy Rig Div</span>
+                  </div>
+                  <span class="font-mono font-semibold text-primary">₹90.15 / EUR</span>
+                </div>
+                <div class="flex items-center justify-between p-2 rounded bg-surface text-on-surface font-body-sm text-body-sm">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-primary">KWD (KD) → INR (₹)</span>
+                    <span class="font-label-sm text-label-sm bg-surface-container-high px-1.5 py-0.5 rounded text-secondary">Kuwait Site</span>
+                  </div>
+                  <span class="font-mono font-semibold text-primary">₹271.80 / KWD</span>
+                </div>
+              </div>
+              <div class="mt-space-sm p-space-sm rounded bg-surface-container-low space-y-1">
+                <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Standard Unit Conversion</span>
+                <div class="text-on-surface font-body-sm text-body-sm flex justify-between">
+                  <span>1 GJ (Natural Gas)</span>
+                  <span class="font-mono font-medium text-primary">= 26.8 Nm³</span>
+                </div>
+                <div class="text-on-surface font-body-sm text-body-sm flex justify-between">
+                  <span>1 Metric Tonne HSD</span>
+                  <span class="font-mono font-medium text-primary">= 1,180 Litres</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 text-right">
+              <button class="text-primary hover:text-secondary font-label-sm text-label-sm font-semibold inline-flex items-center gap-1" onclick="document.getElementById('unitConverterModal').classList.remove('hidden')">
+                <span>Open Converter Utility</span>
+                <span class="material-symbols-outlined text-sm">settings</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editable Emission Factor Master Library Table -->
+        <div class="bg-surface-container-lowest rounded shadow-sm overflow-hidden flex flex-col">
+          <div class="p-space-md flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-low">
+            <div class="flex flex-col gap-0.5">
+              <div class="flex items-center gap-2">
+                <span class="font-title-lg text-title-lg text-primary font-bold">Emission Factor Master Library</span>
+                <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">28 Factors Active</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-secondary">
+                Auditable parameters mapped to fuel types, grid baselines, and geographic regional adjustments.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-2.5 top-2 text-secondary text-base">search</span>
+                <input class="pl-8 pr-3 py-1.5 text-on-surface bg-surface-container-lowest rounded text-body-sm font-body-sm focus:outline-none w-64 shadow-sm" id="factorSearch" placeholder="Search factor, standard or unit..." type="text">
+              </div>
+              <select class="px-2.5 py-1.5 bg-surface-container-lowest rounded text-on-surface font-label-md text-label-md font-medium focus:outline-none shadow-sm cursor-pointer" id="factorSectorFilter" onchange="filterFactorsBySector(this.value)">
+                <option value="">All Sectors &amp; Fuel Types</option>
+                <option value="Combustion">Combustion (Liquid / Gas)</option>
+                <option value="Grid">Grid (CEA Regional / Country)</option>
+              </select>
+              <button class="px-3 py-1.5 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm" onclick="openEditModal('New Fuel Factor', '1.0000', 'kg CO2e / unit', 'IPCC 2006 (Vol 2)', 'National Average')">
+                <span class="material-symbols-outlined text-sm">tune</span>
+                <span>Override / Propose New</span>
+              </button>
+            </div>
+          </div>
+          <!-- Master Table -->
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left font-body-sm text-body-sm">
+              <thead class="bg-surface-container font-label-md text-label-md uppercase tracking-wider text-secondary">
+                <tr>
+                  <th class="py-3 px-space-md">Fuel / Emission Source</th>
+                  <th class="py-3 px-space-md">Factor Value</th>
+                  <th class="py-3 px-space-md">Factor Unit</th>
+                  <th class="py-3 px-space-md">Standard Reference</th>
+                  <th class="py-3 px-space-md">Regional Variance</th>
+                  <th class="py-3 px-space-md">Last Verified</th>
+                  <th class="py-3 px-space-md text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-on-surface" id="factorTableBody">
+                <!-- Row 1: HSD -->
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">oil_barrel</span>
+                      <div>
+                        <span class="font-semibold text-primary block">High-Speed Diesel (HSD)</span>
+                        <span class="font-label-sm text-label-sm text-secondary">Heavy equipment, DG sets, haul trucks</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">2.6865</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2e / Litre</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">IPCC 2006 (Vol 2)</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">India All-Region Standard</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">12-Jan-2025</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('High-Speed Diesel (HSD)', '2.6865', 'kg CO2e / Litre', 'IPCC 2006 (Vol 2)', 'India All-Region Standard')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 2: Motor Spirit -->
+                <tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest/50">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">local_gas_station</span>
+                      <div>
+                        <span class="font-semibold text-primary block">Motor Gasoline / Petrol</span>
+                        <span class="font-label-sm text-label-sm text-secondary">Site inspection fleet &amp; light carriers</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">2.3140</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2e / Litre</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">DEFRA 2024</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">National Average</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">10-Jan-2025</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('Motor Gasoline / Petrol', '2.3140', 'kg CO2e / Litre', 'DEFRA 2024', 'National Average')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 3: Grid Southern -->
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">electrical_services</span>
+                      <div>
+                        <span class="font-semibold text-primary block">Southern Grid (CEA v19)</span>
+                        <span class="font-label-sm text-label-sm text-secondary">Polavaram, Kaleshwaram, Telangana Sites</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">0.7160</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2 / kWh</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold">CEA CO2 DB v19</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-medium text-secondary">Telangana / AP SEBs</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">04-Feb-2025</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('Southern Grid (CEA v19)', '0.7160', 'kg CO2 / kWh', 'CEA CO2 DB v19', 'Telangana / AP SEBs')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 4: Grid Western -->
+                <tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest/50">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">electric_bolt</span>
+                      <div>
+                        <span class="font-semibold text-primary block">Western Grid (CEA v19)</span>
+                        <span class="font-label-sm text-label-sm text-secondary">Refinery &amp; highway packages (WR)</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">0.7380</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2 / kWh</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold">CEA CO2 DB v19</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-medium text-secondary">Maharashtra / Gujarat</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">04-Feb-2025</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('Western Grid (CEA v19)', '0.7380', 'kg CO2 / kWh', 'CEA CO2 DB v19', 'Maharashtra / Gujarat')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 5: PNG -->
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">mode_fan</span>
+                      <div>
+                        <span class="font-semibold text-primary block">Piped Natural Gas (PNG)</span>
+                        <span class="font-label-sm text-label-sm text-secondary">City Gas Distribution networks (MEIL CGD)</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">1.9820</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2e / Nm³</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">IPCC AR6</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="text-on-surface-variant font-label-sm text-label-sm">Standard Composition</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">28-Dec-2024</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('Piped Natural Gas (PNG)', '1.9820', 'kg CO2e / Nm3', 'IPCC AR6', 'Standard Composition')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 6: International Grid Italy -->
+                <tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest/50">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">public</span>
+                      <div>
+                        <span class="font-semibold text-primary block">Grid Italy (Drillmec S.p.A)</span>
+                        <span class="font-label-sm text-label-sm text-secondary">Piacenza Manufacturing &amp; Assembly Facility</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">0.2460</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2 / kWh</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">ISPRA National Inv.</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-medium text-secondary">Northern Italy Grid</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">18-Jan-2025</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('Grid Italy (Drillmec S.p.A)', '0.2460', 'kg CO2 / kWh', 'ISPRA National Inv.', 'Northern Italy Grid')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+                <!-- Row 7: International Grid Kuwait -->
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td class="py-3 px-space-md">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-base">oil_barrel</span>
+                      <div>
+                        <span class="font-semibold text-primary block">Grid Kuwait (MEIL ME EPC)</span>
+                        <span class="font-label-sm text-label-sm text-secondary">MEW Pumping &amp; Desalination Packages</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-space-md font-mono font-semibold text-primary">0.6890</td>
+                  <td class="py-3 px-space-md font-mono text-secondary">kg CO2 / kWh</td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">IEA 2024 Country</span>
+                  </td>
+                  <td class="py-3 px-space-md">
+                    <span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">MEW Kuwait Grid</span>
+                  </td>
+                  <td class="py-3 px-space-md text-secondary">15-Jan-2025</td>
+                  <td class="py-3 px-space-md text-right">
+                    <button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold transition-colors" onclick="openEditModal('Grid Kuwait (MEIL ME EPC)', '0.6890', 'kg CO2 / kWh', 'IEA 2024 Country', 'MEW Kuwait Grid')">
+                      Edit Factor
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="px-space-md py-3 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-2 font-label-sm text-label-sm text-secondary">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base text-primary">verified_user</span>
+              <span>All master factors are locked under SEBI BRSR Core Change Audit Rule #4. Modifications require dual-signoff.</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <span>Showing 7 of 28 records</span>
+              <button class="font-semibold text-primary hover:text-secondary underline" onclick="showNotification('Audit Archive', 'Loaded complete ISO 14064 master records.')">View Full Master Archive →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCREEN 4: BRSR REPORT GENERATOR (COMPLETED SCREEN) -->
+      <!-- ========================================================================= -->
+      <section id="view-brsr-report-generator" class="page-view hidden flex flex-col w-full space-y-space-lg pb-12">
+        <!-- Generator Header -->
+        <div class="bg-primary text-on-primary p-space-lg rounded-xl shadow-md relative overflow-hidden flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold uppercase tracking-wider">Statutory Filing Suite</span>
+              <span class="px-2 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm">SEBI / BSE / NSE Format</span>
+            </div>
+            <h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-primary">
+              BRSR Report Generator &amp; Regulatory XBRL Engine
+            </h1>
+            <p class="font-body-md text-body-md text-on-primary-container max-w-3xl">
+              Compile, validate, and digitally certify Business Responsibility and Sustainability Reports in SEBI Annexure I PDF, XBRL Taxonomy XML, and Audited Databook formats.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="px-4 py-2 bg-secondary text-on-secondary hover:bg-on-primary-fixed-variant rounded font-label-md text-label-md font-semibold flex items-center gap-2 shadow transition-colors" onclick="generatePdfReport()">
+              <span class="material-symbols-outlined text-base">picture_as_pdf</span>
+              <span>Generate Official PDF</span>
+            </button>
+            <button class="px-4 py-2 bg-secondary-container text-primary hover:bg-secondary-fixed rounded font-label-md text-label-md font-semibold flex items-center gap-2 shadow transition-colors" onclick="exportXbrlTaxonomy()">
+              <span class="material-symbols-outlined text-base">data_object</span>
+              <span>Export XBRL</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Controls and Live Report Preview Grid -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+          
+          <!-- Left Column (4 cols): Configuration Options -->
+          <div class="xl:col-span-4 space-y-space-lg">
+            <!-- Report Settings Card -->
+            <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-md">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-xl">tune</span>
+                <span class="font-title-md text-title-md font-bold text-primary">Filing Configuration</span>
+              </div>
+              <div class="space-y-3 font-body-sm text-body-sm">
+                <div>
+                  <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Target Regulatory Body</label>
+                  <select class="w-full px-3 py-2 rounded bg-surface-container-low text-on-surface font-semibold focus:outline-none">
+                    <option>SEBI BRSR Comprehensive (Top 1000 Listed)</option>
+                    <option>SEBI BRSR Core (Mandatory Reasonable Assurance)</option>
+                    <option>GRI Standards 2021 Alignment Cross-Report</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Corporate Reporting Entity</label>
+                  <select class="w-full px-3 py-2 rounded bg-surface-container-low text-on-surface font-semibold focus:outline-none">
+                    <option>Megha Engineering &amp; Infrastructures Ltd (Consolidated)</option>
+                    <option>MEIL Hydro &amp; Lift Irrigation Division</option>
+                    <option>Olectra Greentech EV Mobility Ltd</option>
+                    <option>Drillmec International SpA</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Assurance Scope</label>
+                  <div class="p-2.5 bg-surface-container-low rounded space-y-1.5">
+                    <label class="flex items-center gap-2 text-xs font-medium cursor-pointer">
+                      <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                      <span>Include Third-Party Assurance Statement (E&amp;Y)</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-xs font-medium cursor-pointer">
+                      <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                      <span>Embed Digital Audit Timestamp &amp; Hash</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-xs font-medium cursor-pointer">
+                      <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                      <span>Attach Principle 6 Greenhouse Gas Inventory</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chapter Inclusion Checklist -->
+            <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-md">
+              <div class="flex items-center justify-between">
+                <span class="font-title-md text-title-md font-bold text-primary">Chapters to Include</span>
+                <span class="text-xs text-secondary font-semibold">All 3 Sections</span>
+              </div>
+              <div class="space-y-2 font-body-sm text-body-sm">
+                <label class="flex items-center justify-between p-2 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                    <span class="font-medium text-on-surface">Section A: General Disclosures</span>
+                  </div>
+                  <span class="text-xs font-bold text-primary">100% Valid</span>
+                </label>
+                <label class="flex items-center justify-between p-2 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                    <span class="font-medium text-on-surface">Section B: Management &amp; Process</span>
+                  </div>
+                  <span class="text-xs font-bold text-primary">100% Valid</span>
+                </label>
+                <label class="flex items-center justify-between p-2 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                    <span class="font-medium text-on-surface">Section C: Principle 1 through 9</span>
+                  </div>
+                  <span class="text-xs font-bold text-primary">85% Valid</span>
+                </label>
+                <label class="flex items-center justify-between p-2 rounded bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0">
+                    <span class="font-medium text-on-surface">SEBI Core 9 Quantitative Ledger</span>
+                  </div>
+                  <span class="text-xs font-bold text-secondary">Verified</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Assurance Seal Card -->
+            <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-2">
+              <div class="flex items-center gap-2 text-primary font-bold">
+                <span class="material-symbols-outlined text-secondary">verified_user</span>
+                <span>Third-Party Verification Lock</span>
+              </div>
+              <p class="text-xs text-secondary">
+                Assurance provider: <strong>Ernst &amp; Young LLP</strong>. Stage-2 Reasonable Assurance Certificate #EY-MEIL-BRSR-2026.
+              </p>
+              <div class="p-2 rounded bg-secondary-fixed text-on-secondary-fixed font-mono text-[11px]">
+                SHA-256: 7f8a92e104b2c8309f48039eec2819d
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (8 cols): Document Live Preview Mockup -->
+          <div class="xl:col-span-8 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col space-y-space-md border border-outline-variant/40">
+            <!-- Preview Controls Bar -->
+            <div class="flex items-center justify-between pb-2 border-b border-surface-container">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-lg">preview</span>
+                <span class="font-title-md text-title-md font-bold text-primary">Filing Document Preview (Annexure I)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="px-3 py-1 bg-surface-container hover:bg-surface-container-high rounded text-xs font-semibold text-primary" onclick="window.print()">
+                  <span class="material-symbols-outlined text-sm align-middle">print</span> Print
+                </button>
+                <button class="px-3 py-1 bg-primary text-on-primary rounded text-xs font-semibold hover:bg-primary-container" onclick="generatePdfReport()">
+                  <span class="material-symbols-outlined text-sm align-middle">download</span> Save PDF
+                </button>
+              </div>
+            </div>
+
+            <!-- Printable Document Frame -->
+            <div class="bg-surface p-space-lg rounded-lg border border-outline-variant/30 space-y-space-md" id="printableReportFrame">
+              <div class="flex items-center justify-between border-b pb-4 border-surface-container-high">
+                <div>
+                  <h3 class="font-headline-md text-headline-md font-bold text-primary">BUSINESS RESPONSIBILITY &amp; SUSTAINABILITY REPORT (BRSR)</h3>
+                  <p class="text-xs text-secondary mt-1">Pursuant to Regulation 34(2)(f) of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs font-bold text-primary">FINANCIAL YEAR 2025-26</div>
+                  <div class="text-[11px] text-secondary">CIN: U45200TG2006PLC050278</div>
+                </div>
+              </div>
+
+              <!-- General Company Data Summary Table -->
+              <div class="space-y-1">
+                <h4 class="font-label-sm text-label-sm font-bold uppercase text-secondary">Section A: Corporate Information Snapshot</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs bg-surface-container-lowest p-3 rounded">
+                  <div><strong>Company Name:</strong> Megha Engineering &amp; Infrastructures Ltd</div>
+                  <div><strong>Corporate Office:</strong> Balanagar, Hyderabad, Telangana</div>
+                  <div><strong>Paid-up Capital:</strong> ₹ 3,450.00 Crores</div>
+                  <div><strong>Reporting Boundary:</strong> Consolidated (100% Operational Control)</div>
+                </div>
+              </div>
+
+              <!-- Principle 6 Summary Table -->
+              <div class="space-y-1 pt-2">
+                <h4 class="font-label-sm text-label-sm font-bold uppercase text-secondary">Section C • Principle 6: Environmental Performance Overview</h4>
+                <table class="w-full text-left text-xs bg-surface-container-lowest rounded overflow-hidden">
+                  <thead class="bg-surface-container font-semibold text-secondary">
+                    <tr>
+                      <th class="p-2">Core Indicator</th>
+                      <th class="p-2">Metric Value (FY26)</th>
+                      <th class="p-2">Prior FY25</th>
+                      <th class="p-2">Assurance Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-surface-container text-on-surface">
+                    <tr>
+                      <td class="p-2 font-medium">Scope 1 (Direct GHG Emissions)</td>
+                      <td class="p-2 font-bold tabular-nums text-primary">128,450 tCO₂e</td>
+                      <td class="p-2 tabular-nums">140,800 tCO₂e</td>
+                      <td class="p-2 text-secondary font-semibold">Reasonable Assurance</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2 font-medium">Scope 2 (Electricity GHG Emissions)</td>
+                      <td class="p-2 font-bold tabular-nums text-primary">131,887 tCO₂e</td>
+                      <td class="p-2 tabular-nums">149,000 tCO₂e</td>
+                      <td class="p-2 text-secondary font-semibold">Reasonable Assurance</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2 font-medium">GHG Intensity per ₹ Cr Turnover</td>
+                      <td class="p-2 font-bold tabular-nums text-primary">14.20 tCO₂e/Cr</td>
+                      <td class="p-2 tabular-nums">15.80 tCO₂e/Cr</td>
+                      <td class="p-2 text-secondary font-semibold">Verified</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2 font-medium">Renewable Energy Mix %</td>
+                      <td class="p-2 font-bold tabular-nums text-primary">28.4% Clean Mix</td>
+                      <td class="p-2 tabular-nums">21.2%</td>
+                      <td class="p-2 text-secondary font-semibold">Verified</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2 font-medium">Water Recycled Proportion</td>
+                      <td class="p-2 font-bold tabular-nums text-primary">38.5% Recycled</td>
+                      <td class="p-2 tabular-nums">32.0%</td>
+                      <td class="p-2 text-secondary font-semibold">Verified</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Sign-off Block -->
+              <div class="pt-4 flex items-center justify-between border-t border-surface-container-high text-xs">
+                <div>
+                  <div class="font-bold text-primary">K. V. Rao</div>
+                  <div class="text-secondary">Chief Sustainability Officer</div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-primary">M. Suresh</div>
+                  <div class="text-secondary">Partner, Ernst &amp; Young LLP (External Assurer)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- GENERIC MODULE VIEW FALLBACK (For all other sidebar paths) -->
+      <!-- ========================================================================= -->
+      <section id="view-generic-fallback" class="page-view hidden flex flex-col w-full space-y-space-lg pb-12">
+        <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl" id="genericModuleIcon">domain</span>
+              </div>
+              <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-primary" id="genericModuleTitle">Module</h1>
+                <p class="font-body-sm text-body-sm text-secondary" id="genericModuleDesc">MEIL ESG Connect Framework Integrated Subsystem</p>
+              </div>
+            </div>
+            <button class="px-4 py-2 rounded bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors" onclick="navigateTo('executive-dashboard')">
+              Return to Executive Dashboard
+            </button>
+          </div>
+          
+          <div class="p-8 rounded-lg bg-surface-container-low flex flex-col items-center justify-center text-center space-y-3">
+            <span class="material-symbols-outlined text-5xl text-secondary">verified</span>
+            <h2 class="font-title-lg text-title-lg font-bold text-primary">Integrated Governance &amp; Telemetry Channel</h2>
+            <p class="font-body-sm text-body-sm text-on-surface-variant max-w-lg">
+              This module is synchronized with the central SEBI BRSR Engine v3.4 and feeds direct quantitative telemetry into the Executive Matrix and Principle-wise ledger.
+            </p>
+            <div class="flex items-center gap-3 pt-2">
+              <button class="px-4 py-2 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md font-semibold transition-colors" onclick="navigateTo('brsr-section-c-principle-wise-performance')">
+                Open BRSR Section C
+              </button>
+              <button class="px-4 py-2 rounded bg-secondary text-on-secondary font-label-md text-label-md font-semibold hover:bg-primary transition-colors" onclick="navigateTo('calculation-and-emission-engine')">
+                Open Calculation Engine
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] px-space-lg py-3">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 font-label-sm text-label-sm text-on-surface-variant">
+        <div class="flex items-center gap-4">
+          <span>MEIL ESG Connect Framework • Core Infrastructure Division</span>
+          <span class="flex items-center gap-1 text-on-surface">
+            <span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+            Audited by Certified Third-Party Provider
+          </span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="px-2 py-0.5 rounded bg-surface-container-high font-semibold text-on-surface">SEBI BRSR Compliant</span>
+          <span>ISO 14064 GHG Accounting</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS -->
+  <!-- ========================================================================= -->
+
+  <!-- Modal 1: Unit Converter Modal -->
+  <div class="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm hidden flex items-center justify-center p-4" id="unitConverterModal">
+    <div class="bg-surface-container-lowest rounded-xl max-w-md w-full shadow-2xl p-space-lg space-y-space-md">
+      <div class="flex items-center justify-between">
+        <div class="font-headline-sm text-headline-sm text-primary font-bold">
+          Inline Unit Converter
+        </div>
+        <button class="p-1 text-secondary hover:text-primary" id="closeUnitModalBtn">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="space-y-3 font-body-sm text-body-sm">
+        <div>
+          <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Conversion Category</label>
+          <select class="w-full px-3 py-2 rounded bg-surface-container text-on-surface font-medium focus:outline-none" id="convType">
+            <option value="energy">Electricity: kWh ↔ MWh ↔ GJ</option>
+            <option value="fuel">Diesel Fuel: Litres ↔ KL ↔ Metric Tonnes</option>
+            <option value="water">Water: Litres ↔ Kilolitres (KL) ↔ M³</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Input Value</label>
+          <input class="w-full px-3 py-2 rounded bg-surface-container-low text-on-surface font-bold" id="convInput" type="number" value="1000">
+        </div>
+        <div class="p-3 bg-surface-container rounded space-y-1">
+          <div class="text-xs text-secondary font-semibold uppercase">Converted Equivalent:</div>
+          <div class="text-lg font-bold text-primary font-headline-sm" id="convResult">1000.00 kWh = 1.00 MWh (3.60 GJ)</div>
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button class="px-4 py-1.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-secondary" id="applyConvBtn">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Edit Emission Factor Modal -->
+  <div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary-container/60 backdrop-blur-sm" id="editFactorModal">
+    <div class="bg-surface-container-lowest rounded-lg shadow-xl w-full max-w-xl overflow-hidden flex flex-col">
+      <div class="bg-primary px-space-md py-space-sm flex items-center justify-between text-on-primary">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary-container">tune</span>
+          <span class="font-title-lg text-title-lg font-bold">Edit Emission Factor • Audit Trail</span>
+        </div>
+        <button class="text-on-primary hover:opacity-75" onclick="document.getElementById('editFactorModal').classList.add('hidden')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="p-space-lg space-y-space-md">
+        <div>
+          <label class="block font-label-sm text-label-sm uppercase text-secondary font-semibold mb-1">Fuel / Source Name</label>
+          <input class="w-full bg-surface-container-low p-2 rounded text-on-surface font-title-md text-title-md font-semibold focus:outline-none" id="modalSourceName" readonly type="text">
+        </div>
+        <div class="grid grid-cols-2 gap-space-md">
+          <div>
+            <label class="block font-label-sm text-label-sm uppercase text-secondary font-semibold mb-1">Emission Factor Value</label>
+            <input class="w-full bg-surface p-2 rounded text-primary font-mono font-semibold focus:outline-none focus:bg-surface-container-low" id="modalFactorValue" step="0.0001" type="number">
+          </div>
+          <div>
+            <label class="block font-label-sm text-label-sm uppercase text-secondary font-semibold mb-1">Factor Unit</label>
+            <input class="w-full bg-surface-container-low p-2 rounded text-on-surface font-mono text-body-sm focus:outline-none" id="modalUnit" readonly type="text">
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-space-md">
+          <div>
+            <label class="block font-label-sm text-label-sm uppercase text-secondary font-semibold mb-1">Standard Reference</label>
+            <select class="w-full bg-surface p-2 rounded text-on-surface font-body-sm text-body-sm focus:outline-none" id="modalReference">
+              <option>CEA CO2 DB v19</option>
+              <option>IPCC 2006 (Vol 2)</option>
+              <option>IPCC AR6</option>
+              <option>DEFRA 2024</option>
+              <option>ISPRA National Inv.</option>
+              <option>IEA 2024 Country</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-label-sm text-label-sm uppercase text-secondary font-semibold mb-1">Regional Adaptation</label>
+            <input class="w-full bg-surface p-2 rounded text-on-surface font-body-sm text-body-sm focus:outline-none" id="modalRegion" type="text">
+          </div>
+        </div>
+        <div>
+          <label class="block font-label-sm text-label-sm uppercase text-on-tertiary-container font-semibold mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">edit_note</span>
+            Mandatory Audit Justification (SEBI BRSR Compliance)
+          </label>
+          <textarea class="w-full bg-surface p-2.5 rounded text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-low" id="modalJustification" placeholder="State regulatory reason, laboratory calibration reference, or CEA notification bulletin number for modifying this factor..." rows="3"></textarea>
+        </div>
+        <div class="p-space-sm rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-start gap-2">
+          <span class="material-symbols-outlined text-base text-secondary shrink-0">lock</span>
+          <span>Modifying this factor will trigger a version commit (v3.2.1) and notify the certified Third-Party Auditor for re-assurance verification.</span>
+        </div>
+      </div>
+      <div class="p-space-md bg-surface-container-low flex items-center justify-end gap-2">
+        <button class="px-4 py-2 rounded bg-surface text-secondary hover:bg-surface-container font-label-md text-label-md font-semibold transition-colors" onclick="document.getElementById('editFactorModal').classList.add('hidden')">
+          Cancel
+        </button>
+        <button class="px-4 py-2 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold transition-colors flex items-center gap-1" onclick="saveFactorChange()">
+          <span class="material-symbols-outlined text-base">save</span>
+          Commit Change
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Site Inspection Detail Modal -->
+  <div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/50 backdrop-blur-sm" id="inspectSiteModal">
+    <div class="bg-surface-container-lowest rounded-xl max-w-lg w-full shadow-2xl p-space-lg space-y-space-md">
+      <div class="flex items-center justify-between border-b pb-2">
+        <div>
+          <h3 class="font-headline-sm text-headline-sm font-bold text-primary" id="inspectSiteTitle">Site Inspection</h3>
+          <p class="text-xs text-secondary" id="inspectSiteBu">Business Unit</p>
+        </div>
+        <button class="p-1 text-secondary hover:text-primary" onclick="document.getElementById('inspectSiteModal').classList.add('hidden')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-sm">
+        <div class="p-3 bg-surface-container rounded">
+          <div class="text-xs text-secondary font-medium">Scope 1 (Direct)</div>
+          <div class="text-xl font-bold text-primary mt-1" id="inspectScope1">0</div>
+          <div class="text-[11px] text-secondary">tCO₂e</div>
+        </div>
+        <div class="p-3 bg-surface-container rounded">
+          <div class="text-xs text-secondary font-medium">Scope 2 (Electricity)</div>
+          <div class="text-xl font-bold text-primary mt-1" id="inspectScope2">0</div>
+          <div class="text-[11px] text-secondary">tCO₂e</div>
+        </div>
+      </div>
+      <div class="p-3 bg-surface-container-low rounded space-y-1">
+        <div class="text-xs uppercase tracking-wider font-semibold text-secondary">Audit Status Detail</div>
+        <div class="font-medium text-primary" id="inspectStatus">Verified</div>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button class="px-4 py-2 rounded bg-surface-container text-primary font-semibold text-xs hover:bg-surface-container-high" onclick="document.getElementById('inspectSiteModal').classList.add('hidden')">
+          Close
+        </button>
+        <button class="px-4 py-2 rounded bg-primary text-on-primary font-semibold text-xs hover:bg-primary-container" onclick="showNotification('Audit Log', 'Audit log opened for site inspection.'); document.getElementById('inspectSiteModal').classList.add('hidden');">
+          Open Audit Log
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none" id="toastContainer"></div>
+
+  <!-- Load Application Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabaseClient.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
