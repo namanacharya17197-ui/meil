@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTelemetryButton();
   initFactorSearch();
   initFiscalYearSelector();
+  initRoleSelector();
 });
 
 /* =========================================================================
@@ -164,6 +165,22 @@ function recalculateEnergyAndEmissions() {
     scope2Elem.innerHTML = `${scope2.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} <span class="text-xs font-normal text-secondary">tCO₂e</span>`;
   }
 
+  // Backend / Cloud Auto-Save via MEIL_API
+  if (window.MEIL_API) {
+    window.MEIL_API.debounce('energy-auto-save', () => {
+      window.MEIL_API.saveEnergyRecord({
+        grid_mwh: gridMwh,
+        solar_mwh: solarMwh,
+        diesel_kl: dieselKl,
+        png_gj: pngGj,
+        renewable_ratio_pct: Number(renewableRatio.toFixed(2)),
+        total_energy_gj: Number(totalGj.toFixed(2)),
+        calculated_scope1_tco2e: Number(scope1.toFixed(2)),
+        calculated_scope2_tco2e: Number(scope2.toFixed(2))
+      });
+    }, 1000);
+  }
+
   // Update auto-save indicator
   const timeElem = document.getElementById('autoSaveTime');
   if (timeElem) {
@@ -258,6 +275,11 @@ function saveFactorChange() {
       }
     }
   });
+
+  // Persist to Backend API / Supabase
+  if (window.MEIL_API) {
+    window.MEIL_API.updateEmissionFactor(source, newVal, justification);
+  }
 
   document.getElementById('editFactorModal').classList.add('hidden');
   showNotification('Factor Committed', `Factor for "${source}" updated to ${newVal.toFixed(4)}. Audit log updated.`);
@@ -421,6 +443,16 @@ function triggerFileUpload() {
     container.appendChild(chip);
     setTimeout(() => chip.classList.remove('animate-pulse'), 1000);
     updateVaultCount();
+    
+    // Sync with backend API
+    if (window.MEIL_API) {
+      window.MEIL_API.uploadEvidence({
+        fileName: fileName,
+        principleRef: 'P6-EI-01',
+        attachedBy: 'K. V. Rao'
+      });
+    }
+
     showNotification('Evidence Vault Updated', `Attached "${fileName}" with SHA-256 integrity hash.`);
   }
 }
@@ -460,6 +492,12 @@ function postAuditNote() {
     if (badge) {
       badge.textContent = `${notesList.children.length} Notes`;
     }
+
+    // Persist to backend
+    if (window.MEIL_API) {
+      window.MEIL_API.addAuditLog(text, 'Polavaram Hydro Package');
+    }
+
     showNotification('Audit Discussion', 'Your compliance clarification note has been appended to the permanent audit log.');
   }
 }
@@ -596,6 +634,19 @@ function applyTheme(theme, notify = true) {
     if (icon) icon.textContent = 'dark_mode';
     if (btn) btn.setAttribute('title', 'Switch to Dark Theme');
     if (notify) showNotification('Theme Updated', 'Light theme enabled.');
+  }
+}
+
+/* =========================================================================
+   12. ROLE-BASED ACCESS CONTROL (RBAC) SELECTOR
+   ========================================================================= */
+function initRoleSelector() {
+  const roleSelect = document.getElementById('roleSelector');
+  if (roleSelect) {
+    roleSelect.addEventListener('change', (e) => {
+      const selectedRole = e.target.value;
+      showNotification('Active Governance Role Changed', `Switched to "${selectedRole}". Permissions & audit headers synchronized.`);
+    });
   }
 }
 

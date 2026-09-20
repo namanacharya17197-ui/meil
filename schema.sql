@@ -1,5 +1,5 @@
 -- =========================================================================
--- MEIL ESG Connect Platform - Supabase PostgreSQL Schema & Migrations
+-- MEIL ESG Connect Platform - PostgreSQL / Supabase Schema (schema.sql)
 -- Designed for SEBI BRSR Core Mandate & ISO 14064 GHG Accounting
 -- =========================================================================
 

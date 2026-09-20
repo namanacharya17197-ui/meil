@@ -1,0 +1,400 @@
+{
+  "organizations": [
+    {
+      "id": "org-1",
+      "name": "Megha Engineering & Infrastructures Limited",
+      "code": "MEIL-GRP",
+      "entity_type": "Group",
+      "headquarters": "Hyderabad, India",
+      "parent_org_code": null
+    },
+    {
+      "id": "org-2",
+      "name": "MEIL Hydro Division",
+      "code": "MEIL-HYD",
+      "entity_type": "Subsidiary",
+      "headquarters": "Hyderabad, India",
+      "parent_org_code": "MEIL-GRP"
+    },
+    {
+      "id": "org-3",
+      "name": "MEIL Roads & Infra Division",
+      "code": "MEIL-RND",
+      "entity_type": "Subsidiary",
+      "headquarters": "Hyderabad, India",
+      "parent_org_code": "MEIL-GRP"
+    },
+    {
+      "id": "org-4",
+      "name": "Drillmec S.p.A.",
+      "code": "MEIL-DRL",
+      "entity_type": "Subsidiary",
+      "headquarters": "Piacenza, Italy",
+      "parent_org_code": "MEIL-GRP"
+    },
+    {
+      "id": "org-5",
+      "name": "Megha City Gas Distribution Pvt Ltd",
+      "code": "MEIL-CGD",
+      "entity_type": "Subsidiary",
+      "headquarters": "Hyderabad, India",
+      "parent_org_code": "MEIL-GRP"
+    },
+    {
+      "id": "org-6",
+      "name": "Olectra Greentech Limited",
+      "code": "MEIL-OLC",
+      "entity_type": "Subsidiary",
+      "headquarters": "Hyderabad, India",
+      "parent_org_code": "MEIL-GRP"
+    },
+    {
+      "id": "org-7",
+      "name": "ICOMM Tele Limited",
+      "code": "MEIL-ICM",
+      "entity_type": "Subsidiary",
+      "headquarters": "Hyderabad, India",
+      "parent_org_code": "MEIL-GRP"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-108",
+      "site_code": "Site #108",
+      "name": "Zojila Tunnel Project - Portal 1 & 2",
+      "location": "Kashmir & Ladakh Connectivity",
+      "subsidiary_bu": "MEIL Roads & Infra",
+      "scope1_tco2e": 48920,
+      "scope2_tco2e": 12180,
+      "scope3_tco2e": 18500,
+      "turnover_cr": 3850.0,
+      "safe_man_hours": 8420000,
+      "energy_mix": "18.4% Solar Microgrid",
+      "water_recycled_pct": 44.2,
+      "audit_status": "Flagged Variance",
+      "status_category": "due high"
+    },
+    {
+      "id": "proj-042",
+      "site_code": "Site #042",
+      "name": "Polavaram Multi-Purpose Irrigation Project",
+      "location": "Andhra Pradesh Spillway & Hydel Works",
+      "subsidiary_bu": "MEIL Hydro Division",
+      "scope1_tco2e": 76400,
+      "scope2_tco2e": 19840,
+      "scope3_tco2e": 24600,
+      "turnover_cr": 7200.0,
+      "safe_man_hours": 16200000,
+      "energy_mix": "32.6% Hydro Dedicated",
+      "water_recycled_pct": 52.8,
+      "audit_status": "Stage-2 Certified",
+      "status_category": "high"
+    },
+    {
+      "id": "proj-014",
+      "site_code": "Site #014",
+      "name": "Kaleshwaram Lift Irrigation - Link III",
+      "location": "Telangana Underground Pump Houses",
+      "subsidiary_bu": "MEIL Hydro Division",
+      "scope1_tco2e": 24310,
+      "scope2_tco2e": 34100,
+      "scope3_tco2e": 14200,
+      "turnover_cr": 4100.0,
+      "safe_man_hours": 9500000,
+      "energy_mix": "41.0% High-Tension Renew",
+      "water_recycled_pct": 31.0,
+      "audit_status": "Review Pending",
+      "status_category": "due"
+    },
+    {
+      "id": "proj-int-09",
+      "site_code": "Site #INT-09",
+      "name": "Mongol Oil Refinery EPC-3 & EPC-4",
+      "location": "Sainshand, Mongolia International EPC",
+      "subsidiary_bu": "MEIL Industrial Plant",
+      "scope1_tco2e": 32150,
+      "scope2_tco2e": 15400,
+      "scope3_tco2e": 11800,
+      "turnover_cr": 2900.0,
+      "safe_man_hours": 6100000,
+      "energy_mix": "12.0% Substation Grid",
+      "water_recycled_pct": 26.5,
+      "audit_status": "Stage-2 Certified",
+      "status_category": "active"
+    }
+  ],
+  "emission_factors": [
+    {
+      "id": "ef-1",
+      "fuel_name": "High-Speed Diesel (HSD)",
+      "description": "Heavy equipment, DG sets, haul trucks",
+      "factor_value": 2.695,
+      "factor_unit": "kg CO2e / Litre",
+      "standard_reference": "IPCC 2006 (Vol 2)",
+      "regional_variance": "India All-Region Standard",
+      "sector_type": "Combustion",
+      "audit_locked": true,
+      "updated_at": "2026-09-20T15:50:30Z"
+    },
+    {
+      "id": "ef-2",
+      "fuel_name": "Motor Gasoline / Petrol",
+      "description": "Site inspection fleet & light carriers",
+      "factor_value": 2.314,
+      "factor_unit": "kg CO2e / Litre",
+      "standard_reference": "DEFRA 2024",
+      "regional_variance": "National Average",
+      "sector_type": "Combustion",
+      "audit_locked": true
+    },
+    {
+      "id": "ef-3",
+      "fuel_name": "Southern Grid (CEA v19)",
+      "description": "Polavaram, Kaleshwaram, Telangana Sites",
+      "factor_value": 0.716,
+      "factor_unit": "kg CO2 / kWh",
+      "standard_reference": "CEA CO2 DB v19",
+      "regional_variance": "Telangana / AP SEBs",
+      "sector_type": "Grid",
+      "audit_locked": true
+    },
+    {
+      "id": "ef-4",
+      "fuel_name": "Western Grid (CEA v19)",
+      "description": "Refinery & highway packages (WR)",
+      "factor_value": 0.738,
+      "factor_unit": "kg CO2 / kWh",
+      "standard_reference": "CEA CO2 DB v19",
+      "regional_variance": "Maharashtra / Gujarat",
+      "sector_type": "Grid",
+      "audit_locked": true
+    },
+    {
+      "id": "ef-5",
+      "fuel_name": "Northern Grid (CEA v19)",
+      "description": "Zojila tunnel, UP/Haryana infrastructure",
+      "factor_value": 0.742,
+      "factor_unit": "kg CO2 / kWh",
+      "standard_reference": "CEA CO2 DB v19",
+      "regional_variance": "Northern Regional Grid",
+      "sector_type": "Grid",
+      "audit_locked": true
+    },
+    {
+      "id": "ef-6",
+      "fuel_name": "Piped Natural Gas (PNG)",
+      "description": "City Gas Distribution networks (MEIL CGD)",
+      "factor_value": 1.982,
+      "factor_unit": "kg CO2e / Nm\u00b3",
+      "standard_reference": "IPCC AR6",
+      "regional_variance": "Standard Composition",
+      "sector_type": "Combustion",
+      "audit_locked": true
+    },
+    {
+      "id": "ef-7",
+      "fuel_name": "Grid Italy (Drillmec S.p.A)",
+      "description": "Piacenza Manufacturing & Assembly Facility",
+      "factor_value": 0.246,
+      "factor_unit": "kg CO2 / kWh",
+      "standard_reference": "ISPRA National Inv.",
+      "regional_variance": "Northern Italy Grid",
+      "sector_type": "International",
+      "audit_locked": true
+    },
+    {
+      "id": "ef-8",
+      "fuel_name": "Grid Kuwait (MEIL ME EPC)",
+      "description": "MEW Pumping & Desalination Packages",
+      "factor_value": 0.689,
+      "factor_unit": "kg CO2 / kWh",
+      "standard_reference": "IEA 2024 Country",
+      "regional_variance": "MEW Kuwait Grid",
+      "sector_type": "International",
+      "audit_locked": true
+    }
+  ],
+  "energy_consumption": [
+    {
+      "id": "ec-1",
+      "project_id": "proj-042",
+      "reporting_fiscal_year": "FY 2025-26",
+      "grid_mwh": 12840,
+      "solar_mwh": 4120,
+      "diesel_kl": 2850,
+      "png_gj": 14200,
+      "renewable_ratio_pct": 24.3,
+      "total_energy_gj": 218450,
+      "calculated_scope1_tco2e": 76400,
+      "calculated_scope2_tco2e": 19840,
+      "calculated_scope3_tco2e": 24600
+    }
+  ],
+  "evidence_vault": [
+    {
+      "id": "ev-1789919423059",
+      "file_name": "Audit_Q2_Polavaram_Telemetry.pdf",
+      "file_size_kb": 0.04,
+      "mime_type": "application/pdf",
+      "sha256_hash": "67cc79bcd937aee526a7d02de88dd86a55a79f95c2510cf6b5b05088ece36908",
+      "attached_by": "K. V. Rao",
+      "author_role": "Chief Sustainability Officer",
+      "principle_ref": "P6-EI-01",
+      "verification_status": "Verified",
+      "created_at": "2026-09-20T15:50:23Z"
+    },
+    {
+      "id": "ev-1",
+      "file_name": "DISCOM_Power_Bills_Q1_Q4_FY26.pdf",
+      "file_size_kb": 4120.5,
+      "mime_type": "application/pdf",
+      "sha256_hash": "a1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890",
+      "attached_by": "M. Suresh",
+      "author_role": "Lead Auditor",
+      "principle_ref": "P6-EI-01",
+      "verification_status": "Verified",
+      "created_at": "2026-09-18T10:30:00Z"
+    },
+    {
+      "id": "ev-2",
+      "file_name": "APPCB_Consent_to_Operate_Renewal.pdf",
+      "file_size_kb": 1840.2,
+      "mime_type": "application/pdf",
+      "sha256_hash": "f6e5d4c3b2a10987fedcba0987654321fedcba0987654321fedcba0987654321",
+      "attached_by": "K. V. Rao",
+      "author_role": "Chief Sustainability Officer",
+      "principle_ref": "P6-EI-03",
+      "verification_status": "Verified",
+      "created_at": "2026-09-19T14:15:00Z"
+    },
+    {
+      "id": "ev-3",
+      "file_name": "Heavy_DG_Fuel_Logbooks_Audit.xlsx",
+      "file_size_kb": 8900.0,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "sha256_hash": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+      "attached_by": "S. K. Verma",
+      "author_role": "Site Engineer",
+      "principle_ref": "P6-EI-02",
+      "verification_status": "Verified",
+      "created_at": "2026-09-20T08:45:00Z"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "log-1789919430034",
+      "author": "K. V. Rao",
+      "author_role": "Chief Sustainability Officer",
+      "note_text": "Factor modified to 2.695. Reason: SEBI BRSR Q2 National Lab Calibration Update",
+      "entity_ref": "Factor ID: ef-1",
+      "action_type": "FACTOR_UPDATE",
+      "created_at": "2026-09-20T15:50:30Z"
+    },
+    {
+      "id": "log-1",
+      "author": "M. Suresh",
+      "author_role": "Lead Auditor",
+      "note_text": "Scope 2 emissions verified against Southern Regional Load Despatch Centre monthly billing statements. All clear for sign-off.",
+      "entity_ref": "Polavaram Spillway",
+      "action_type": "NOTE",
+      "created_at": "2026-09-18T11:00:00Z"
+    },
+    {
+      "id": "log-2",
+      "author": "K. V. Rao",
+      "author_role": "Chief Sustainability Officer",
+      "note_text": "Please double check if recycled water quantity includes batching plant washout reuse.",
+      "entity_ref": "Zojila Tunnel",
+      "action_type": "NOTE",
+      "created_at": "2026-09-19T15:20:00Z"
+    },
+    {
+      "id": "log-3",
+      "author": "S. K. Verma",
+      "author_role": "Site Engineer",
+      "note_text": "Batching plant fuel calibration log submitted with calibration certificate SHA-256 registered.",
+      "entity_ref": "Site #108 Zojila",
+      "action_type": "FILE_UPLOAD",
+      "created_at": "2026-09-20T09:10:00Z"
+    }
+  ],
+  "brsr_indicators": [
+    {
+      "indicator_code": "P1-EI-01",
+      "principle_code": "P1",
+      "principle_title": "Ethics, Transparency & Accountability",
+      "indicator_name": "Anti-corruption policy coverage",
+      "unit_of_measure": "% Operations"
+    },
+    {
+      "indicator_code": "P2-EI-01",
+      "principle_code": "P2",
+      "principle_title": "Product Lifecycle Sustainability",
+      "indicator_name": "Life Cycle Assessment (LCA) conducted",
+      "unit_of_measure": "% Turnover"
+    },
+    {
+      "indicator_code": "P3-EI-01",
+      "principle_code": "P3",
+      "principle_title": "Employee Well-being & Safety",
+      "indicator_name": "Lost Time Injury Frequency Rate (LTIFR)",
+      "unit_of_measure": "Per Mn Man-Hours"
+    },
+    {
+      "indicator_code": "P4-EI-01",
+      "principle_code": "P4",
+      "principle_title": "Stakeholder Engagement",
+      "indicator_name": "Social Impact Assessments (SIA)",
+      "unit_of_measure": "% Projects"
+    },
+    {
+      "indicator_code": "P5-EI-01",
+      "principle_code": "P5",
+      "principle_title": "Human Rights & Fair Labour",
+      "indicator_name": "Grievance redressal mechanisms",
+      "unit_of_measure": "% Sites Covered"
+    },
+    {
+      "indicator_code": "P6-EI-01",
+      "principle_code": "P6",
+      "principle_title": "Environmental Protection",
+      "indicator_name": "Total Electricity & Fuel Consumption",
+      "unit_of_measure": "Gigajoules (GJ)"
+    },
+    {
+      "indicator_code": "P6-EI-02",
+      "principle_code": "P6",
+      "principle_title": "Environmental Protection",
+      "indicator_name": "Total Scope 1 and Scope 2 GHG Emissions",
+      "unit_of_measure": "tCO2e"
+    },
+    {
+      "indicator_code": "P6-EI-03",
+      "principle_code": "P6",
+      "principle_title": "Environmental Protection",
+      "indicator_name": "Water Withdrawal & Zero Liquid Discharge (ZLD)",
+      "unit_of_measure": "Kilolitres (KL)"
+    },
+    {
+      "indicator_code": "P7-EI-01",
+      "principle_code": "P7",
+      "principle_title": "Responsible Public Policy Advocacy",
+      "indicator_name": "Affiliation with Trade Associations",
+      "unit_of_measure": "Count"
+    },
+    {
+      "indicator_code": "P8-EI-01",
+      "principle_code": "P8",
+      "principle_title": "Inclusive Growth & CSR Value Creation",
+      "indicator_name": "Corporate Social Responsibility (CSR) Spend",
+      "unit_of_measure": "\u20b9 Crores"
+    },
+    {
+      "indicator_code": "P9-EI-01",
+      "principle_code": "P9",
+      "principle_title": "Consumer Value & Responsible Service",
+      "indicator_name": "Client Quality Audits & Public Safety Compliance",
+      "unit_of_measure": "% Deliverables"
+    }
+  ]
+}
