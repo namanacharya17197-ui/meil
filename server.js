@@ -20,6 +20,19 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Serve static frontend files
+const ROOT_DIR = process.cwd();
+app.use(express.static(ROOT_DIR));
+app.use(express.static(__dirname));
+
+// Serve index.html on root
+app.get('/', (req, res) => {
+  const indexPath = fs.existsSync(path.join(__dirname, 'index.html'))
+    ? path.join(__dirname, 'index.html')
+    : path.join(ROOT_DIR, 'index.html');
+  res.sendFile(indexPath);
+});
+
 // Supabase Configuration
 const SUPABASE_CONFIG = {
   url: process.env.SUPABASE_URL || "https://tknutnputsafopjfgqdu.supabase.co",
@@ -324,6 +337,17 @@ app.get('/api/brsr/indicators', async (req, res) => {
     if (data?.length) return res.json(data);
   }
   res.json(localDb.brsr_indicators || []);
+});
+
+// Fallback to index.html for SPA frontend routing
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: `API route not found: ${req.path}` });
+  }
+  const indexPath = fs.existsSync(path.join(__dirname, 'index.html'))
+    ? path.join(__dirname, 'index.html')
+    : path.join(ROOT_DIR, 'index.html');
+  res.sendFile(indexPath);
 });
 
 // Export app for Vercel Serverless deployment
