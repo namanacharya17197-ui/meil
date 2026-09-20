@@ -326,11 +326,16 @@ app.get('/api/brsr/indicators', async (req, res) => {
   res.json(localDb.brsr_indicators || []);
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`
-🚀 MEIL ESG Connect REST API Server running on port ${PORT}
-🔗 Local Endpoint: http://localhost:${PORT}/api/health
-🗄️ Storage Mode:   ${isCloudOnline ? 'Supabase Cloud (Active)' : 'Dual-Mode Local Fallback (Active)'}
-  `);
-});
+// Export app for Vercel Serverless deployment
+module.exports = app;
+
+// Start Server if run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`
+MEIL ESG Connect REST API Server running on port ${PORT}
+Local Endpoint: http://localhost:${PORT}/api/health
+Storage Mode:   ${isCloudOnline ? 'Supabase Cloud (Active)' : 'Dual-Mode Local Fallback (Active)'}
+    `);
+  });
+}

@@ -5,7 +5,10 @@
  */
 
 const MEIL_API = (function () {
-  const API_BASE = window.MEIL_API_URL || 'http://localhost:5000/api';
+  const isLocalDifferentPort = typeof window !== 'undefined' && 
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && 
+    window.location.port !== '5000' && window.location.port !== '';
+  const API_BASE = window.MEIL_API_URL || (isLocalDifferentPort ? 'http://localhost:5000/api' : '/api');
   let isApiReachable = null;
 
   // Check if backend API server is available

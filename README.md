@@ -12,12 +12,14 @@
 [![Dark Mode](https://img.shields.io/badge/Theme-Dark%20%26%20Light-1E293B?style=for-the-badge&logo=visualstudiocode&logoColor=white)](#-dark--light-mode)
 [![License](https://img.shields.io/badge/License-Proprietary%20MEIL-0D9488?style=for-the-badge)](https://meil.in)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/namanacharya17197-ui/meil)
+
 <p align="center">
   <b>Enterprise-grade, auditable ESG analytics & greenhouse gas accounting for Megha Engineering & Infrastructures Limited (MEIL).</b><br>
   Built strictly to SEBI BRSR Core standards, ISO 14064 GHG protocols, and designed with ultra-crisp responsive UI.
 </p>
 
-[✨ Quickstart](#-quickstart-30-seconds) • [⚙️ 6-Step Architecture](#-the-6-step-backend-architecture) • [⚡ Features](#-features--vibes) • [🗄️ Supabase Setup](#-database--supabase-setup) • [📂 Structure](#-repo-architecture)
+[🚀 1-Click Vercel Deploy](https://vercel.com/new/clone?repository-url=https://github.com/namanacharya17197-ui/meil) • [✨ Quickstart](#-quickstart-30-seconds) • [⚙️ 6-Step Architecture](#-the-6-step-backend-architecture) • [⚡ Features](#-features--vibes) • [🗄️ Supabase Setup](#-database--supabase-setup)
 
 ---
 
@@ -121,7 +123,18 @@ The project is pre-configured:
 
 ## ⚡ Quickstart (30 Seconds)
 
-### Option A: Python Native Backend (Instant, 0 dependencies)
+### Option A: 1-Click Cloud Deploy to Vercel (Recommended ⚡)
+Deploy the live frontend and serverless API globally to Vercel in 1 click:
+1. Click the button below:
+   
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/namanacharya17197-ui/meil)
+
+2. Sign in with GitHub on Vercel.
+3. Click **Deploy**. Vercel will automatically configure the static site, serverless API routes (`/api/*`), and generate a public live URL (e.g. `https://meil-esg-connect.vercel.app`)!
+
+---
+
+### Option B: Python Native Backend (Instant Local, 0 dependencies)
 Python is already installed on Windows. Launch with one line:
 
 ```bash
