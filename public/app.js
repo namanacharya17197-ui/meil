@@ -55,15 +55,12 @@ function navigateTo(path, updateHash = true) {
   }
 
   // Update Sidebar active styling
-  const activeClassStr = 'bg-primary text-on-primary font-title-md border-l-2 border-on-tertiary-container shadow-sm';
-  const inactiveClassStr = 'text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm';
-
   document.querySelectorAll('.nav-link').forEach(link => {
     const linkPath = link.getAttribute('data-path');
     if (linkPath === path) {
-      link.className = `nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all ${activeClassStr}`;
+      link.classList.add('active-nav-link');
     } else {
-      link.className = `nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all ${inactiveClassStr}`;
+      link.classList.remove('active-nav-link');
     }
   });
 

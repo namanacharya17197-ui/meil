@@ -90,6 +90,116 @@
       background-color: rgba(17, 28, 46, 0.95) !important;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
+    /* Sidebar Styling: Light Theme (Default) */
+    #sidebar {
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      color: #1e293b;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    #sidebar .sidebar-brand {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    #sidebar .sidebar-brand-title {
+      color: #0f172a;
+    }
+    #sidebar .sidebar-brand-subtitle {
+      color: #64748b;
+    }
+    #sidebar .sidebar-brand-icon {
+      color: #64748b;
+    }
+    #sidebar .sidebar-brand-icon:hover {
+      color: #0f172a;
+    }
+    #sidebar .sidebar-section-title {
+      color: #64748b;
+    }
+    #sidebar .nav-link {
+      color: #475569;
+      font-weight: 500;
+    }
+    #sidebar .nav-link:hover {
+      background-color: #f1f5f9;
+      color: #0f172a;
+    }
+    #sidebar .nav-link.active-nav-link {
+      background-color: #f1f5f9;
+      color: #00152a;
+      font-weight: 600;
+      border-left: 3px solid #8e0f28;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+    #sidebar .nav-link.active-nav-link .material-symbols-outlined {
+      color: #8e0f28;
+    }
+    #sidebar .sidebar-footer {
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+    #sidebar .sidebar-footer-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+    #sidebar .sidebar-footer-text {
+      color: #475569;
+    }
+
+    /* Sidebar Styling: Dark Theme */
+    html.dark #sidebar {
+      background-color: #0b1320 !important;
+      border-right: 1px solid #1e293b !important;
+      color: #f1f5f9 !important;
+    }
+    html.dark #sidebar .sidebar-brand {
+      background-color: #080e18 !important;
+      border-bottom: 1px solid #1e293b !important;
+    }
+    html.dark #sidebar .sidebar-brand-title {
+      color: #f8fafc !important;
+    }
+    html.dark #sidebar .sidebar-brand-subtitle {
+      color: #94a3b8 !important;
+    }
+    html.dark #sidebar .sidebar-brand-icon {
+      color: #94a3b8 !important;
+    }
+    html.dark #sidebar .sidebar-brand-icon:hover {
+      color: #f8fafc !important;
+    }
+    html.dark #sidebar .sidebar-section-title {
+      color: #94a3b8 !important;
+    }
+    html.dark #sidebar .nav-link {
+      color: #94a3b8 !important;
+    }
+    html.dark #sidebar .nav-link:hover {
+      background-color: #16243b !important;
+      color: #f8fafc !important;
+    }
+    html.dark #sidebar .nav-link.active-nav-link {
+      background-color: #16243b !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      border-left: 3px solid #f25d6a !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    }
+    html.dark #sidebar .nav-link.active-nav-link .material-symbols-outlined {
+      color: #f25d6a !important;
+    }
+    html.dark #sidebar .sidebar-footer {
+      background-color: #080e18 !important;
+      border-top: 1px solid #1e293b !important;
+    }
+    html.dark #sidebar .sidebar-footer-card {
+      background-color: #111c2e !important;
+      border: 1px solid #1e293b !important;
+    }
+    html.dark #sidebar .sidebar-footer-text {
+      color: #94a3b8 !important;
+    }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
@@ -199,17 +309,17 @@
 <body class="bg-surface font-body-md text-on-surface">
 
   <!-- Left Sidebar Navigation Drawer -->
-  <aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container text-on-primary z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.08)]">
+  <aside id="sidebar" class="fixed left-0 top-0 h-screen w-72 z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.08)] transition-colors duration-200">
     <!-- Brand Title -->
-    <div class="h-16 px-space-md flex items-center justify-between bg-primary shrink-0">
+    <div class="sidebar-brand h-16 px-space-md flex items-center justify-between shrink-0 transition-colors duration-200">
       <div class="flex items-center gap-space-sm cursor-pointer" onclick="navigateTo('executive-dashboard')">
         <div class="w-2 h-6 bg-on-tertiary-container rounded"></div>
         <div class="flex flex-col">
-          <span class="font-title-lg text-title-lg tracking-tight text-on-primary font-bold leading-none">MEIL ESG</span>
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container leading-none mt-1">Connect Platform</span>
+          <span class="sidebar-brand-title font-title-lg text-title-lg tracking-tight font-bold leading-none">MEIL ESG</span>
+          <span class="sidebar-brand-subtitle font-label-sm text-label-sm uppercase tracking-wider leading-none mt-1">Connect Platform</span>
         </div>
       </div>
-      <span class="material-symbols-outlined text-on-primary-container text-base cursor-pointer hover:text-on-primary transition-colors" title="Collapse sidebar">dock_to_right</span>
+      <span class="material-symbols-outlined sidebar-brand-icon text-base cursor-pointer transition-colors" title="Collapse sidebar">dock_to_right</span>
     </div>
 
     <!-- Navigation Menu Items -->
@@ -218,18 +328,18 @@
       <!-- 1. Overview & Home -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">1. Overview &amp; Home</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">1. Overview &amp; Home</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all bg-primary text-on-primary font-title-md border-l-2 border-on-tertiary-container shadow-sm" data-path="executive-dashboard" href="#executive-dashboard">
+          <a class="nav-link active-nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="executive-dashboard" href="#executive-dashboard">
             <span class="material-symbols-outlined text-lg">dashboard</span>
             <span>Executive Dashboard</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="sdg-alignment" href="#sdg-alignment">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="sdg-alignment" href="#sdg-alignment">
             <span class="material-symbols-outlined text-lg">spa</span>
             <span>SDG Alignment</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="project-map" href="#project-map">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="project-map" href="#project-map">
             <span class="material-symbols-outlined text-lg">map</span>
             <span>Project Map</span>
           </a>
@@ -239,14 +349,14 @@
       <!-- 2. Governance & Structure -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">2. Governance &amp; Structure</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">2. Governance &amp; Structure</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="organization-hierarchy-tree" href="#organization-hierarchy-tree">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="organization-hierarchy-tree" href="#organization-hierarchy-tree">
             <span class="material-symbols-outlined text-lg">account_tree</span>
             <span>Organization Hierarchy</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="reporting-cycles-and-status-matrix" href="#reporting-cycles-and-status-matrix">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="reporting-cycles-and-status-matrix" href="#reporting-cycles-and-status-matrix">
             <span class="material-symbols-outlined text-lg">event_repeat</span>
             <span>Reporting Cycles Matrix</span>
           </a>
@@ -256,22 +366,22 @@
       <!-- 3. Data Collection -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">3. Data Collection</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">3. Data Collection</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-section-a-general" href="#brsr-section-a-general">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="brsr-section-a-general" href="#brsr-section-a-general">
             <span class="material-symbols-outlined text-lg">description</span>
             <span>BRSR Section A (General)</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-section-b-management-and-process" href="#brsr-section-b-management-and-process">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="brsr-section-b-management-and-process" href="#brsr-section-b-management-and-process">
             <span class="material-symbols-outlined text-lg">fact_check</span>
             <span>BRSR Section B (Process)</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-section-c-principle-wise-performance" href="#brsr-section-c-principle-wise-performance">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="brsr-section-c-principle-wise-performance" href="#brsr-section-c-principle-wise-performance">
             <span class="material-symbols-outlined text-lg">rule</span>
             <span>BRSR Section C (P1-P9)</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="project-quick-entry-sheet" href="#project-quick-entry-sheet">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="project-quick-entry-sheet" href="#project-quick-entry-sheet">
             <span class="material-symbols-outlined text-lg">table_chart</span>
             <span>Project Quick-Entry Sheet</span>
           </a>
@@ -281,22 +391,22 @@
       <!-- 4. ESG Analytics & Engine -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">4. ESG Analytics &amp; Engine</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">4. ESG Analytics &amp; Engine</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="calculation-and-emission-engine" href="#calculation-and-emission-engine">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="calculation-and-emission-engine" href="#calculation-and-emission-engine">
             <span class="material-symbols-outlined text-lg">calculate</span>
             <span>Calculation &amp; Emission</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-core-9-attributes" href="#brsr-core-9-attributes">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="brsr-core-9-attributes" href="#brsr-core-9-attributes">
             <span class="material-symbols-outlined text-lg">verified</span>
             <span>BRSR Core 9 Attributes</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="multi-level-consolidation-and-drilldown" href="#multi-level-consolidation-and-drilldown">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="multi-level-consolidation-and-drilldown" href="#multi-level-consolidation-and-drilldown">
             <span class="material-symbols-outlined text-lg">layers</span>
             <span>Consolidation &amp; Drilldown</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="data-quality-and-anomaly-radar" href="#data-quality-and-anomaly-radar">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="data-quality-and-anomaly-radar" href="#data-quality-and-anomaly-radar">
             <span class="material-symbols-outlined text-lg">radar</span>
             <span>Anomaly Radar</span>
           </a>
@@ -306,18 +416,18 @@
       <!-- 5. Assurance & Reports -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">5. Assurance &amp; Reports</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">5. Assurance &amp; Reports</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="review-and-approval-workflow" href="#review-and-approval-workflow">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="review-and-approval-workflow" href="#review-and-approval-workflow">
             <span class="material-symbols-outlined text-lg">how_to_reg</span>
             <span>Review &amp; Approval</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="audit-trail-log" href="#audit-trail-log">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="audit-trail-log" href="#audit-trail-log">
             <span class="material-symbols-outlined text-lg">history_edu</span>
             <span>Audit Trail Log</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="brsr-report-generator" href="#brsr-report-generator">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="brsr-report-generator" href="#brsr-report-generator">
             <span class="material-symbols-outlined text-lg">picture_as_pdf</span>
             <span>BRSR PDF / XBRL</span>
           </a>
@@ -327,23 +437,23 @@
       <!-- 6. AI Assistant -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm flex items-center justify-between">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">6. AI Assistant</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">6. AI Assistant</span>
           <span class="text-[10px] font-bold px-1.5 py-0.5 bg-tertiary-container text-on-tertiary-container rounded">GEMINI</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="gemini-copilot-draft-narratives" href="#gemini-copilot-draft-narratives">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="gemini-copilot-draft-narratives" href="#gemini-copilot-draft-narratives">
             <span class="material-symbols-outlined text-lg">auto_awesome</span>
             <span>Draft Narratives</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="anomaly-explainer" href="#anomaly-explainer">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="anomaly-explainer" href="#anomaly-explainer">
             <span class="material-symbols-outlined text-lg">psychology</span>
             <span>Anomaly Explainer</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="gap-analysis" href="#gap-analysis">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="gap-analysis" href="#gap-analysis">
             <span class="material-symbols-outlined text-lg">analytics</span>
             <span>Gap Analysis</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="ask-esg-chat" href="#ask-esg-chat">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="ask-esg-chat" href="#ask-esg-chat">
             <span class="material-symbols-outlined text-lg">forum</span>
             <span>Ask ESG Chat</span>
           </a>
@@ -353,18 +463,18 @@
       <!-- 7. Administration -->
       <nav class="space-y-space-sm">
         <div class="px-space-sm">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-semibold">7. Administration</span>
+          <span class="sidebar-section-title font-label-sm text-label-sm uppercase tracking-wider font-semibold">7. Administration</span>
         </div>
         <div class="space-y-0.5">
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="emission-library" href="#emission-library">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="emission-library" href="#emission-library">
             <span class="material-symbols-outlined text-lg">library_books</span>
             <span>Emission Library</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="indicator-master" href="#indicator-master">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="indicator-master" href="#indicator-master">
             <span class="material-symbols-outlined text-lg">tune</span>
             <span>Indicator Master</span>
           </a>
-          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-body-sm text-body-sm" data-path="guided-tour" href="#guided-tour">
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="guided-tour" href="#guided-tour">
             <span class="material-symbols-outlined text-lg">explore</span>
             <span>Guided Tour</span>
           </a>
@@ -373,13 +483,13 @@
     </div>
 
     <!-- Sidebar Bottom Status Badge -->
-    <div class="p-space-sm bg-primary shrink-0">
-      <div class="flex items-center justify-between px-space-sm py-2 bg-primary-container rounded">
+    <div class="sidebar-footer p-space-sm shrink-0 transition-colors duration-200">
+      <div class="sidebar-footer-card flex items-center justify-between px-space-sm py-2 rounded transition-colors duration-200">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-          <span class="font-label-sm text-label-sm text-on-primary-container">SEBI BRSR Engine</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="font-label-sm text-label-sm sidebar-footer-text font-medium">SEBI BRSR Engine</span>
         </div>
-        <span class="font-label-sm text-label-sm font-semibold text-secondary-container">v3.4 Active</span>
+        <span class="font-label-sm text-label-sm font-semibold text-emerald-600 dark:text-emerald-400">v3.4 Active</span>
       </div>
     </div>
   </aside>
