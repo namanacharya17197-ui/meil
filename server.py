@@ -166,6 +166,14 @@ class MEILApiHandler(SimpleHTTPRequestHandler):
             self._send_json(db.get("organizations", []))
         elif path == "/api/projects":
             self._send_json(db.get("projects", []))
+        elif path.startswith("/api/projects/"):
+            proj_id = path.split("/api/projects/")[1]
+            projects = db.get("projects", [])
+            found = next((p for p in projects if p.get("id") == proj_id or p.get("site_code") == proj_id), None)
+            if found:
+                self._send_json(found)
+            else:
+                self._send_json({"error": f"Project {proj_id} not found"}, status=404)
         elif path == "/api/emission-factors":
             self._send_json(db.get("emission_factors", []))
         elif path == "/api/anomalies":
@@ -220,6 +228,116 @@ class MEILApiHandler(SimpleHTTPRequestHandler):
             db["energy_consumption"].insert(0, record)
             save_db(db)
             self._send_json({"success": True, "record": record})
+
+        elif path == "/api/projects":
+            p = body
+            projects = db.get("projects", [])
+            site_code = p.get("site_code", f"Site #{len(projects)+1:03d}")
+            import re
+            slug = re.sub(r'[^a-z0-9]+', '-', p.get("name", "proj").lower()).strip('-')
+            new_p = {
+                "id": p.get("id", f"proj-{slug}"),
+                "site_code": site_code,
+                "name": p.get("name"),
+                "state_region": p.get("state_region", "India"),
+                "location": p.get("location", p.get("state_region", "India")),
+                "category": p.get("category", "Water & Irrigation"),
+                "status": p.get("status", "Ongoing"),
+                "water_source": p.get("water_source", "Regional Source"),
+                "key_infrastructure": p.get("key_infrastructure", ""),
+                "scale_served": p.get("scale_served", ""),
+                "summary": p.get("summary", ""),
+                "subsidiary_bu": p.get("subsidiary_bu", "MEIL Water Division"),
+                "scope1_tco2e": float(p.get("scope1_tco2e", 0) or 0),
+                "scope2_tco2e": float(p.get("scope2_tco2e", 0) or 0),
+                "scope3_tco2e": float(p.get("scope3_tco2e", 0) or 0),
+                "turnover_cr": float(p.get("turnover_cr", 500) or 500),
+                "safe_man_hours": float(p.get("safe_man_hours", 1000000) or 1000000),
+                "energy_mix": p.get("energy_mix", "Standard Grid Mix"),
+                "water_recycled_pct": float(p.get("water_recycled_pct", 0) or 0),
+                "audit_status": p.get("audit_status", "Stage-2 In Review"),
+                "status_category": "active",
+                "version": 1,
+                "updatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "esg_submissions": []
+            }
+            projects.append(new_p)
+            save_db(db)
+            self._send_json({"success": True, "project": new_p}, status=201)
+
+        elif path.startswith("/api/projects/") and path.endswith("/esg"):
+            parts = path.split("/")
+            proj_id = parts[3]
+            projects = db.get("projects", [])
+            found = next((p for p in projects if p.get("id") == proj_id or p.get("site_code") == proj_id), None)
+            if not found:
+                self._send_json({"error": f"Project {proj_id} not found"}, status=404)
+                return
+
+            d_kl = float(body.get("diesel_kl", 0) or 0)
+            g_mwh = float(body.get("grid_mwh", 0) or 0)
+            s_mwh = float(body.get("solar_mwh", 0) or 0)
+            png_gj = float(body.get("png_gj", 0) or 0)
+
+            s1 = float(body["scope1_tco2e"]) if "scope1_tco2e" in body and body["scope1_tco2e"] != "" else round(((d_kl * 1000 * 2.6865 + png_gj * 1.982) / 1000), 2)
+            s2 = float(body["scope2_tco2e"]) if "scope2_tco2e" in body and body["scope2_tco2e"] != "" else round(g_mwh * 0.716, 2)
+            s3 = float(body.get("scope3_tco2e", found.get("scope3_tco2e", 0)) or 0)
+
+            found["scope1_tco2e"] = s1
+            found["scope2_tco2e"] = s2
+            found["scope3_tco2e"] = s3
+            if "water_recycled_pct" in body and body["water_recycled_pct"] != "":
+                found["water_recycled_pct"] = float(body["water_recycled_pct"])
+            if "safe_man_hours" in body and body["safe_man_hours"] != "":
+                found["safe_man_hours"] = float(body["safe_man_hours"])
+            if "turnover_cr" in body and body["turnover_cr"] != "":
+                found["turnover_cr"] = float(body["turnover_cr"])
+
+            found["version"] = found.get("version", 1) + 1
+            found["updatedAt"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            found["audit_status"] = "Stage-2 In Review"
+
+            sub = {
+                "submission_id": f"sub-{found.get('site_code','').replace('#','').replace(' ','')}-{int(time.time()*1000)}",
+                "fiscal_period": body.get("fiscal_period", "Q2 FY 2025-26"),
+                "submitted_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "submitted_by": body.get("submitted_by", "Site Environmental Officer"),
+                "diesel_kl": d_kl,
+                "grid_mwh": g_mwh,
+                "solar_mwh": s_mwh,
+                "scope1_tco2e": s1,
+                "scope2_tco2e": s2,
+                "scope3_tco2e": s3,
+                "water_withdrawn_kl": float(body.get("water_withdrawn_kl", 0) or 0),
+                "water_recycled_pct": float(body.get("water_recycled_pct", 0) or 0),
+                "safe_man_hours": float(body.get("safe_man_hours", 0) or 0),
+                "tree_plantation_count": float(body.get("tree_plantation_count", 0) or 0),
+                "notes": body.get("notes", ""),
+                "evidence_ref": body.get("evidence_ref", "")
+            }
+            if "esg_submissions" not in found:
+                found["esg_submissions"] = []
+            found["esg_submissions"].insert(0, sub)
+
+            audit = {
+                "id": f"log-{int(time.time()*1000)}",
+                "author": body.get("submitted_by", "Site Environmental Officer"),
+                "author_role": "Project Data Entry Lead",
+                "note_text": f"ESG Telemetry Data recorded for {found.get('name')} ({found.get('site_code')}): Scope 1={s1} tCO2e, Scope 2={s2} tCO2e, Recycled Water={body.get('water_recycled_pct',0)}%.",
+                "entity_ref": f"{found.get('name')} ({found.get('site_code')})",
+                "action_type": "ESG_SUBMISSION",
+                "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            }
+            db.setdefault("audit_logs", []).insert(0, audit)
+            save_db(db)
+
+            self._send_json({
+                "success": True,
+                "message": f"ESG data saved successfully for {found.get('name')}",
+                "project": found,
+                "submission": sub,
+                "auditLog": audit
+            })
 
         elif path == "/api/telemetry/batch-sync":
             mutations = body.get("mutations", [])

@@ -57,6 +57,72 @@ const MEIL_API = (function () {
     return null;
   }
 
+  // Fetch single project by ID or site_code
+  async function getProjectById(id) {
+    if (isApiReachable !== false) {
+      try {
+        const res = await fetch(`${API_BASE}/projects/${encodeURIComponent(id)}`);
+        if (res.ok) return await res.json();
+      } catch (e) {
+        isApiReachable = false;
+      }
+    }
+    const all = await getProjects();
+    return (all || []).find(p => p.id === id || p.site_code === id) || null;
+  }
+
+  // Save / submit ESG data for a specific project
+  async function saveProjectESG(id, esgPayload) {
+    const role = getActiveRole();
+    if (isApiReachable !== false) {
+      try {
+        const res = await fetch(`${API_BASE}/projects/${encodeURIComponent(id)}/esg`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-User-Role': role
+          },
+          body: JSON.stringify(esgPayload)
+        });
+        if (res.ok) return await res.json();
+      } catch (e) {
+        isApiReachable = false;
+      }
+    }
+    // Local fallback save in localStorage
+    try {
+      const storageKey = 'meil_project_esg_' + id;
+      const existing = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      const newSub = {
+        submission_id: `local-sub-${Date.now()}`,
+        submitted_at: new Date().toISOString(),
+        ...esgPayload
+      };
+      existing.unshift(newSub);
+      localStorage.setItem(storageKey, JSON.stringify(existing));
+      return { success: true, localOnly: true, submission: newSub };
+    } catch (err) {
+      return { success: false, error: err.message };
+    }
+  }
+
+  // Register / Add new project
+  async function registerProject(projectPayload) {
+    if (isApiReachable !== false) {
+      try {
+        const res = await fetch(`${API_BASE}/projects`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(projectPayload)
+        });
+        if (res.ok) return await res.json();
+      } catch (e) {
+        isApiReachable = false;
+      }
+    }
+    return { success: true, localOnly: true, project: projectPayload };
+  }
+
   // Fetch emission factors
   async function getEmissionFactors() {
     if (isApiReachable !== false) {
@@ -345,6 +411,9 @@ const MEIL_API = (function () {
     API_BASE,
     checkApiHealth,
     getProjects,
+    getProjectById,
+    saveProjectESG,
+    registerProject,
     getEmissionFactors,
     updateEmissionFactor,
     calculateEmissions,

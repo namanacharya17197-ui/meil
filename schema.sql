@@ -25,6 +25,13 @@ create table if not exists public.projects (
     name text not null,
     location text not null,
     subsidiary_bu text not null,
+    state_region text,
+    category text,
+    status text,
+    water_source text,
+    key_infrastructure text,
+    scale_served text,
+    summary text,
     scope1_tco2e numeric(12, 2) default 0,
     scope2_tco2e numeric(12, 2) default 0,
     scope3_tco2e numeric(12, 2) default 0,
@@ -221,3 +228,283 @@ values
 ('DISCOM_Power_Bills_Q1_Q4_FY26.pdf', 4120.5, 'a1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890', 'M. Suresh', 'Lead Auditor', 'P6-EI-01', 'Verified'),
 ('APPCB_Consent_to_Operate_Renewal.pdf', 1840.2, 'f6e5d4c3b2a10987fedcba0987654321fedcba0987654321fedcba0987654321', 'K. V. Rao', 'Chief Sustainability Officer', 'P6-EI-03', 'Verified'),
 ('Heavy_DG_Fuel_Logbooks_Audit.xlsx', 8900.0, '1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef', 'S. K. Verma', 'Site Engineer', 'P6-EI-02', 'Verified');
+
+
+-- =========================================================================
+-- 25 MEIL Major Water Infrastructure Projects Seed Data
+-- =========================================================================
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #042', 'Polavaram Project', 'Andhra Pradesh', 'Andhra Pradesh - Godavari River', 'Multipurpose (Irrigation + Drinking Water + Hydropower)', 'Ongoing (MEIL since Nov 2019)', 'Godavari River', 'World''s largest spillway (1.18 km, 48 radial gates); 2.45 km earth-cum-rock-fill dam; 1,372 m diaphragm wall (95 m deep); 960 MW powerhouse (12 x 80 MW turbines)', 'Andhra Pradesh statewide irrigation drinking water and power', 'One of India''s largest multi-purpose infrastructure projects delivering irrigation drinking water and clean hydropower', 'MEIL Hydro Division', 76400, 19840, 24600, 7200.0, 16200000, '32.6% Hydro Dedicated', 52.8, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #089', 'Gangadhar Meher Lift Irrigation Project', 'Odisha (Bargarh & Sonepur districts)', 'Odisha (Bargarh & Sonepur districts) - Hirakud Dam', 'Lift Irrigation', 'Partially commissioned', 'Hirakud Dam', '20 km pipeline (4 m dia); 2 pump houses (Turunga & Kanapali); 3,000+ km pipeline network; drip irrigation on ~7,500 ha', '25000+ hectares across 130 villages', 'Won Best Infrastructure Pioneer award at 17th Water Digest World Water Awards 2023-24', 'MEIL Hydro & Irrigation Division', 18200, 8450, 6100, 1450.0, 4200000, '24.5% Renewable Mix', 61.2, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #115', 'Kalisindh Phase 2 Project', 'Madhya Pradesh (Shajapur & Rajgarh districts)', 'Madhya Pradesh (Shajapur & Rajgarh districts) - Not specified (regional river source)', 'Lift Irrigation', 'Ongoing', 'Not specified (regional river source)', '100+ km main pipeline (4.6 m wide); 7,000+ km distribution network; 100 km transmission line on 300 towers; multiple pump houses', '110000+ hectares', 'Large pipeline and distribution network to irrigate highland farm areas via pumped delivery', 'MEIL Water & Irrigation', 29400, 14100, 9800, 2600.0, 6800000, '21.0% Grid & Solar', 44.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #031', 'Narmada-Kshipra-Simhastha Link Project', 'Madhya Pradesh (Ujjain & Shajapur / Malwa region)', 'Madhya Pradesh (Ujjain & Shajapur / Malwa region) - Omkareshwar Reservoir', 'River-Linking Lift Irrigation', 'Completed (2014)', 'Omkareshwar Reservoir', '3 stages, 8 machines per pump house; lifts 5 cumecs over 47 km; total machinery capacity 27.5 MW; lift range 228-576 m', 'Malwa region irrigation and socio-economic development', 'India''s first river-linking project by lift addressing water scarcity in the Chambal basin', 'MEIL Hydro Division', 14200, 28500, 4300, 1800.0, 5100000, '35.0% Hydro Clean Power', 58.0, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #067', 'Kadana Lift Irrigation Scheme', 'Gujarat (border districts with MP & Rajasthan)', 'Gujarat (border districts with MP & Rajasthan) - Kadana Reservoir / River Narmada', 'Lift Irrigation + Drinking Water', 'Ongoing', 'Kadana Reservoir / River Narmada', '16 machines per pump house; each motor capacity 5826 cubic metres per hour', 'Eastern Gujarat border districts', 'Lifts water from Kadana into River Mahisagar and onward to Narmada for irrigation and drinking supply', 'MEIL Water & Irrigation', 19800, 11400, 5200, 1650.0, 3900000, '28.0% Clean Mix', 49.5, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #014', 'Gayatri Pumphouse (Kaleshwaram Lift Irrigation Project)', 'Telangana (Karimnagar district)', 'Telangana (Karimnagar district) - Godavari River (via Sripadasagar Yellampalli project)', 'Lift Irrigation', 'Completed (built in under 42 months)', 'Godavari River (via Sripadasagar Yellampalli project)', 'World''s largest irrigation pumping station; 7 machines x 139 MW = 973 MW total; underground at 178 m RSL; twin tunnels 4,133 m long, 10.5 m diameter; 4 surge pools (main surge pool 325 m)', 'Key link in the Kaleshwaram Lift Irrigation Project (KLIP)', 'Diverts Godavari water into the Mid Manair reservoir pumping ~2 TMC ft of water daily to a height of 118 m RSL', 'MEIL Hydro Division', 24310, 34100, 14200, 4100.0, 9500000, '41.0% High-Tension Renew', 55.0, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #056', 'Saurashtra Narmada Avtaran (SAUNI Yojana)', 'Gujarat (11 Saurashtra districts incl. Rajkot Jamnagar Morbi)', 'Gujarat (11 Saurashtra districts incl. Rajkot Jamnagar Morbi) - River Narmada floodwater (via Kadana & Panam dams)', 'Irrigation + Drinking Water', 'Ongoing (Phase 2 completed)', 'River Narmada floodwater (via Kadana & Panam dams)', '1,125 km pipeline network; 5 pumps, 7 motors, 66/6.6 kV substation; 2,761 million cubic feet pumping capacity', 'Fills 115+ dams; drinking water to 731 villages and 31 towns', 'Piped (not canal) delivery of Narmada floodwater to drought-prone Saurashtra region', 'MEIL Water & Irrigation', 36200, 21400, 13500, 3950.0, 8900000, '29.4% Solar/Wind Hybrid', 51.2, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #073', 'Ramthal Drip Irrigation Project', 'Karnataka (Bagalkot district)', 'Karnataka (Bagalkot district) - Narayanpura Reservoir on River Krishna', 'Drip Irrigation', 'Completed (2017)', 'Narayanpura Reservoir on River Krishna', '2,127.46 km pipeline network (48.54 km GRP + 128.89 km PVC feeder + 1,950 km PVC mains/sub-mains); pump house, surge tank, valve chambers', '28911 acres across 22 villages', 'Asia''s largest community-based automated drip irrigation project executed with Netafim', 'MEIL Micro-Irrigation', 9800, 6200, 2900, 1100.0, 3200000, '38.5% Clean Solar', 78.4, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #019', 'Mission Bhagiratha & GDWSS', 'Telangana', 'Telangana - Godavari River', 'Drinking Water', 'Completed', 'Godavari River', '14 key segments; Gajwel Water Grid (~1,200 km pipeline, built in 10 months); 735 MLD water treatment plant at Mallaram', '15 million+ people served (designed capacity ~20 million)', 'Brings Godavari water to Hyderabad and statewide habitations via long-distance transmission mains and reservoirs', 'MEIL Water Supply Division', 42100, 38900, 16700, 5400.0, 12400000, '34.0% Low-Carbon Grid', 65.0, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #082', 'Ganga Jal Aapurti Yojana', 'Bihar', 'Bihar - Ganga River (floodwater)', 'Drinking Water', 'Completed', 'Ganga River (floodwater)', '190 km pipeline from Hathidah intake; WTPs of 186.5 MLD (Gaya-Bodh Gaya) and 24 MLD (Rajgir Phase 1); storage reservoirs at Tetar Rajgir and Gaya', '7.5 lakh+ people', 'India''s first floodwater-to-drinking-water scheme serving Rajgir Gaya and Bodh Gaya', 'MEIL Drinking Water Division', 21500, 12300, 7400, 2100.0, 5800000, '26.0% Dedicated Grid', 48.0, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #094', 'Bhubaneswar Bulk Water Supply Scheme', 'Odisha', 'Odisha - Not specified', 'Bulk Water Supply', 'Completed (2018)', 'Not specified', '83 MLD intake well; 11 MLD MBR unit; multiple reservoirs; ~86 km MS/DI pipelines', 'Industrial hubs institutions (IIT Bhubaneswar NISER) and surrounding urban areas', 'Backbone bulk water network for industrial and municipal consumers in Bhubaneswar', 'MEIL Industrial Water', 8400, 7100, 3200, 850.0, 2400000, '31.2% Efficient Grid', 54.0, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #048', 'Uddanam Drinking Water Project', 'Andhra Pradesh (Srikakulam district)', 'Andhra Pradesh (Srikakulam district) - Vamsadhara River / Hiramandalam Reservoir', 'Drinking Water', 'Completed', 'Vamsadhara River / Hiramandalam Reservoir', '84 MLD water treatment plant; 1,200 km pipeline network; intake wells pumping stations overhead tanks', '~7 lakh people across 800+ villages', 'Addresses kidney-disease health crisis linked to contaminated groundwater', 'MEIL Drinking Water Division', 11200, 6800, 4100, 1250.0, 3600000, '27.5% Solar Assisted', 62.0, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #044', 'Nellore Drinking Water Project', 'Andhra Pradesh', 'Andhra Pradesh - Penna River (Sangam Barrage)', 'Drinking Water', 'Completed', 'Penna River (Sangam Barrage)', '122 MLD water treatment plant at Mahammadapuram; intake well raw-water pump house multi-zone distribution network', '~70000 families in Nellore city', 'EPC project strengthening Nellore''s long-term urban water security', 'MEIL Urban Infrastructure', 9600, 5900, 3100, 980.0, 2900000, '22.0% Regional Grid', 46.0, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #049', 'Pulivendula Drinking Water Project', 'Andhra Pradesh (YSR Kadapa district)', 'Andhra Pradesh (YSR Kadapa district) - Chitravathi Balancing Reservoir', 'Drinking Water', 'Completed', 'Chitravathi Balancing Reservoir', '65 MLD water treatment plant; pipeline and pumping/storage network', '299 villages across 7 mandals', 'Replaces dependence on vulnerable local water sources in rural Pulivendula', 'MEIL Rural Water Supply', 8200, 5100, 2400, 790.0, 2300000, '25.0% Solar Grid', 48.0, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #051', 'Dhone Drinking Water Project', 'Andhra Pradesh', 'Andhra Pradesh - Not specified', 'Drinking Water', 'Completed', 'Not specified', 'Upgraded intake treatment and distribution systems; new transmission pipelines', 'Dhone town', 'Urban water-supply improvement reducing dependence on stressed groundwater', 'MEIL Urban Water', 5600, 3400, 1800, 480.0, 1500000, '20.0% Standard Grid', 42.0, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #052', 'Proddatur Drinking Water Project', 'Andhra Pradesh', 'Andhra Pradesh - Not specified', 'Drinking Water (AMRUT scheme)', 'Completed', 'Not specified', '43 MLD water treatment plant; ~171 km of pipelines; new intake and transmission', 'Proddatur town', 'Reinforces bulk supply and distribution for reliable pressurised drinking water', 'MEIL Urban Infrastructure', 6100, 3800, 1900, 520.0, 1700000, '22.5% Grid Power', 45.0, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #063', 'Pillur III Drinking Water Supply Scheme', 'Tamil Nadu (Coimbatore)', 'Tamil Nadu (Coimbatore) - Bhavani River', 'Drinking Water', 'Completed', 'Bhavani River', 'New intake and raw-water pump house near Pillur; 90+ km transmission pipeline; 178.3 MLD water treatment plant', '1.6 million+ residents (city capacity raised to ~380 MLD)', 'Augments existing Pillur I & II supplies for expanded Coimbatore corporation limits', 'MEIL Water Infrastructure', 14800, 9600, 4800, 1350.0, 3900000, '30.0% Green Energy Mix', 57.0, 'Stage-2 Certified', 'high')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #099', 'Other Completed Schemes - Rajasthan Karnataka UP', 'Rajasthan, Karnataka, Uttar Pradesh', 'Rajasthan, Karnataka, Uttar Pradesh - Various local sources', 'Drinking Water', 'Completed', 'Various local sources', 'Rajasthan: Chambal-Bhilwara, Kotri Tehsil, Asind Tehsil, Jetpur-Pali, Shahpura Tehsil, Dudu-Todaraisingh. Karnataka: Hanur, Adichunchanagiri, Pavagada, TG Halli. UP: Gothura, Dhuha Talar', 'Multiple multi-village and urban systems', 'Reduced water-borne disease risk and supported urban growth industry and tourism', 'MEIL Inter-State Water Programs', 28500, 17200, 8600, 2900.0, 7400000, '26.5% Regional Mix', 50.0, 'Audited & Verified', 'active')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #121', 'Uttar Pradesh Ongoing Water Schemes', 'Uttar Pradesh', 'Uttar Pradesh - Not specified', 'Drinking Water', 'Ongoing', 'Not specified', 'Basti Rural WSS Phase 2; Ayodhya Rural WSS Phase 3; Agra Water Supply Scheme (2 segments); Unnao Cluster Phase 4 (2 segments)', 'Rural and peri-urban habitations', 'Expanding multi-village and urban drinking water networks', 'MEIL Water & Infra (North)', 38400, 18900, 12400, 3400.0, 8200000, '21.0% Grid Average', 46.5, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #124', 'Tamil Nadu Ongoing Water Schemes', 'Tamil Nadu', 'Tamil Nadu - Not specified', 'Drinking Water', 'Ongoing', 'Not specified', 'Virudhunagar Combined Water Supply Scheme (3 segments); Tirunelveli CWSS', 'Growing municipal and rural clusters', 'Improving raw water sourcing treatment and long-distance transmission', 'MEIL Water & Infra (South)', 22100, 13400, 7800, 2150.0, 5100000, '28.0% Wind & Solar Mix', 52.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #127', 'Telangana Ongoing Water Schemes', 'Telangana', 'Telangana - Not specified', 'Drinking Water', 'Ongoing', 'Not specified', 'Gajwel Extension Project; Sunkishala Drinking Water Project; AMRUT scheme works across 42 Urban Local Bodies', '42 urban local bodies plus Gajwel/Sunkishala areas', 'Upgrading treatment storage and distribution for continued urbanisation', 'MEIL Urban Infrastructure', 31200, 24500, 11200, 3100.0, 7600000, '33.5% Clean Energy Mix', 58.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #130', 'Odisha Ongoing Water Schemes', 'Odisha', 'Odisha - Not specified', 'Drinking Water', 'Ongoing', 'Not specified', '21 rural water supply schemes incl. Bhadrak, Sundargarh, Keonjhar, Jajpur, Cuttack, Sambalpur, Kalahandi, Dhenkanal, Sonepur, Gajapati', 'Dispersed villages across all districts of Odisha', 'Extends organised treated water supply beyond seasonal/quality-affected local sources', 'MEIL Rural Water Division', 26800, 14200, 9100, 2750.0, 6400000, '24.0% Regional Grid', 49.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #133', 'Madhya Pradesh Ongoing Water Schemes', 'Madhya Pradesh', 'Madhya Pradesh - River and reservoir sources', 'Drinking Water', 'Ongoing', 'River and reservoir sources', 'Alirajpur Multi-Village Water Supply Scheme; Mahi Multi-Village Water Supply Scheme', 'Drought-prone rural belts', 'Regional transmission and village-level distribution networks', 'MEIL Water & Irrigation', 24500, 12800, 8200, 2300.0, 5800000, '22.5% Grid Mix', 47.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #136', 'Maharashtra Ongoing Water Schemes', 'Maharashtra', 'Maharashtra - Not specified', 'Drinking Water', 'Ongoing', 'Not specified', 'Latur Water Supply Scheme; augmentation works in Kolhapur Nanded and Aurangabad-Silod', 'Fast-growing towns', 'New/expanded intakes treatment capacity and transmission pipelines', 'MEIL Urban Water', 21900, 15400, 7600, 2200.0, 5300000, '27.0% Hydro/Solar Mix', 53.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;
+
+INSERT INTO public.projects (site_code, name, state_region, location, category, status, water_source, key_infrastructure, scale_served, summary, subsidiary_bu, scope1_tco2e, scope2_tco2e, scope3_tco2e, turnover_cr, safe_man_hours, energy_mix, water_recycled_pct, audit_status, status_category)
+VALUES ('Site #139', 'Andhra Pradesh & Karnataka Ongoing Water Schemes', 'Andhra Pradesh and Karnataka', 'Andhra Pradesh and Karnataka - Not specified', 'Drinking Water', 'Ongoing', 'Not specified', 'West & East Godavari water supply schemes (AP); Yadgir Multi-Village WSS and Sathegala Drinking Water Project with ~11.2 km tunnel (Karnataka)', 'Multiple habitations across both states', 'Long-distance conveyance of treated river water including one of the region''s longest urban water-supply tunnels', 'MEIL Hydro & Tunneling', 34500, 22100, 11900, 3600.0, 8900000, '31.0% High-Efficiency Mix', 54.0, 'Stage-2 In Progress', 'due')
+ON CONFLICT (site_code) DO UPDATE SET
+  name = EXCLUDED.name,
+  state_region = EXCLUDED.state_region,
+  category = EXCLUDED.category,
+  water_source = EXCLUDED.water_source,
+  key_infrastructure = EXCLUDED.key_infrastructure,
+  scale_served = EXCLUDED.scale_served,
+  summary = EXCLUDED.summary;

@@ -1,3 +1,7 @@
+// Master Registry of MEIL Group Projects & Water Infrastructure Assets
+window.MEIL_PROJECTS = [{"id": "proj-polavaram-project", "site_code": "Site #042", "name": "Polavaram Project", "state_region": "Andhra Pradesh", "location": "Andhra Pradesh - Godavari River", "category": "Multipurpose (Irrigation + Drinking Water + Hydropower)", "status": "Ongoing (MEIL since Nov 2019)", "water_source": "Godavari River", "key_infrastructure": "World's largest spillway (1.18 km, 48 radial gates); 2.45 km earth-cum-rock-fill dam; 1,372 m diaphragm wall (95 m deep); 960 MW powerhouse (12 x 80 MW turbines)", "scale_served": "Andhra Pradesh statewide irrigation drinking water and power", "summary": "One of India's largest multi-purpose infrastructure projects delivering irrigation drinking water and clean hydropower", "subsidiary_bu": "MEIL Hydro Division", "scope1_tco2e": 76400, "scope2_tco2e": 19840, "scope3_tco2e": 24600, "turnover_cr": 7200.0, "safe_man_hours": 16200000, "energy_mix": "32.6% Hydro Dedicated", "water_recycled_pct": 52.8, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site042-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 28438.5, "grid_mwh": 27709.5, "solar_mwh": 9698.3, "water_withdrawn_kl": 9000000.0, "water_recycled_pct": 52.8, "safe_man_hours": 16200000, "notes": "Q2 ESG baseline data synchronized for Polavaram Project. Approved by BU Head."}]}, {"id": "proj-gangadhar-meher-lift-irrigation-project", "site_code": "Site #089", "name": "Gangadhar Meher Lift Irrigation Project", "state_region": "Odisha (Bargarh & Sonepur districts)", "location": "Odisha (Bargarh & Sonepur districts) - Hirakud Dam", "category": "Lift Irrigation", "status": "Partially commissioned", "water_source": "Hirakud Dam", "key_infrastructure": "20 km pipeline (4 m dia); 2 pump houses (Turunga & Kanapali); 3,000+ km pipeline network; drip irrigation on ~7,500 ha", "scale_served": "25000+ hectares across 130 villages", "summary": "Won Best Infrastructure Pioneer award at 17th Water Digest World Water Awards 2023-24", "subsidiary_bu": "MEIL Hydro & Irrigation Division", "scope1_tco2e": 18200, "scope2_tco2e": 8450, "scope3_tco2e": 6100, "turnover_cr": 1450.0, "safe_man_hours": 4200000, "energy_mix": "24.5% Renewable Mix", "water_recycled_pct": 61.2, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site089-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 6774.6, "grid_mwh": 11801.7, "solar_mwh": 4130.6, "water_withdrawn_kl": 1812500.0, "water_recycled_pct": 61.2, "safe_man_hours": 4200000, "notes": "Q2 ESG baseline data synchronized for Gangadhar Meher Lift Irrigation Project. Approved by BU Head."}]}, {"id": "proj-kalisindh-phase-2-project", "site_code": "Site #115", "name": "Kalisindh Phase 2 Project", "state_region": "Madhya Pradesh (Shajapur & Rajgarh districts)", "location": "Madhya Pradesh (Shajapur & Rajgarh districts) - Not specified (regional river source)", "category": "Lift Irrigation", "status": "Ongoing", "water_source": "Not specified (regional river source)", "key_infrastructure": "100+ km main pipeline (4.6 m wide); 7,000+ km distribution network; 100 km transmission line on 300 towers; multiple pump houses", "scale_served": "110000+ hectares", "summary": "Large pipeline and distribution network to irrigate highland farm areas via pumped delivery", "subsidiary_bu": "MEIL Water & Irrigation", "scope1_tco2e": 29400, "scope2_tco2e": 14100, "scope3_tco2e": 9800, "turnover_cr": 2600.0, "safe_man_hours": 6800000, "energy_mix": "21.0% Grid & Solar", "water_recycled_pct": 44.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site115-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 10943.6, "grid_mwh": 19692.7, "solar_mwh": 6892.5, "water_withdrawn_kl": 3250000.0, "water_recycled_pct": 44.0, "safe_man_hours": 6800000, "notes": "Q2 ESG baseline data synchronized for Kalisindh Phase 2 Project. Approved by BU Head."}]}, {"id": "proj-narmada-kshipra-simhastha-link-project", "site_code": "Site #031", "name": "Narmada-Kshipra-Simhastha Link Project", "state_region": "Madhya Pradesh (Ujjain & Shajapur / Malwa region)", "location": "Madhya Pradesh (Ujjain & Shajapur / Malwa region) - Omkareshwar Reservoir", "category": "River-Linking Lift Irrigation", "status": "Completed (2014)", "water_source": "Omkareshwar Reservoir", "key_infrastructure": "3 stages, 8 machines per pump house; lifts 5 cumecs over 47 km; total machinery capacity 27.5 MW; lift range 228-576 m", "scale_served": "Malwa region irrigation and socio-economic development", "summary": "India's first river-linking project by lift addressing water scarcity in the Chambal basin", "subsidiary_bu": "MEIL Hydro Division", "scope1_tco2e": 14200, "scope2_tco2e": 28500, "scope3_tco2e": 4300, "turnover_cr": 1800.0, "safe_man_hours": 5100000, "energy_mix": "35.0% Hydro Clean Power", "water_recycled_pct": 58.0, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site031-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 5285.7, "grid_mwh": 39804.5, "solar_mwh": 13931.6, "water_withdrawn_kl": 2250000.0, "water_recycled_pct": 58.0, "safe_man_hours": 5100000, "notes": "Q2 ESG baseline data synchronized for Narmada-Kshipra-Simhastha Link Project. Approved by BU Head."}]}, {"id": "proj-kadana-lift-irrigation-scheme", "site_code": "Site #067", "name": "Kadana Lift Irrigation Scheme", "state_region": "Gujarat (border districts with MP & Rajasthan)", "location": "Gujarat (border districts with MP & Rajasthan) - Kadana Reservoir / River Narmada", "category": "Lift Irrigation + Drinking Water", "status": "Ongoing", "water_source": "Kadana Reservoir / River Narmada", "key_infrastructure": "16 machines per pump house; each motor capacity 5826 cubic metres per hour", "scale_served": "Eastern Gujarat border districts", "summary": "Lifts water from Kadana into River Mahisagar and onward to Narmada for irrigation and drinking supply", "subsidiary_bu": "MEIL Water & Irrigation", "scope1_tco2e": 19800, "scope2_tco2e": 11400, "scope3_tco2e": 5200, "turnover_cr": 1650.0, "safe_man_hours": 3900000, "energy_mix": "28.0% Clean Mix", "water_recycled_pct": 49.5, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site067-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 7370.2, "grid_mwh": 15921.8, "solar_mwh": 5572.6, "water_withdrawn_kl": 2062500.0, "water_recycled_pct": 49.5, "safe_man_hours": 3900000, "notes": "Q2 ESG baseline data synchronized for Kadana Lift Irrigation Scheme. Approved by BU Head."}]}, {"id": "proj-gayatri-pumphouse-kaleshwaram-lift-irrigation-project", "site_code": "Site #014", "name": "Gayatri Pumphouse (Kaleshwaram Lift Irrigation Project)", "state_region": "Telangana (Karimnagar district)", "location": "Telangana (Karimnagar district) - Godavari River (via Sripadasagar Yellampalli project)", "category": "Lift Irrigation", "status": "Completed (built in under 42 months)", "water_source": "Godavari River (via Sripadasagar Yellampalli project)", "key_infrastructure": "World's largest irrigation pumping station; 7 machines x 139 MW = 973 MW total; underground at 178 m RSL; twin tunnels 4,133 m long, 10.5 m diameter; 4 surge pools (main surge pool 325 m)", "scale_served": "Key link in the Kaleshwaram Lift Irrigation Project (KLIP)", "summary": "Diverts Godavari water into the Mid Manair reservoir pumping ~2 TMC ft of water daily to a height of 118 m RSL", "subsidiary_bu": "MEIL Hydro Division", "scope1_tco2e": 24310, "scope2_tco2e": 34100, "scope3_tco2e": 14200, "turnover_cr": 4100.0, "safe_man_hours": 9500000, "energy_mix": "41.0% High-Tension Renew", "water_recycled_pct": 55.0, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site014-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 9048.9, "grid_mwh": 47625.7, "solar_mwh": 16669.0, "water_withdrawn_kl": 5125000.0, "water_recycled_pct": 55.0, "safe_man_hours": 9500000, "notes": "Q2 ESG baseline data synchronized for Gayatri Pumphouse (Kaleshwaram Lift Irrigation Project). Approved by BU Head."}]}, {"id": "proj-saurashtra-narmada-avtaran-sauni-yojana", "site_code": "Site #056", "name": "Saurashtra Narmada Avtaran (SAUNI Yojana)", "state_region": "Gujarat (11 Saurashtra districts incl. Rajkot Jamnagar Morbi)", "location": "Gujarat (11 Saurashtra districts incl. Rajkot Jamnagar Morbi) - River Narmada floodwater (via Kadana & Panam dams)", "category": "Irrigation + Drinking Water", "status": "Ongoing (Phase 2 completed)", "water_source": "River Narmada floodwater (via Kadana & Panam dams)", "key_infrastructure": "1,125 km pipeline network; 5 pumps, 7 motors, 66/6.6 kV substation; 2,761 million cubic feet pumping capacity", "scale_served": "Fills 115+ dams; drinking water to 731 villages and 31 towns", "summary": "Piped (not canal) delivery of Narmada floodwater to drought-prone Saurashtra region", "subsidiary_bu": "MEIL Water & Irrigation", "scope1_tco2e": 36200, "scope2_tco2e": 21400, "scope3_tco2e": 13500, "turnover_cr": 3950.0, "safe_man_hours": 8900000, "energy_mix": "29.4% Solar/Wind Hybrid", "water_recycled_pct": 51.2, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site056-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 13474.8, "grid_mwh": 29888.3, "solar_mwh": 10460.9, "water_withdrawn_kl": 4937500.0, "water_recycled_pct": 51.2, "safe_man_hours": 8900000, "notes": "Q2 ESG baseline data synchronized for Saurashtra Narmada Avtaran (SAUNI Yojana). Approved by BU Head."}]}, {"id": "proj-ramthal-drip-irrigation-project", "site_code": "Site #073", "name": "Ramthal Drip Irrigation Project", "state_region": "Karnataka (Bagalkot district)", "location": "Karnataka (Bagalkot district) - Narayanpura Reservoir on River Krishna", "category": "Drip Irrigation", "status": "Completed (2017)", "water_source": "Narayanpura Reservoir on River Krishna", "key_infrastructure": "2,127.46 km pipeline network (48.54 km GRP + 128.89 km PVC feeder + 1,950 km PVC mains/sub-mains); pump house, surge tank, valve chambers", "scale_served": "28911 acres across 22 villages", "summary": "Asia's largest community-based automated drip irrigation project executed with Netafim", "subsidiary_bu": "MEIL Micro-Irrigation", "scope1_tco2e": 9800, "scope2_tco2e": 6200, "scope3_tco2e": 2900, "turnover_cr": 1100.0, "safe_man_hours": 3200000, "energy_mix": "38.5% Clean Solar", "water_recycled_pct": 78.4, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site073-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 3647.9, "grid_mwh": 8659.2, "solar_mwh": 3030.7, "water_withdrawn_kl": 1375000.0, "water_recycled_pct": 78.4, "safe_man_hours": 3200000, "notes": "Q2 ESG baseline data synchronized for Ramthal Drip Irrigation Project. Approved by BU Head."}]}, {"id": "proj-mission-bhagiratha-gdwss", "site_code": "Site #019", "name": "Mission Bhagiratha & GDWSS", "state_region": "Telangana", "location": "Telangana - Godavari River", "category": "Drinking Water", "status": "Completed", "water_source": "Godavari River", "key_infrastructure": "14 key segments; Gajwel Water Grid (~1,200 km pipeline, built in 10 months); 735 MLD water treatment plant at Mallaram", "scale_served": "15 million+ people served (designed capacity ~20 million)", "summary": "Brings Godavari water to Hyderabad and statewide habitations via long-distance transmission mains and reservoirs", "subsidiary_bu": "MEIL Water Supply Division", "scope1_tco2e": 42100, "scope2_tco2e": 38900, "scope3_tco2e": 16700, "turnover_cr": 5400.0, "safe_man_hours": 12400000, "energy_mix": "34.0% Low-Carbon Grid", "water_recycled_pct": 65.0, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site019-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 15670.9, "grid_mwh": 54329.6, "solar_mwh": 19015.4, "water_withdrawn_kl": 6750000.0, "water_recycled_pct": 65.0, "safe_man_hours": 12400000, "notes": "Q2 ESG baseline data synchronized for Mission Bhagiratha & GDWSS. Approved by BU Head."}]}, {"id": "proj-ganga-jal-aapurti-yojana", "site_code": "Site #082", "name": "Ganga Jal Aapurti Yojana", "state_region": "Bihar", "location": "Bihar - Ganga River (floodwater)", "category": "Drinking Water", "status": "Completed", "water_source": "Ganga River (floodwater)", "key_infrastructure": "190 km pipeline from Hathidah intake; WTPs of 186.5 MLD (Gaya-Bodh Gaya) and 24 MLD (Rajgir Phase 1); storage reservoirs at Tetar Rajgir and Gaya", "scale_served": "7.5 lakh+ people", "summary": "India's first floodwater-to-drinking-water scheme serving Rajgir Gaya and Bodh Gaya", "subsidiary_bu": "MEIL Drinking Water Division", "scope1_tco2e": 21500, "scope2_tco2e": 12300, "scope3_tco2e": 7400, "turnover_cr": 2100.0, "safe_man_hours": 5800000, "energy_mix": "26.0% Dedicated Grid", "water_recycled_pct": 48.0, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site082-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 8003.0, "grid_mwh": 17178.8, "solar_mwh": 6012.6, "water_withdrawn_kl": 2625000.0, "water_recycled_pct": 48.0, "safe_man_hours": 5800000, "notes": "Q2 ESG baseline data synchronized for Ganga Jal Aapurti Yojana. Approved by BU Head."}]}, {"id": "proj-bhubaneswar-bulk-water-supply-scheme", "site_code": "Site #094", "name": "Bhubaneswar Bulk Water Supply Scheme", "state_region": "Odisha", "location": "Odisha - Not specified", "category": "Bulk Water Supply", "status": "Completed (2018)", "water_source": "Not specified", "key_infrastructure": "83 MLD intake well; 11 MLD MBR unit; multiple reservoirs; ~86 km MS/DI pipelines", "scale_served": "Industrial hubs institutions (IIT Bhubaneswar NISER) and surrounding urban areas", "summary": "Backbone bulk water network for industrial and municipal consumers in Bhubaneswar", "subsidiary_bu": "MEIL Industrial Water", "scope1_tco2e": 8400, "scope2_tco2e": 7100, "scope3_tco2e": 3200, "turnover_cr": 850.0, "safe_man_hours": 2400000, "energy_mix": "31.2% Efficient Grid", "water_recycled_pct": 54.0, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site094-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 3126.7, "grid_mwh": 9916.2, "solar_mwh": 3470.7, "water_withdrawn_kl": 1062500.0, "water_recycled_pct": 54.0, "safe_man_hours": 2400000, "notes": "Q2 ESG baseline data synchronized for Bhubaneswar Bulk Water Supply Scheme. Approved by BU Head."}]}, {"id": "proj-uddanam-drinking-water-project", "site_code": "Site #048", "name": "Uddanam Drinking Water Project", "state_region": "Andhra Pradesh (Srikakulam district)", "location": "Andhra Pradesh (Srikakulam district) - Vamsadhara River / Hiramandalam Reservoir", "category": "Drinking Water", "status": "Completed", "water_source": "Vamsadhara River / Hiramandalam Reservoir", "key_infrastructure": "84 MLD water treatment plant; 1,200 km pipeline network; intake wells pumping stations overhead tanks", "scale_served": "~7 lakh people across 800+ villages", "summary": "Addresses kidney-disease health crisis linked to contaminated groundwater", "subsidiary_bu": "MEIL Drinking Water Division", "scope1_tco2e": 11200, "scope2_tco2e": 6800, "scope3_tco2e": 4100, "turnover_cr": 1250.0, "safe_man_hours": 3600000, "energy_mix": "27.5% Solar Assisted", "water_recycled_pct": 62.0, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site048-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 4169.0, "grid_mwh": 9497.2, "solar_mwh": 3324.0, "water_withdrawn_kl": 1562500.0, "water_recycled_pct": 62.0, "safe_man_hours": 3600000, "notes": "Q2 ESG baseline data synchronized for Uddanam Drinking Water Project. Approved by BU Head."}]}, {"id": "proj-nellore-drinking-water-project", "site_code": "Site #044", "name": "Nellore Drinking Water Project", "state_region": "Andhra Pradesh", "location": "Andhra Pradesh - Penna River (Sangam Barrage)", "category": "Drinking Water", "status": "Completed", "water_source": "Penna River (Sangam Barrage)", "key_infrastructure": "122 MLD water treatment plant at Mahammadapuram; intake well raw-water pump house multi-zone distribution network", "scale_served": "~70000 families in Nellore city", "summary": "EPC project strengthening Nellore's long-term urban water security", "subsidiary_bu": "MEIL Urban Infrastructure", "scope1_tco2e": 9600, "scope2_tco2e": 5900, "scope3_tco2e": 3100, "turnover_cr": 980.0, "safe_man_hours": 2900000, "energy_mix": "22.0% Regional Grid", "water_recycled_pct": 46.0, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site044-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 3573.4, "grid_mwh": 8240.2, "solar_mwh": 2884.1, "water_withdrawn_kl": 1225000.0, "water_recycled_pct": 46.0, "safe_man_hours": 2900000, "notes": "Q2 ESG baseline data synchronized for Nellore Drinking Water Project. Approved by BU Head."}]}, {"id": "proj-pulivendula-drinking-water-project", "site_code": "Site #049", "name": "Pulivendula Drinking Water Project", "state_region": "Andhra Pradesh (YSR Kadapa district)", "location": "Andhra Pradesh (YSR Kadapa district) - Chitravathi Balancing Reservoir", "category": "Drinking Water", "status": "Completed", "water_source": "Chitravathi Balancing Reservoir", "key_infrastructure": "65 MLD water treatment plant; pipeline and pumping/storage network", "scale_served": "299 villages across 7 mandals", "summary": "Replaces dependence on vulnerable local water sources in rural Pulivendula", "subsidiary_bu": "MEIL Rural Water Supply", "scope1_tco2e": 8200, "scope2_tco2e": 5100, "scope3_tco2e": 2400, "turnover_cr": 790.0, "safe_man_hours": 2300000, "energy_mix": "25.0% Solar Grid", "water_recycled_pct": 48.0, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site049-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 3052.3, "grid_mwh": 7122.9, "solar_mwh": 2493.0, "water_withdrawn_kl": 987500.0, "water_recycled_pct": 48.0, "safe_man_hours": 2300000, "notes": "Q2 ESG baseline data synchronized for Pulivendula Drinking Water Project. Approved by BU Head."}]}, {"id": "proj-dhone-drinking-water-project", "site_code": "Site #051", "name": "Dhone Drinking Water Project", "state_region": "Andhra Pradesh", "location": "Andhra Pradesh - Not specified", "category": "Drinking Water", "status": "Completed", "water_source": "Not specified", "key_infrastructure": "Upgraded intake treatment and distribution systems; new transmission pipelines", "scale_served": "Dhone town", "summary": "Urban water-supply improvement reducing dependence on stressed groundwater", "subsidiary_bu": "MEIL Urban Water", "scope1_tco2e": 5600, "scope2_tco2e": 3400, "scope3_tco2e": 1800, "turnover_cr": 480.0, "safe_man_hours": 1500000, "energy_mix": "20.0% Standard Grid", "water_recycled_pct": 42.0, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site051-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 2084.5, "grid_mwh": 4748.6, "solar_mwh": 1662.0, "water_withdrawn_kl": 600000.0, "water_recycled_pct": 42.0, "safe_man_hours": 1500000, "notes": "Q2 ESG baseline data synchronized for Dhone Drinking Water Project. Approved by BU Head."}]}, {"id": "proj-proddatur-drinking-water-project", "site_code": "Site #052", "name": "Proddatur Drinking Water Project", "state_region": "Andhra Pradesh", "location": "Andhra Pradesh - Not specified", "category": "Drinking Water (AMRUT scheme)", "status": "Completed", "water_source": "Not specified", "key_infrastructure": "43 MLD water treatment plant; ~171 km of pipelines; new intake and transmission", "scale_served": "Proddatur town", "summary": "Reinforces bulk supply and distribution for reliable pressurised drinking water", "subsidiary_bu": "MEIL Urban Infrastructure", "scope1_tco2e": 6100, "scope2_tco2e": 3800, "scope3_tco2e": 1900, "turnover_cr": 520.0, "safe_man_hours": 1700000, "energy_mix": "22.5% Grid Power", "water_recycled_pct": 45.0, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site052-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 2270.6, "grid_mwh": 5307.3, "solar_mwh": 1857.5, "water_withdrawn_kl": 650000.0, "water_recycled_pct": 45.0, "safe_man_hours": 1700000, "notes": "Q2 ESG baseline data synchronized for Proddatur Drinking Water Project. Approved by BU Head."}]}, {"id": "proj-pillur-iii-drinking-water-supply-scheme", "site_code": "Site #063", "name": "Pillur III Drinking Water Supply Scheme", "state_region": "Tamil Nadu (Coimbatore)", "location": "Tamil Nadu (Coimbatore) - Bhavani River", "category": "Drinking Water", "status": "Completed", "water_source": "Bhavani River", "key_infrastructure": "New intake and raw-water pump house near Pillur; 90+ km transmission pipeline; 178.3 MLD water treatment plant", "scale_served": "1.6 million+ residents (city capacity raised to ~380 MLD)", "summary": "Augments existing Pillur I & II supplies for expanded Coimbatore corporation limits", "subsidiary_bu": "MEIL Water Infrastructure", "scope1_tco2e": 14800, "scope2_tco2e": 9600, "scope3_tco2e": 4800, "turnover_cr": 1350.0, "safe_man_hours": 3900000, "energy_mix": "30.0% Green Energy Mix", "water_recycled_pct": 57.0, "audit_status": "Stage-2 Certified", "status_category": "high", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site063-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 5509.0, "grid_mwh": 13407.8, "solar_mwh": 4692.7, "water_withdrawn_kl": 1687500.0, "water_recycled_pct": 57.0, "safe_man_hours": 3900000, "notes": "Q2 ESG baseline data synchronized for Pillur III Drinking Water Supply Scheme. Approved by BU Head."}]}, {"id": "proj-other-completed-schemes-rajasthan-karnataka-up", "site_code": "Site #099", "name": "Other Completed Schemes - Rajasthan Karnataka UP", "state_region": "Rajasthan, Karnataka, Uttar Pradesh", "location": "Rajasthan, Karnataka, Uttar Pradesh - Various local sources", "category": "Drinking Water", "status": "Completed", "water_source": "Various local sources", "key_infrastructure": "Rajasthan: Chambal-Bhilwara, Kotri Tehsil, Asind Tehsil, Jetpur-Pali, Shahpura Tehsil, Dudu-Todaraisingh. Karnataka: Hanur, Adichunchanagiri, Pavagada, TG Halli. UP: Gothura, Dhuha Talar", "scale_served": "Multiple multi-village and urban systems", "summary": "Reduced water-borne disease risk and supported urban growth industry and tourism", "subsidiary_bu": "MEIL Inter-State Water Programs", "scope1_tco2e": 28500, "scope2_tco2e": 17200, "scope3_tco2e": 8600, "turnover_cr": 2900.0, "safe_man_hours": 7400000, "energy_mix": "26.5% Regional Mix", "water_recycled_pct": 50.0, "audit_status": "Audited & Verified", "status_category": "active", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site099-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 10608.6, "grid_mwh": 24022.3, "solar_mwh": 8407.8, "water_withdrawn_kl": 3625000.0, "water_recycled_pct": 50.0, "safe_man_hours": 7400000, "notes": "Q2 ESG baseline data synchronized for Other Completed Schemes - Rajasthan Karnataka UP. Approved by BU Head."}]}, {"id": "proj-uttar-pradesh-ongoing-water-schemes", "site_code": "Site #121", "name": "Uttar Pradesh Ongoing Water Schemes", "state_region": "Uttar Pradesh", "location": "Uttar Pradesh - Not specified", "category": "Drinking Water", "status": "Ongoing", "water_source": "Not specified", "key_infrastructure": "Basti Rural WSS Phase 2; Ayodhya Rural WSS Phase 3; Agra Water Supply Scheme (2 segments); Unnao Cluster Phase 4 (2 segments)", "scale_served": "Rural and peri-urban habitations", "summary": "Expanding multi-village and urban drinking water networks", "subsidiary_bu": "MEIL Water & Infra (North)", "scope1_tco2e": 38400, "scope2_tco2e": 18900, "scope3_tco2e": 12400, "turnover_cr": 3400.0, "safe_man_hours": 8200000, "energy_mix": "21.0% Grid Average", "water_recycled_pct": 46.5, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site121-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 14293.7, "grid_mwh": 26396.6, "solar_mwh": 9238.8, "water_withdrawn_kl": 4250000.0, "water_recycled_pct": 46.5, "safe_man_hours": 8200000, "notes": "Q2 ESG baseline data synchronized for Uttar Pradesh Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-tamil-nadu-ongoing-water-schemes", "site_code": "Site #124", "name": "Tamil Nadu Ongoing Water Schemes", "state_region": "Tamil Nadu", "location": "Tamil Nadu - Not specified", "category": "Drinking Water", "status": "Ongoing", "water_source": "Not specified", "key_infrastructure": "Virudhunagar Combined Water Supply Scheme (3 segments); Tirunelveli CWSS", "scale_served": "Growing municipal and rural clusters", "summary": "Improving raw water sourcing treatment and long-distance transmission", "subsidiary_bu": "MEIL Water & Infra (South)", "scope1_tco2e": 22100, "scope2_tco2e": 13400, "scope3_tco2e": 7800, "turnover_cr": 2150.0, "safe_man_hours": 5100000, "energy_mix": "28.0% Wind & Solar Mix", "water_recycled_pct": 52.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site124-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 8226.3, "grid_mwh": 18715.1, "solar_mwh": 6550.3, "water_withdrawn_kl": 2687500.0, "water_recycled_pct": 52.0, "safe_man_hours": 5100000, "notes": "Q2 ESG baseline data synchronized for Tamil Nadu Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-telangana-ongoing-water-schemes", "site_code": "Site #127", "name": "Telangana Ongoing Water Schemes", "state_region": "Telangana", "location": "Telangana - Not specified", "category": "Drinking Water", "status": "Ongoing", "water_source": "Not specified", "key_infrastructure": "Gajwel Extension Project; Sunkishala Drinking Water Project; AMRUT scheme works across 42 Urban Local Bodies", "scale_served": "42 urban local bodies plus Gajwel/Sunkishala areas", "summary": "Upgrading treatment storage and distribution for continued urbanisation", "subsidiary_bu": "MEIL Urban Infrastructure", "scope1_tco2e": 31200, "scope2_tco2e": 24500, "scope3_tco2e": 11200, "turnover_cr": 3100.0, "safe_man_hours": 7600000, "energy_mix": "33.5% Clean Energy Mix", "water_recycled_pct": 58.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site127-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 11613.6, "grid_mwh": 34217.9, "solar_mwh": 11976.3, "water_withdrawn_kl": 3875000.0, "water_recycled_pct": 58.0, "safe_man_hours": 7600000, "notes": "Q2 ESG baseline data synchronized for Telangana Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-odisha-ongoing-water-schemes", "site_code": "Site #130", "name": "Odisha Ongoing Water Schemes", "state_region": "Odisha", "location": "Odisha - Not specified", "category": "Drinking Water", "status": "Ongoing", "water_source": "Not specified", "key_infrastructure": "21 rural water supply schemes incl. Bhadrak, Sundargarh, Keonjhar, Jajpur, Cuttack, Sambalpur, Kalahandi, Dhenkanal, Sonepur, Gajapati", "scale_served": "Dispersed villages across all districts of Odisha", "summary": "Extends organised treated water supply beyond seasonal/quality-affected local sources", "subsidiary_bu": "MEIL Rural Water Division", "scope1_tco2e": 26800, "scope2_tco2e": 14200, "scope3_tco2e": 9100, "turnover_cr": 2750.0, "safe_man_hours": 6400000, "energy_mix": "24.0% Regional Grid", "water_recycled_pct": 49.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site130-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 9975.8, "grid_mwh": 19832.4, "solar_mwh": 6941.3, "water_withdrawn_kl": 3437500.0, "water_recycled_pct": 49.0, "safe_man_hours": 6400000, "notes": "Q2 ESG baseline data synchronized for Odisha Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-madhya-pradesh-ongoing-water-schemes", "site_code": "Site #133", "name": "Madhya Pradesh Ongoing Water Schemes", "state_region": "Madhya Pradesh", "location": "Madhya Pradesh - River and reservoir sources", "category": "Drinking Water", "status": "Ongoing", "water_source": "River and reservoir sources", "key_infrastructure": "Alirajpur Multi-Village Water Supply Scheme; Mahi Multi-Village Water Supply Scheme", "scale_served": "Drought-prone rural belts", "summary": "Regional transmission and village-level distribution networks", "subsidiary_bu": "MEIL Water & Irrigation", "scope1_tco2e": 24500, "scope2_tco2e": 12800, "scope3_tco2e": 8200, "turnover_cr": 2300.0, "safe_man_hours": 5800000, "energy_mix": "22.5% Grid Mix", "water_recycled_pct": 47.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site133-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 9119.7, "grid_mwh": 17877.1, "solar_mwh": 6257.0, "water_withdrawn_kl": 2875000.0, "water_recycled_pct": 47.0, "safe_man_hours": 5800000, "notes": "Q2 ESG baseline data synchronized for Madhya Pradesh Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-maharashtra-ongoing-water-schemes", "site_code": "Site #136", "name": "Maharashtra Ongoing Water Schemes", "state_region": "Maharashtra", "location": "Maharashtra - Not specified", "category": "Drinking Water", "status": "Ongoing", "water_source": "Not specified", "key_infrastructure": "Latur Water Supply Scheme; augmentation works in Kolhapur Nanded and Aurangabad-Silod", "scale_served": "Fast-growing towns", "summary": "New/expanded intakes treatment capacity and transmission pipelines", "subsidiary_bu": "MEIL Urban Water", "scope1_tco2e": 21900, "scope2_tco2e": 15400, "scope3_tco2e": 7600, "turnover_cr": 2200.0, "safe_man_hours": 5300000, "energy_mix": "27.0% Hydro/Solar Mix", "water_recycled_pct": 53.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site136-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 8151.9, "grid_mwh": 21508.4, "solar_mwh": 7527.9, "water_withdrawn_kl": 2750000.0, "water_recycled_pct": 53.0, "safe_man_hours": 5300000, "notes": "Q2 ESG baseline data synchronized for Maharashtra Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-andhra-pradesh-karnataka-ongoing-water-schemes", "site_code": "Site #139", "name": "Andhra Pradesh & Karnataka Ongoing Water Schemes", "state_region": "Andhra Pradesh and Karnataka", "location": "Andhra Pradesh and Karnataka - Not specified", "category": "Drinking Water", "status": "Ongoing", "water_source": "Not specified", "key_infrastructure": "West & East Godavari water supply schemes (AP); Yadgir Multi-Village WSS and Sathegala Drinking Water Project with ~11.2 km tunnel (Karnataka)", "scale_served": "Multiple habitations across both states", "summary": "Long-distance conveyance of treated river water including one of the region's longest urban water-supply tunnels", "subsidiary_bu": "MEIL Hydro & Tunneling", "scope1_tco2e": 34500, "scope2_tco2e": 22100, "scope3_tco2e": 11900, "turnover_cr": 3600.0, "safe_man_hours": 8900000, "energy_mix": "31.0% High-Efficiency Mix", "water_recycled_pct": 54.0, "audit_status": "Stage-2 In Progress", "status_category": "due", "version": 1, "updatedAt": "2026-09-22T14:00:00Z", "esg_submissions": [{"submission_id": "sub-Site139-Q2FY26", "fiscal_period": "Q2 FY 2025-26", "submitted_at": "2026-09-20T10:30:00Z", "submitted_by": "Site Project Lead", "diesel_kl": 12842.0, "grid_mwh": 30865.9, "solar_mwh": 10803.1, "water_withdrawn_kl": 4500000.0, "water_recycled_pct": 54.0, "safe_man_hours": 8900000, "notes": "Q2 ESG baseline data synchronized for Andhra Pradesh & Karnataka Ongoing Water Schemes. Approved by BU Head."}]}, {"id": "proj-108", "site_code": "Site #108", "name": "Zojila Tunnel Project - Portal 1 & 2", "location": "Kashmir & Ladakh Connectivity", "subsidiary_bu": "MEIL Roads & Infra", "scope1_tco2e": 48950, "scope2_tco2e": 12180, "scope3_tco2e": 18500, "turnover_cr": 3850.0, "safe_man_hours": 8420000, "energy_mix": "18.4% Solar Microgrid", "water_recycled_pct": 45.2, "audit_status": "Stage-2 In Progress", "status_category": "due high", "version": 2, "updatedAt": "2026-09-20T17:20:51Z"}, {"id": "proj-int-09", "site_code": "Site #INT-09", "name": "Mongol Oil Refinery EPC-3 & EPC-4", "location": "Sainshand, Mongolia International EPC", "subsidiary_bu": "MEIL Industrial Plant", "scope1_tco2e": 32150, "scope2_tco2e": 15400, "scope3_tco2e": 11800, "turnover_cr": 2900.0, "safe_man_hours": 6100000, "energy_mix": "12.0% Substation Grid", "water_recycled_pct": 26.5, "audit_status": "Stage-2 Certified", "status_category": "active"}];
+window.currentActiveProjectId = 'proj-polavaram-project';
+
 /**
  * MEIL ESG Connect Platform - Core Application Logic
  * Supports routing, reactive energy/GHG calculations, modal dialogs, audit trails, and filters.
@@ -12,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFactorSearch();
   initFiscalYearSelector();
   initRoleSelector();
+  initProjectSelector();
 });
 
 /* =========================================================================
@@ -691,6 +696,649 @@ function initRoleSelector() {
   }
 }
 
+
+/* =========================================================================
+   12b. ENTERPRISE MULTI-PROJECT & COMPANY ESG MANAGEMENT
+   ========================================================================= */
+function initProjectSelector() {
+  const sel = document.getElementById('globalProjectSelector');
+  if (sel && window.MEIL_PROJECTS && window.MEIL_PROJECTS.length > 0) {
+    sel.innerHTML = window.MEIL_PROJECTS.map(p => {
+      const state = p.state_region ? ` (${p.state_region.split(' ')[0]})` : '';
+      return `<option value="${p.id}">${p.site_code} • ${p.name}${state}</option>`;
+    }).join('');
+    if (window.currentActiveProjectId) {
+      sel.value = window.currentActiveProjectId;
+    }
+  }
+
+  // Refresh from backend if API available
+  if (window.MEIL_API && typeof window.MEIL_API.getProjects === 'function') {
+    window.MEIL_API.getProjects().then(remoteProjects => {
+      if (remoteProjects && remoteProjects.length > 0) {
+        window.MEIL_PROJECTS = remoteProjects;
+        const qeSel = document.getElementById('qeProjectSelect');
+        if (qeSel) updateQuickEntryProjectDropdown(qeSel);
+      }
+    }).catch(err => console.warn('Using local cached projects:', err));
+  }
+}
+
+function onGlobalProjectChange(projId) {
+  window.currentActiveProjectId = projId;
+  const project = (window.MEIL_PROJECTS || []).find(p => p.id === projId || p.site_code === projId);
+  if (!project) return;
+
+  const sel = document.getElementById('globalProjectSelector');
+  if (sel && sel.value !== projId) sel.value = projId;
+
+  // Show notification
+  showNotification('Active Project Switched', `Selected "${project.name}" (${project.site_code}). Context and telemetry updated.`);
+
+  // If on quick entry, reload quick entry view
+  if (window.location.hash.includes('project-quick-entry-sheet')) {
+    const content = document.getElementById('genericModuleContent');
+    if (content) content.innerHTML = renderProjectQuickEntrySheet(projId);
+  } else if (window.location.hash.includes('project-map')) {
+    const card = document.getElementById(`proj-card-${projId}`);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('ring-2', 'ring-secondary');
+      setTimeout(() => card.classList.remove('ring-2', 'ring-secondary'), 2500);
+    }
+  }
+}
+
+function onQuickEntryProjectChange(projId) {
+  window.currentActiveProjectId = projId;
+  const sel = document.getElementById('globalProjectSelector');
+  if (sel) sel.value = projId;
+  const content = document.getElementById('genericModuleContent');
+  if (content) content.innerHTML = renderProjectQuickEntrySheet(projId);
+  const proj = (window.MEIL_PROJECTS || []).find(p => p.id === projId || p.site_code === projId);
+  if (proj) {
+    showNotification('Project Loaded', `Loaded ESG logsheet for ${proj.name}.`);
+  }
+}
+
+function recalculateQEPreview() {
+  const dKl = parseFloat(document.getElementById('qeDiesel')?.value) || 0;
+  const gMwh = parseFloat(document.getElementById('qeGrid')?.value) || 0;
+  const sMwh = parseFloat(document.getElementById('qeSolar')?.value) || 0;
+  const pngGj = parseFloat(document.getElementById('qePng')?.value) || 0;
+
+  const s1 = Number(((dKl * 1000 * 2.6865 + pngGj * 1.982) / 1000).toFixed(2));
+  const s2 = Number((gMwh * 0.716).toFixed(2));
+  const total = Number((s1 + s2).toFixed(2));
+  const totalPower = gMwh + sMwh;
+  const cleanPct = totalPower > 0 ? ((sMwh / totalPower) * 100).toFixed(1) : '0.0';
+
+  const elS1 = document.getElementById('qePreviewS1');
+  const elS2 = document.getElementById('qePreviewS2');
+  const elTotal = document.getElementById('qePreviewTotal');
+  const elClean = document.getElementById('qePreviewClean');
+
+  if (elS1) elS1.textContent = `${s1.toLocaleString()} tCO₂e`;
+  if (elS2) elS2.textContent = `${s2.toLocaleString()} tCO₂e`;
+  if (elTotal) elTotal.textContent = `${total.toLocaleString()} tCO₂e`;
+  if (elClean) elClean.textContent = `${cleanPct}%`;
+}
+
+async function saveCompanyESGData() {
+  const projId = document.getElementById('qeProjectSelect')?.value || window.currentActiveProjectId;
+  const project = (window.MEIL_PROJECTS || []).find(p => p.id === projId || p.site_code === projId);
+  if (!project) {
+    alert('Please select a valid project.');
+    return;
+  }
+
+  const fiscalPeriod = document.getElementById('qeFiscalPeriod')?.value || 'Q2 FY 2025-26';
+  const submitterName = document.getElementById('qeSubmitterName')?.value || 'Site Environmental Officer';
+  const submitterRole = document.getElementById('qeSubmitterRole')?.value || 'Project Data Entry Lead';
+  const dieselKl = parseFloat(document.getElementById('qeDiesel')?.value) || 0;
+  const gridMwh = parseFloat(document.getElementById('qeGrid')?.value) || 0;
+  const solarMwh = parseFloat(document.getElementById('qeSolar')?.value) || 0;
+  const pngGj = parseFloat(document.getElementById('qePng')?.value) || 0;
+  const waterWithdrawnKl = parseFloat(document.getElementById('qeWaterWithdrawn')?.value) || 0;
+  const waterRecycledPct = parseFloat(document.getElementById('qeWaterRecycled')?.value) || 0;
+  const safeManHours = parseFloat(document.getElementById('qeSafeHours')?.value) || 0;
+  const treePlantation = parseFloat(document.getElementById('qeTrees')?.value) || 0;
+  const notes = document.getElementById('qeNotes')?.value || '';
+  const evidenceRef = document.getElementById('qeEvidenceRef')?.value || '';
+
+  const s1 = Number(((dieselKl * 1000 * 2.6865 + pngGj * 1.982) / 1000).toFixed(2));
+  const s2 = Number((gridMwh * 0.716).toFixed(2));
+
+  const payload = {
+    fiscal_period: fiscalPeriod,
+    submitted_by: `${submitterName} (${submitterRole})`,
+    diesel_kl: dieselKl,
+    grid_mwh: gridMwh,
+    solar_mwh: solarMwh,
+    png_gj: pngGj,
+    scope1_tco2e: s1,
+    scope2_tco2e: s2,
+    water_withdrawn_kl: waterWithdrawnKl,
+    water_recycled_pct: waterRecycledPct,
+    safe_man_hours: safeManHours,
+    tree_plantation_count: treePlantation,
+    notes,
+    evidence_ref: evidenceRef
+  };
+
+  const btn = document.getElementById('btnSaveESG');
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">sync</span> Saving to Ledger...';
+  }
+
+  try {
+    let result;
+    if (window.MEIL_API && typeof window.MEIL_API.saveProjectESG === 'function') {
+      result = await window.MEIL_API.saveProjectESG(projId, payload);
+    } else {
+      result = { success: true };
+    }
+
+    // Update local cache
+    project.scope1_tco2e = s1;
+    project.scope2_tco2e = s2;
+    if (waterRecycledPct) project.water_recycled_pct = waterRecycledPct;
+    if (safeManHours) project.safe_man_hours = safeManHours;
+    project.updatedAt = new Date().toISOString();
+    project.audit_status = 'Stage-2 In Review';
+
+    if (!project.esg_submissions) project.esg_submissions = [];
+    project.esg_submissions.unshift({
+      submission_id: `sub-${project.site_code.replace(/[^a-zA-Z0-9]/g, '')}-${Date.now()}`,
+      ...payload,
+      submitted_at: new Date().toISOString()
+    });
+
+    showNotification(
+      'ESG Data Saved Successfully!',
+      `Telemetry recorded for ${project.name} (${project.site_code}): Scope 1 = ${s1.toLocaleString()} tCO2e, Scope 2 = ${s2.toLocaleString()} tCO2e, Recycled = ${waterRecycledPct}%. Logged in Audit Trail.`
+    );
+
+    // Re-render form with updated submission list
+    const content = document.getElementById('genericModuleContent');
+    if (content) content.innerHTML = renderProjectQuickEntrySheet(projId);
+
+  } catch (err) {
+    showNotification('Save Error', err.message || 'Could not save ESG data to server.');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined text-sm">save</span> Commit &amp; Save ESG Data';
+    }
+  }
+}
+
+function filterProjectsMap() {
+  const search = (document.getElementById('mapSearchInput')?.value || '').toLowerCase().trim();
+  const cat = document.getElementById('mapCategoryFilter')?.value || 'ALL';
+  const st = document.getElementById('mapStateFilter')?.value || 'ALL';
+  const stat = document.getElementById('mapStatusFilter')?.value || 'ALL';
+
+  const cards = document.querySelectorAll('.project-map-card');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const name = card.getAttribute('data-name') || '';
+    const state = card.getAttribute('data-state') || '';
+    const category = card.getAttribute('data-category') || '';
+    const status = card.getAttribute('data-status') || '';
+    const searchBlob = card.getAttribute('data-search') || '';
+
+    const matchSearch = !search || searchBlob.includes(search) || name.includes(search) || state.includes(search);
+    const matchCat = cat === 'ALL' || category.includes(cat);
+    const matchState = st === 'ALL' || state.includes(st);
+    const matchStat = stat === 'ALL' || status.includes(stat);
+
+    if (matchSearch && matchCat && matchState && matchStat) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  const countBadge = document.getElementById('mapVisibleCount');
+  if (countBadge) countBadge.textContent = `${visibleCount} of ${cards.length} Projects`;
+}
+
+function quickLogFromMap(projId) {
+  window.currentActiveProjectId = projId;
+  navigateTo('project-quick-entry-sheet');
+}
+
+function renderProjectQuickEntrySheet(selectedProjId) {
+  const activeId = selectedProjId || window.currentActiveProjectId || 'proj-polavaram';
+  const projects = window.MEIL_PROJECTS || [];
+  const project = projects.find(p => p.id === activeId || p.site_code === activeId) || projects[0] || {};
+  
+  const optionsHtml = projects.map(p => {
+    const isSel = (p.id === project.id) ? 'selected' : '';
+    const state = p.state_region ? ` (${p.state_region.split(' ')[0]})` : '';
+    return `<option value="${p.id}" ${isSel}>${p.site_code} • ${p.name}${state}</option>`;
+  }).join('');
+
+  const submissions = project.esg_submissions || [];
+  const submissionsHtml = submissions.length > 0 ? submissions.map(s => `
+    <tr class="border-b border-surface-container hover:bg-surface-container/50 transition-colors">
+      <td class="p-2.5 font-bold text-primary">${s.fiscal_period || 'Q2 FY 2025-26'}</td>
+      <td class="p-2.5 text-secondary">${(s.submitted_at || '').substring(0, 10)}</td>
+      <td class="p-2.5 font-medium text-on-surface">${s.submitted_by || 'Site Engineer'}</td>
+      <td class="p-2.5 font-bold text-amber-700 dark:text-amber-400">${Number(s.scope1_tco2e || 0).toLocaleString()} tCO₂e</td>
+      <td class="p-2.5 font-bold text-blue-700 dark:text-blue-400">${Number(s.scope2_tco2e || 0).toLocaleString()} tCO₂e</td>
+      <td class="p-2.5 font-semibold text-emerald-700 dark:text-emerald-400">${s.water_recycled_pct || 0}%</td>
+      <td class="p-2.5 text-secondary">${Number(s.safe_man_hours || 0).toLocaleString()} hrs</td>
+      <td class="p-2.5 text-on-surface-variant max-w-[200px] truncate" title="${s.notes || ''}">${s.notes || 'Routine telemetry record.'}</td>
+    </tr>
+  `).join('') : `
+    <tr>
+      <td colspan="8" class="p-4 text-center text-secondary">No prior submissions logged yet for this site. Enter telemetry above.</td>
+    </tr>
+  `;
+
+  // Default input values based on project baseline
+  const defDiesel = Math.round((project.scope1_tco2e || 2400) / 2.6865);
+  const defGrid = Math.round((project.scope2_tco2e || 1800) / 0.716);
+  const defSolar = Math.round(defGrid * 0.3);
+  const defWaterWithdrawn = Math.round((project.turnover_cr || 1000) * 1200);
+  const defRecycled = project.water_recycled_pct || 48.0;
+  const defSafeHours = project.safe_man_hours || 2400000;
+
+  return `
+    <div class="space-y-4 text-xs">
+      <!-- Header Banner -->
+      <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl text-secondary">table_chart</span>
+            <h2 class="font-bold text-base text-primary">Enterprise Project ESG Telemetry &amp; Data Entry</h2>
+          </div>
+          <p class="text-secondary mt-0.5">Select any MEIL company or national infrastructure asset to record, audit, and commit official environmental &amp; social metrics.</p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <label class="font-bold text-on-surface-variant text-xs">Active Asset:</label>
+          <select id="qeProjectSelect" class="p-2 rounded bg-surface border border-surface-container font-semibold text-primary focus:outline-none cursor-pointer text-xs max-w-[280px]" onchange="onQuickEntryProjectChange(this.value)">
+            ${optionsHtml}
+          </select>
+        </div>
+      </div>
+
+      <!-- Selected Company / Project Overview Card -->
+      <div class="p-4 rounded-lg bg-surface-container-low border border-surface-container">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-3 pb-3 border-b border-surface-container">
+          <div class="space-y-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-primary text-on-primary text-xs font-bold">${project.site_code || 'Site #000'}</span>
+              <h3 class="font-bold text-sm text-primary">${project.name || 'Project Name'}</h3>
+              <span class="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-[11px] font-semibold">${project.category || 'Infrastructure'}</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 text-[11px] font-semibold">${project.status || 'Active'}</span>
+            </div>
+            <div class="text-secondary flex flex-wrap items-center gap-x-3 gap-y-1 text-xs pt-1">
+              <span><strong>State/Region:</strong> ${project.state_region || 'India'}</span>
+              <span>•</span>
+              <span><strong>Water Source:</strong> ${project.water_source || 'Regional Source'}</span>
+              <span>•</span>
+              <span><strong>Subsidiary:</strong> ${project.subsidiary_bu || 'MEIL Group'}</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <div class="text-right">
+              <div class="text-[11px] text-secondary font-semibold uppercase">Current Audit Status</div>
+              <div class="text-xs font-bold text-primary">${project.audit_status || 'Stage-2 In Progress'}</div>
+            </div>
+            <span class="material-symbols-outlined text-2xl text-emerald-600">verified</span>
+          </div>
+        </div>
+
+        <!-- Infrastructure & Scale Specs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 text-xs">
+          <div class="p-2.5 rounded bg-surface border border-surface-container">
+            <div class="font-semibold text-secondary uppercase text-[10px]">Key Infrastructure</div>
+            <div class="text-on-surface mt-1 font-medium leading-relaxed">${project.key_infrastructure || 'Comprehensive multi-disciplinary engineering package.'}</div>
+          </div>
+          <div class="p-2.5 rounded bg-surface border border-surface-container">
+            <div class="font-semibold text-secondary uppercase text-[10px]">Scale &amp; People/Area Served</div>
+            <div class="text-on-surface mt-1 font-medium leading-relaxed">${project.scale_served || 'Statewide population and regional socio-economic command area.'}</div>
+          </div>
+        </div>
+
+        <div class="mt-2 text-on-surface-variant text-[11px] italic bg-surface/40 p-2 rounded">
+          <strong>Summary:</strong> ${project.summary || 'Strategic nation-building water infrastructure development.'}
+        </div>
+      </div>
+
+      <!-- ESG Input Form -->
+      <div class="p-4 rounded-lg bg-surface-container-low border border-surface-container space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-surface-container">
+          <span class="font-bold text-sm text-primary flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-base text-secondary">edit_note</span>
+            <span>Record Official Telemetry &amp; Consumption for ${project.name}</span>
+          </span>
+          <span class="text-secondary text-[11px]">ISO 14064 &amp; SEBI BRSR Core Mandate</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="font-bold text-secondary">Reporting Fiscal Period</label>
+            <select id="qeFiscalPeriod" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-semibold">
+              <option value="Q2 FY 2025-26" selected>Q2 FY 2025-26 (Jul - Sep)</option>
+              <option value="Q3 FY 2025-26">Q3 FY 2025-26 (Oct - Dec)</option>
+              <option value="Q4 FY 2025-26">Q4 FY 2025-26 (Jan - Mar)</option>
+              <option value="Annual FY 2025-26">Annual Consolidated FY 2025-26</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-secondary">Submitter Name</label>
+            <input type="text" id="qeSubmitterName" value="K. V. Rao / Site Environmental Officer" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-semibold">
+          </div>
+          <div>
+            <label class="font-bold text-secondary">Submitter Role</label>
+            <select id="qeSubmitterRole" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-semibold">
+              <option value="Site Environmental Officer" selected>Site Environmental Officer</option>
+              <option value="Package Project Lead">Package Project Lead</option>
+              <option value="Chief Sustainability Officer">Chief Sustainability Officer</option>
+              <option value="Auditor / Assurance Team">Auditor / Assurance Team</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quantitative Metrics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2">
+          <div>
+            <label class="font-bold text-secondary flex items-center justify-between">
+              <span>Diesel Fuel (HSD) (kL)</span>
+              <span class="text-[10px] text-amber-700 dark:text-amber-400 font-bold">Scope 1</span>
+            </label>
+            <input type="number" id="qeDiesel" value="${defDiesel}" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm" oninput="recalculateQEPreview()">
+            <span class="text-[10px] text-secondary mt-0.5 block">Factor: 2.6865 kg CO₂e/L</span>
+          </div>
+
+          <div>
+            <label class="font-bold text-secondary flex items-center justify-between">
+              <span>Grid Power (MWh)</span>
+              <span class="text-[10px] text-blue-700 dark:text-blue-400 font-bold">Scope 2</span>
+            </label>
+            <input type="number" id="qeGrid" value="${defGrid}" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm" oninput="recalculateQEPreview()">
+            <span class="text-[10px] text-secondary mt-0.5 block">Factor: 0.7160 kg CO₂/kWh</span>
+          </div>
+
+          <div>
+            <label class="font-bold text-secondary flex items-center justify-between">
+              <span>Solar / Clean Power (MWh)</span>
+              <span class="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold">Renewable</span>
+            </label>
+            <input type="number" id="qeSolar" value="${defSolar}" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm" oninput="recalculateQEPreview()">
+            <span class="text-[10px] text-secondary mt-0.5 block">Zero Scope 2 emissions</span>
+          </div>
+
+          <div>
+            <label class="font-bold text-secondary">Natural Gas / Fuel (GJ)</label>
+            <input type="number" id="qePng" value="0" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm" oninput="recalculateQEPreview()">
+            <span class="text-[10px] text-secondary mt-0.5 block">Stationary thermal fuel</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div>
+            <label class="font-bold text-secondary">Water Withdrawal (kL)</label>
+            <input type="number" id="qeWaterWithdrawn" value="${defWaterWithdrawn}" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm">
+            <span class="text-[10px] text-secondary mt-0.5 block">Surface &amp; canal intakes</span>
+          </div>
+
+          <div>
+            <label class="font-bold text-secondary">Water Recycled On-Site (%)</label>
+            <input type="number" step="0.1" id="qeWaterRecycled" value="${defRecycled}" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm">
+            <span class="text-[10px] text-secondary mt-0.5 block">STP/ETP batching wash</span>
+          </div>
+
+          <div>
+            <label class="font-bold text-secondary">Safe Man-Hours (LTI Free)</label>
+            <input type="number" id="qeSafeHours" value="${defSafeHours}" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm">
+            <span class="text-[10px] text-secondary mt-0.5 block">Zero Lost-Time Injuries</span>
+          </div>
+
+          <div>
+            <label class="font-bold text-secondary">Tree Plantation Count</label>
+            <input type="number" id="qeTrees" value="1500" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold text-sm">
+            <span class="text-[10px] text-secondary mt-0.5 block">Afforestation saplings</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-secondary">Audit Justification &amp; Compliance Notes</label>
+            <textarea id="qeNotes" rows="2" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-medium" placeholder="Describe operational context, weather variance, or meter calibrations...">${project.name} Q2 ESG verification submitted for SEBI BRSR assurance.</textarea>
+          </div>
+          <div>
+            <label class="font-bold text-secondary">Evidence Document / Reference Number</label>
+            <input type="text" id="qeEvidenceRef" value="DISCOM_Power_Log_${project.site_code.replace(/[^a-zA-Z0-9]/g, '')}_Q2FY26.pdf" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-medium" placeholder="e.g. EB_Bill_Ref_#129384.pdf">
+            <span class="text-[10px] text-secondary mt-0.5 block">Linked to Cryptographic Evidence Vault (SHA-256)</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Real-time Calculation Box -->
+        <div class="p-3.5 rounded-lg bg-surface border border-surface-container flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-4">
+            <div>
+              <div class="text-[10px] font-bold text-secondary uppercase">Computed Scope 1</div>
+              <div id="qePreviewS1" class="text-sm font-bold text-amber-700 dark:text-amber-400 mt-0.5">${Number(((defDiesel * 1000 * 2.6865) / 1000).toFixed(2)).toLocaleString()} tCO₂e</div>
+            </div>
+            <div class="h-6 w-px bg-surface-container-high"></div>
+            <div>
+              <div class="text-[10px] font-bold text-secondary uppercase">Computed Scope 2</div>
+              <div id="qePreviewS2" class="text-sm font-bold text-blue-700 dark:text-blue-400 mt-0.5">${Number((defGrid * 0.716).toFixed(2)).toLocaleString()} tCO₂e</div>
+            </div>
+            <div class="h-6 w-px bg-surface-container-high"></div>
+            <div>
+              <div class="text-[10px] font-bold text-secondary uppercase">Total Carbon</div>
+              <div id="qePreviewTotal" class="text-sm font-bold text-primary mt-0.5">${Number(((defDiesel * 1000 * 2.6865 + defGrid * 716) / 1000).toFixed(2)).toLocaleString()} tCO₂e</div>
+            </div>
+            <div class="h-6 w-px bg-surface-container-high"></div>
+            <div>
+              <div class="text-[10px] font-bold text-secondary uppercase">Clean Energy Mix</div>
+              <div id="qePreviewClean" class="text-sm font-bold text-emerald-600 mt-0.5">${((defSolar / (defGrid + defSolar || 1)) * 100).toFixed(1)}%</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button class="px-3 py-2 rounded bg-surface-container hover:bg-surface-container-high text-primary font-semibold transition-colors" onclick="recalculateQEPreview()">
+              <span class="material-symbols-outlined text-xs">refresh</span> Recalculate
+            </button>
+            <button id="btnSaveESG" class="px-4 py-2 rounded bg-primary text-on-primary font-bold hover:bg-primary-container transition-all flex items-center gap-1.5 shadow-sm" onclick="saveCompanyESGData()">
+              <span class="material-symbols-outlined text-sm">save</span>
+              <span>Commit &amp; Save ESG Data</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Historical Submissions for This Company / Project -->
+      <div class="rounded-lg bg-surface-container border border-surface-container-high overflow-hidden shadow-sm">
+        <div class="p-3 bg-surface-container-high/60 flex items-center justify-between border-b border-surface-container-high">
+          <div class="font-bold text-sm text-primary flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-base text-secondary">history</span>
+            <span>Committed ESG Submission Log • ${project.name}</span>
+          </div>
+          <span class="text-secondary text-[11px]">${submissions.length} Recorded Submissions</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-surface-container-high text-on-surface uppercase font-semibold text-[11px]">
+              <tr>
+                <th class="p-2.5">Period</th>
+                <th class="p-2.5">Date</th>
+                <th class="p-2.5">Author</th>
+                <th class="p-2.5">Scope 1</th>
+                <th class="p-2.5">Scope 2</th>
+                <th class="p-2.5">Recycled Water</th>
+                <th class="p-2.5">Safe Hours</th>
+                <th class="p-2.5">Compliance Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${submissionsHtml}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+
+function renderProjectMapRegistry() {
+  const projects = window.MEIL_PROJECTS || [];
+
+  const cardsHtml = projects.map(p => {
+    const slug = p.id;
+    const cat = p.category || 'Water Infrastructure';
+    const state = p.state_region || 'India';
+    const status = p.status || 'Active';
+    const s1 = Number(p.scope1_tco2e || 0).toLocaleString();
+    const s2 = Number(p.scope2_tco2e || 0).toLocaleString();
+    const water = p.water_recycled_pct || 0;
+    const searchBlob = `${p.name} ${p.state_region} ${p.water_source} ${p.category} ${p.key_infrastructure}`.toLowerCase();
+
+    return `
+      <div id="proj-card-${p.id}" class="project-map-card p-4 rounded-lg bg-surface-container border border-surface-container-high flex flex-col justify-between hover:shadow-md transition-all space-y-3"
+           data-name="${(p.name || '').toLowerCase()}"
+           data-state="${(p.state_region || '').toLowerCase()}"
+           data-category="${(p.category || '').toLowerCase()}"
+           data-status="${(p.status || '').toLowerCase()}"
+           data-search="${searchBlob}">
+        <div class="space-y-2">
+          <div class="flex items-start justify-between gap-2">
+            <span class="px-2 py-0.5 rounded bg-primary text-on-primary text-[10px] font-bold uppercase tracking-wider">${p.site_code}</span>
+            <span class="px-2 py-0.5 rounded text-[11px] font-semibold ${status.includes('Completed') ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200' : 'bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200'}">
+              ${status}
+            </span>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-sm text-primary leading-snug">${p.name}</h3>
+            <div class="text-[11px] text-secondary flex items-center gap-1 mt-0.5">
+              <span class="material-symbols-outlined text-xs">location_on</span>
+              <span>${p.state_region || 'India'}</span>
+            </div>
+          </div>
+
+          <div class="p-2 rounded bg-surface-container-low border border-surface-container text-xs space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-secondary font-semibold">Category:</span>
+              <span class="font-bold text-on-surface">${cat}</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-secondary font-semibold">Water Source:</span>
+              <span class="font-medium text-primary truncate max-w-[150px]" title="${p.water_source}">${p.water_source || 'Regional'}</span>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-on-surface-variant leading-relaxed line-clamp-3" title="${p.key_infrastructure}">
+            <strong>Infrastructure:</strong> ${p.key_infrastructure || 'Specialized high-capacity engineering installation.'}
+          </p>
+
+          <div class="text-[11px] text-secondary bg-surface/60 p-2 rounded border border-surface-container">
+            <strong>Scale:</strong> ${p.scale_served || 'Statewide impact.'}
+          </div>
+
+          <div class="pt-1 grid grid-cols-2 gap-2 text-xs">
+            <div class="p-1.5 rounded bg-surface">
+              <div class="text-[10px] text-secondary uppercase font-semibold">Scope 1</div>
+              <div class="font-bold text-amber-700 dark:text-amber-400">${s1} tCO₂e</div>
+            </div>
+            <div class="p-1.5 rounded bg-surface">
+              <div class="text-[10px] text-secondary uppercase font-semibold">Recycled Water</div>
+              <div class="font-bold text-emerald-700 dark:text-emerald-400">${water}%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-surface-container-high flex items-center justify-between">
+          <span class="text-[11px] text-secondary font-medium">${p.subsidiary_bu || 'MEIL Group'}</span>
+          <button class="px-2.5 py-1 rounded bg-secondary text-on-secondary text-xs font-semibold hover:bg-primary transition-colors flex items-center gap-1" onclick="quickLogFromMap('${p.id}')">
+            <span class="material-symbols-outlined text-xs">edit_note</span>
+            <span>Enter ESG Data</span>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="space-y-4">
+      <!-- Top Title & Search Toolbar -->
+      <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high space-y-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+          <div>
+            <h2 class="font-bold text-base text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary">map</span>
+              <span>MEIL National Infrastructure Footprint &amp; Water Asset Registry</span>
+            </h2>
+            <p class="text-xs text-secondary mt-0.5">Comprehensive registry of 25+ major multipurpose, lift irrigation, bulk water, and urban supply packages across India.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="mapVisibleCount" class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-bold text-xs">${projects.length} of ${projects.length} Projects</span>
+            <button class="px-3 py-1.5 rounded bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container" onclick="navigateTo('project-quick-entry-sheet')">
+              + Quick Entry Log
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-2 pt-1">
+          <div>
+            <input type="text" id="mapSearchInput" oninput="filterProjectsMap()" placeholder="Search project, river, district..." class="w-full p-2 rounded bg-surface border border-surface-container text-xs text-on-surface focus:outline-none">
+          </div>
+          <div>
+            <select id="mapCategoryFilter" onchange="filterProjectsMap()" class="w-full p-2 rounded bg-surface border border-surface-container text-xs text-on-surface font-semibold focus:outline-none cursor-pointer">
+              <option value="ALL">All Categories</option>
+              <option value="Multipurpose">Multipurpose (Irrigation/Power)</option>
+              <option value="Lift Irrigation">Lift Irrigation</option>
+              <option value="Drinking Water">Drinking Water Supply</option>
+              <option value="Bulk Water">Bulk Water Supply</option>
+              <option value="Drip Irrigation">Drip Irrigation</option>
+            </select>
+          </div>
+          <div>
+            <select id="mapStateFilter" onchange="filterProjectsMap()" class="w-full p-2 rounded bg-surface border border-surface-container text-xs text-on-surface font-semibold focus:outline-none cursor-pointer">
+              <option value="ALL">All States / Regions</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+            </select>
+          </div>
+          <div>
+            <select id="mapStatusFilter" onchange="filterProjectsMap()" class="w-full p-2 rounded bg-surface border border-surface-container text-xs text-on-surface font-semibold focus:outline-none cursor-pointer">
+              <option value="ALL">All Statuses</option>
+              <option value="Ongoing">Ongoing Projects</option>
+              <option value="Completed">Completed Projects</option>
+              <option value="Partially commissioned">Partially Commissioned</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Cards Grid -->
+      <div id="projectCardsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+        ${cardsHtml}
+      </div>
+    </div>
+  `;
+}
+
+
 /* =========================================================================
    13. DEDICATED MODULE VIEW RENDERERS (SAB SECTION ALAG ALAG KAAM KARE)
    ========================================================================= */
@@ -918,78 +1566,7 @@ function renderModuleSpecificContent(path, title) {
 
   // 3. Project Map (Dedicated Screen)
   if (path === 'project-map') {
-    return `
-      <div class="space-y-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-primary">Site #108 • Zojila Tunnel</span>
-              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[11px] font-bold">Kashmir &amp; Ladakh</span>
-            </div>
-            <p class="text-xs text-secondary mt-1">Package 1 &amp; 2 Twin-tube tunnel boring and sub-zero ventilation works.</p>
-            <div class="mt-3 text-xs space-y-1">
-              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">48,920 tCO₂e (Scope 1)</span></div>
-              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Solar Microgrid + High-Power DG</span></div>
-            </div>
-          </div>
-          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-primary">Site #042 • Polavaram Project</span>
-              <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[11px] font-bold">Andhra Pradesh</span>
-            </div>
-            <p class="text-xs text-secondary mt-1">Multi-purpose irrigation spillway, concrete diaphragm walls and hydro intake.</p>
-            <div class="mt-3 text-xs space-y-1">
-              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">76,400 tCO₂e (Scope 1)</span></div>
-              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Dedicated Hydro Transmission</span></div>
-            </div>
-          </div>
-          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-primary">Site #014 • Kaleshwaram Link III</span>
-              <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-800 text-[11px] font-bold">Telangana</span>
-            </div>
-            <p class="text-xs text-secondary mt-1">Underground pump houses and high-tension canal lifts.</p>
-            <div class="mt-3 text-xs space-y-1">
-              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">34,100 tCO₂e (Scope 2 Grid)</span></div>
-              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Southern Grid CEA v19</span></div>
-            </div>
-          </div>
-          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-primary">Site #INT-09 • Mongol Refinery</span>
-              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[11px] font-bold">Sainshand, Mongolia</span>
-            </div>
-            <p class="text-xs text-secondary mt-1">International EPC EPC-3 (Utilities) and EPC-4 (Captive Power Plant).</p>
-            <div class="mt-3 text-xs space-y-1">
-              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">32,150 tCO₂e</span></div>
-              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Substation Grid (12% Renew)</span></div>
-            </div>
-          </div>
-          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-primary">Drillmec S.p.A. Plant</span>
-              <span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 text-[11px] font-bold">Piacenza, Italy</span>
-            </div>
-            <p class="text-xs text-secondary mt-1">Automated heavy oil &amp; geothermal drilling rig fabrication facility.</p>
-            <div class="mt-3 text-xs space-y-1">
-              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">5,420 tCO₂e (Scope 2)</span></div>
-              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Northern Italy Grid</span></div>
-            </div>
-          </div>
-          <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-primary">Megha City Gas Package</span>
-              <span class="px-2 py-0.5 rounded bg-teal-100 text-teal-800 text-[11px] font-bold">Pan-India CGD</span>
-            </div>
-            <p class="text-xs text-secondary mt-1">Geographical Area (GA) pipeline networks and compressed natural gas stations.</p>
-            <div class="mt-3 text-xs space-y-1">
-              <div><span class="text-secondary">Emissions:</span> <span class="font-bold text-primary">12,600 tCO₂e</span></div>
-              <div><span class="text-secondary">Power Source:</span> <span class="font-medium text-primary">Piped Natural Gas (PNG)</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
+    return renderProjectMapRegistry();
   }
 
   // 4. Organization Hierarchy (Dedicated Screen)
@@ -1135,44 +1712,7 @@ function renderModuleSpecificContent(path, title) {
 
   // 8. Project Quick-Entry Sheet (Dedicated Screen)
   if (path === 'project-quick-entry-sheet') {
-    return `
-      <div class="space-y-4 text-xs">
-        <div class="p-4 rounded-lg bg-surface-container border border-surface-container-high">
-          <div class="font-bold text-sm text-primary">Rapid Telemetry &amp; Consumption Log Sheet</div>
-          <div class="text-secondary mt-0.5">Quick data entry for site environmental engineers and civil package coordinators.</div>
-        </div>
-        <div class="p-4 rounded-lg bg-surface-container-low border border-surface-container space-y-3">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <div>
-              <label class="font-bold text-secondary">Package Site</label>
-              <select class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface">
-                <option>Site #108 • Zojila Tunnel Portal 1 &amp; 2</option>
-                <option>Site #042 • Polavaram Spillway Works</option>
-                <option>Site #014 • Kaleshwaram Pump House</option>
-                <option>Site #INT-09 • Mongol Oil Refinery</option>
-              </select>
-            </div>
-            <div>
-              <label class="font-bold text-secondary">Diesel Consumption (KL)</label>
-              <input type="number" value="120" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold">
-            </div>
-            <div>
-              <label class="font-bold text-secondary">Grid Electricity (MWh)</label>
-              <input type="number" value="450" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold">
-            </div>
-            <div>
-              <label class="font-bold text-secondary">Water Recycled (KL)</label>
-              <input type="number" value="820" class="w-full mt-1 p-2 rounded bg-surface border border-surface-container text-on-surface font-bold">
-            </div>
-          </div>
-          <div class="flex justify-end gap-2 pt-2">
-            <button class="px-4 py-2 rounded bg-primary text-on-primary font-semibold hover:bg-primary-container" onclick="showNotification('Quick Entry Recorded', 'Entry successfully added to site consumption ledger.')">
-              Submit to Asset Ledger
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
+    return renderProjectQuickEntrySheet(window.currentActiveProjectId);
   }
 
   // 9. Audit Trail Log (Dedicated Screen)

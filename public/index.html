@@ -504,15 +504,38 @@
           <img alt="MEIL Corporate Logo" class="h-8 w-auto object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqwIIWwvHWjhencO4WzN8zsSftw7KvTVK5Xe52Q0ZAVEQE1wpZHr-qxm2mCrlhjaEJwoqPk12mfauX32taAa_fAWNtbTjKDbKCoHuTzwTNR-MtDreyjPH_z6DGuap-92lLMp9V2QwI8JgMvmq2VGESr7uKBjWJtLj4PePpA4H4YqyQjkg9Pk9ge62QtDeDC39bEUGnmt2WtPqoSlwjYmwhAbA9vID3deBR90Q-H4QXed8IWLVNO5w33ZVWFFUICQKjT9s">
           <span class="font-headline-sm text-xs font-bold tracking-wider text-on-tertiary-container uppercase px-1.5 py-0.5 rounded bg-surface-container">ESG CONNECT</span>
         </div>
-        <div class="hidden xl:flex items-center bg-surface-container-low px-3 py-1.5 rounded gap-2 text-on-surface-variant font-label-md text-label-md">
+        <div class="hidden lg:flex items-center bg-surface-container-low px-3 py-1.5 rounded gap-2 text-on-surface-variant font-label-md text-label-md">
           <span class="material-symbols-outlined text-base text-secondary">domain</span>
-          <span class="font-semibold text-on-surface">Group</span>
-          <span class="text-outline-variant">&gt;</span>
-          <span class="hover:text-on-surface cursor-pointer">Subsidiary</span>
-          <span class="text-outline-variant">&gt;</span>
-          <span class="hover:text-on-surface cursor-pointer">Hydro BU</span>
-          <span class="text-outline-variant">&gt;</span>
-          <span class="text-secondary font-medium">Polavaram Site</span>
+          <span class="font-semibold text-on-surface text-xs">Company/Project:</span>
+          <select class="bg-transparent text-secondary font-semibold focus:outline-none cursor-pointer text-xs max-w-[270px] truncate" id="globalProjectSelector" onchange="onGlobalProjectChange(this.value)" title="Switch Active Company / Infrastructure Project">
+            <option value="proj-polavaram">Site #042 • Polavaram Project (AP)</option>
+            <option value="proj-gangadhar-meher-lift-irrigation-project">Site #089 • Gangadhar Meher Lift Irrigation (Odisha)</option>
+            <option value="proj-kalisindh-phase-2-project">Site #115 • Kalisindh Phase 2 (MP)</option>
+            <option value="proj-narmada-kshipra-simhastha-link-project">Site #031 • Narmada-Kshipra Link (MP)</option>
+            <option value="proj-kadana-lift-irrigation-scheme">Site #067 • Kadana Lift Irrigation (Gujarat)</option>
+            <option value="proj-gayatri-pumphouse-kaleshwaram-lift-irrigation-project">Site #014 • Gayatri Pumphouse KLIP (Telangana)</option>
+            <option value="proj-saurashtra-narmada-avtaran-sauni-yojana">Site #056 • SAUNI Yojana (Gujarat)</option>
+            <option value="proj-ramthal-drip-irrigation-project">Site #073 • Ramthal Drip Irrigation (Karnataka)</option>
+            <option value="proj-mission-bhagiratha-gdwss">Site #019 • Mission Bhagiratha (Telangana)</option>
+            <option value="proj-ganga-jal-aapurti-yojana">Site #082 • Ganga Jal Aapurti (Bihar)</option>
+            <option value="proj-bhubaneswar-bulk-water-supply-scheme">Site #094 • Bhubaneswar Bulk Water (Odisha)</option>
+            <option value="proj-uddanam-drinking-water-project">Site #048 • Uddanam Water Project (AP)</option>
+            <option value="proj-nellore-drinking-water-project">Site #044 • Nellore Water Project (AP)</option>
+            <option value="proj-pulivendula-drinking-water-project">Site #049 • Pulivendula Water Project (AP)</option>
+            <option value="proj-dhone-drinking-water-project">Site #051 • Dhone Water Project (AP)</option>
+            <option value="proj-proddatur-drinking-water-project">Site #052 • Proddatur Water Project (AP)</option>
+            <option value="proj-pillur-iii-drinking-water-supply-scheme">Site #063 • Pillur III Water Supply (TN)</option>
+            <option value="proj-other-completed-schemes-rajasthan-karnataka-up">Site #099 • Other Schemes (RJ, KA, UP)</option>
+            <option value="proj-uttar-pradesh-ongoing-water-schemes">Site #121 • UP Ongoing Water Schemes</option>
+            <option value="proj-tamil-nadu-ongoing-water-schemes">Site #124 • TN Ongoing Water Schemes</option>
+            <option value="proj-telangana-ongoing-water-schemes">Site #127 • Telangana Ongoing Water Schemes</option>
+            <option value="proj-odisha-ongoing-water-schemes">Site #130 • Odisha Ongoing Water Schemes</option>
+            <option value="proj-madhya-pradesh-ongoing-water-schemes">Site #133 • MP Ongoing Water Schemes</option>
+            <option value="proj-maharashtra-ongoing-water-schemes">Site #136 • Maharashtra Ongoing Water Schemes</option>
+            <option value="proj-andhra-pradesh-karnataka-ongoing-water-schemes">Site #139 • AP &amp; Karnataka Water Schemes</option>
+            <option value="proj-108">Site #108 • Zojila Tunnel Project (J&amp;K)</option>
+            <option value="proj-int-09">Site #INT-09 • Mongol Oil Refinery (Mongolia)</option>
+          </select>
         </div>
         <div class="flex items-center bg-surface-container-low px-2.5 py-1 rounded gap-1.5 font-label-md text-label-md">
           <span class="material-symbols-outlined text-base text-secondary">calendar_month</span>

@@ -128,6 +128,170 @@ app.get('/api/projects', async (req, res) => {
   res.json(localDb.projects || []);
 });
 
+// 2b. Get Single Project / Company by ID or Site Code
+app.get('/api/projects/:id', async (req, res) => {
+  const { id } = req.params;
+  const project = (localDb.projects || []).find(p => p.id === id || p.site_code === id);
+  if (!project) {
+    return res.status(404).json({ error: `Project not found for id/site_code: ${id}` });
+  }
+  res.json(project);
+});
+
+// 2c. Register / Add New Project
+app.post('/api/projects', async (req, res) => {
+  const p = req.body;
+  if (!p.name) return res.status(400).json({ error: 'Project name is required.' });
+  
+  const siteCode = p.site_code || `Site #${String((localDb.projects?.length || 0) + 1).padStart(3, '0')}`;
+  const slug = p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const newProject = {
+    id: p.id || `proj-${slug}`,
+    site_code: siteCode,
+    name: p.name,
+    state_region: p.state_region || 'India',
+    location: p.location || p.state_region || 'India',
+    category: p.category || 'Water & Irrigation',
+    status: p.status || 'Ongoing',
+    water_source: p.water_source || 'Regional Source',
+    key_infrastructure: p.key_infrastructure || '',
+    scale_served: p.scale_served || '',
+    summary: p.summary || '',
+    subsidiary_bu: p.subsidiary_bu || 'MEIL Water Division',
+    scope1_tco2e: Number(p.scope1_tco2e || 0),
+    scope2_tco2e: Number(p.scope2_tco2e || 0),
+    scope3_tco2e: Number(p.scope3_tco2e || 0),
+    turnover_cr: Number(p.turnover_cr || 500),
+    safe_man_hours: Number(p.safe_man_hours || 1000000),
+    energy_mix: p.energy_mix || 'Standard Grid Mix',
+    water_recycled_pct: Number(p.water_recycled_pct || 0),
+    audit_status: p.audit_status || 'Stage-2 In Review',
+    status_category: p.status_category || 'active',
+    version: 1,
+    updatedAt: new Date().toISOString(),
+    esg_submissions: []
+  };
+
+  localDb.projects.push(newProject);
+  saveLocalDb();
+
+  if (isCloudOnline && supabase) {
+    try {
+      await supabase.from('projects').insert([newProject]);
+    } catch (e) {
+      console.warn('Could not insert new project into Supabase:', e.message);
+    }
+  }
+
+  res.status(201).json({ success: true, project: newProject });
+});
+
+// 2d. Save / Submit ESG Data for a specific Company / Project
+app.post('/api/projects/:id/esg', async (req, res) => {
+  const { id } = req.params;
+  const {
+    fiscal_period = 'Q2 FY 2025-26',
+    submitted_by = 'Site Environmental Officer',
+    diesel_kl = 0,
+    grid_mwh = 0,
+    solar_mwh = 0,
+    png_gj = 0,
+    scope1_tco2e,
+    scope2_tco2e,
+    scope3_tco2e,
+    water_withdrawn_kl = 0,
+    water_recycled_pct = 0,
+    safe_man_hours = 0,
+    turnover_cr,
+    tree_plantation_count = 0,
+    notes = '',
+    evidence_ref = ''
+  } = req.body;
+
+  let project = (localDb.projects || []).find(p => p.id === id || p.site_code === id);
+  if (!project) {
+    return res.status(404).json({ error: `Project with identifier ${id} not found.` });
+  }
+
+  // Calculate Scope 1 and Scope 2 if not explicitly passed
+  const s1 = scope1_tco2e !== undefined && scope1_tco2e !== '' ? Number(scope1_tco2e) : Number(((Number(diesel_kl) * 1000 * 2.6865 + Number(png_gj) * 1.982) / 1000).toFixed(2));
+  const s2 = scope2_tco2e !== undefined && scope2_tco2e !== '' ? Number(scope2_tco2e) : Number((Number(grid_mwh) * 0.716).toFixed(2));
+  const s3 = scope3_tco2e !== undefined && scope3_tco2e !== '' ? Number(scope3_tco2e) : (project.scope3_tco2e || 0);
+
+  // Update project fields
+  project.scope1_tco2e = s1;
+  project.scope2_tco2e = s2;
+  project.scope3_tco2e = s3;
+  if (water_recycled_pct) project.water_recycled_pct = Number(water_recycled_pct);
+  if (safe_man_hours) project.safe_man_hours = Number(safe_man_hours);
+  if (turnover_cr) project.turnover_cr = Number(turnover_cr);
+  project.version = (project.version || 1) + 1;
+  project.updatedAt = new Date().toISOString();
+  project.audit_status = 'Stage-2 In Review';
+
+  // Append to submission history
+  const submissionRecord = {
+    submission_id: `sub-${project.site_code.replace(/[^a-zA-Z0-9]/g, '')}-${Date.now()}`,
+    fiscal_period,
+    submitted_at: new Date().toISOString(),
+    submitted_by,
+    diesel_kl: Number(diesel_kl),
+    grid_mwh: Number(grid_mwh),
+    solar_mwh: Number(solar_mwh),
+    scope1_tco2e: s1,
+    scope2_tco2e: s2,
+    scope3_tco2e: s3,
+    water_withdrawn_kl: Number(water_withdrawn_kl),
+    water_recycled_pct: Number(water_recycled_pct),
+    safe_man_hours: Number(safe_man_hours),
+    tree_plantation_count: Number(tree_plantation_count),
+    notes,
+    evidence_ref
+  };
+
+  if (!project.esg_submissions) project.esg_submissions = [];
+  project.esg_submissions.unshift(submissionRecord);
+
+  // Add immutable audit log
+  const auditLog = {
+    id: `log-${Date.now()}`,
+    author: submitted_by,
+    author_role: 'Project Data Entry Lead',
+    note_text: `ESG Telemetry Data recorded for ${project.name} (${project.site_code}): Scope 1=${s1} tCO2e, Scope 2=${s2} tCO2e, Recycled Water=${water_recycled_pct}%. ${notes ? 'Note: ' + notes : ''}`,
+    entity_ref: `${project.name} (${project.site_code})`,
+    action_type: 'ESG_SUBMISSION',
+    created_at: new Date().toISOString()
+  };
+  localDb.audit_logs.unshift(auditLog);
+
+  saveLocalDb();
+
+  // Sync to Supabase if online
+  if (isCloudOnline && supabase) {
+    try {
+      await supabase.from('projects').update({
+        scope1_tco2e: s1,
+        scope2_tco2e: s2,
+        scope3_tco2e: s3,
+        water_recycled_pct: project.water_recycled_pct,
+        safe_man_hours: project.safe_man_hours,
+        audit_status: 'Stage-2 In Review'
+      }).eq('site_code', project.site_code);
+      await supabase.from('audit_logs').insert([auditLog]);
+    } catch (e) {
+      console.warn('Could not sync project ESG update to Supabase:', e.message);
+    }
+  }
+
+  res.json({
+    success: true,
+    message: `ESG data saved successfully for ${project.name}`,
+    project,
+    submission: submissionRecord,
+    auditLog
+  });
+});
+
 // 3. Emission Factors Master Library
 app.get('/api/emission-factors', async (req, res) => {
   if (isCloudOnline && supabase) {
