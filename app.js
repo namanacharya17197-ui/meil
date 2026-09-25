@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
    1. CLIENT-SIDE ROUTING & NAVIGATION
    ========================================================================= */
 const knownViews = [
+  'home',
   'executive-dashboard',
   'brsr-section-c-principle-wise-performance',
   'calculation-and-emission-engine',
@@ -49,7 +50,7 @@ function initRouting() {
 function handleRoute() {
   let path = window.location.hash.replace('#', '').trim();
   if (!path) {
-    path = 'executive-dashboard';
+    path = 'home';
   }
   navigateTo(path, false);
 }
@@ -57,6 +58,39 @@ function handleRoute() {
 function navigateTo(path, updateHash = true) {
   if (updateHash) {
     window.location.hash = path;
+  }
+
+  const sidebar = document.getElementById('sidebar');
+  const mainViewport = document.getElementById('mainViewport');
+  const topExecutiveHeader = document.getElementById('topExecutiveHeader');
+  const landingHeader = document.getElementById('landingHeader');
+  const mainContainer = document.getElementById('mainContainer');
+
+  if (path === 'home' || path === 'landing') {
+    if (sidebar) sidebar.classList.add('hidden');
+    if (mainViewport) {
+      mainViewport.classList.remove('pl-72');
+      mainViewport.classList.add('pl-0');
+    }
+    if (topExecutiveHeader) topExecutiveHeader.classList.add('hidden');
+    if (landingHeader) landingHeader.classList.remove('hidden');
+    if (mainContainer) {
+      mainContainer.classList.remove('pt-16', 'px-space-lg', 'py-space-lg');
+      mainContainer.classList.add('pt-20', 'px-0', 'py-0');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    if (sidebar) sidebar.classList.remove('hidden');
+    if (mainViewport) {
+      mainViewport.classList.remove('pl-0');
+      mainViewport.classList.add('pl-72');
+    }
+    if (topExecutiveHeader) topExecutiveHeader.classList.remove('hidden');
+    if (landingHeader) landingHeader.classList.add('hidden');
+    if (mainContainer) {
+      mainContainer.classList.remove('pt-20', 'px-0', 'py-0');
+      mainContainer.classList.add('pt-16', 'px-space-lg', 'py-space-lg');
+    }
   }
 
   // Update Sidebar active styling
@@ -666,18 +700,21 @@ function toggleTheme() {
 
 function applyTheme(theme, notify = true) {
   const icon = document.getElementById('themeToggleIcon');
+  const landingIcon = document.getElementById('themeIconLanding');
   const btn = document.getElementById('themeToggleBtn');
 
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');
     localStorage.setItem('meil_theme', 'dark');
     if (icon) icon.textContent = 'light_mode';
+    if (landingIcon) landingIcon.textContent = 'light_mode';
     if (btn) btn.setAttribute('title', 'Switch to Light Theme');
     if (notify) showNotification('Theme Updated', 'Dark theme enabled.');
   } else {
     document.documentElement.classList.remove('dark');
     localStorage.setItem('meil_theme', 'light');
     if (icon) icon.textContent = 'dark_mode';
+    if (landingIcon) landingIcon.textContent = 'dark_mode';
     if (btn) btn.setAttribute('title', 'Switch to Dark Theme');
     if (notify) showNotification('Theme Updated', 'Light theme enabled.');
   }
@@ -1806,3 +1843,47 @@ function renderModuleSpecificContent(path, title) {
   `;
 }
 
+
+/* =========================================================================
+   18. LANDING PAGE MODALS & INTERACTIONS
+   ========================================================================= */
+function openRequestModal() {
+  const m = document.getElementById('requestAccessModal');
+  if (m) m.classList.remove('hidden');
+}
+
+function closeRequestModal() {
+  const m = document.getElementById('requestAccessModal');
+  if (m) m.classList.add('hidden');
+}
+
+function handleAccessSubmit(e) {
+  e.preventDefault();
+  const msg = document.getElementById('accessSuccessMsg');
+  if (msg) msg.classList.remove('hidden');
+  setTimeout(() => {
+    closeRequestModal();
+    if (msg) msg.classList.add('hidden');
+    navigateTo('executive-dashboard');
+  }, 1800);
+}
+
+function openContactModal() {
+  const m = document.getElementById('contactModal');
+  if (m) m.classList.remove('hidden');
+}
+
+function closeContactModal() {
+  const m = document.getElementById('contactModal');
+  if (m) m.classList.add('hidden');
+}
+
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const msg = document.getElementById('contactSuccessMsg');
+  if (msg) msg.classList.remove('hidden');
+  setTimeout(() => {
+    closeContactModal();
+    if (msg) msg.classList.add('hidden');
+  }, 2200);
+}
