@@ -9,6 +9,7 @@ window.currentActiveProjectId = 'proj-polavaram-project';
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  updateUIForAuthUser(getAuthenticatedUser());
   initRouting();
   initCalculations();
   initUnitConverter();
@@ -22,6 +23,58 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================================================================
    1. CLIENT-SIDE ROUTING & NAVIGATION
    ========================================================================= */
+
+/* =========================================================================
+   0. AUTHENTICATION STATE & SECURITY GUARD
+   ========================================================================= */
+const PUBLIC_VIEWS = ['home', 'landing', 'login'];
+
+function isAuthenticated() {
+  const token = localStorage.getItem('meil_auth_token');
+  return !!token;
+}
+
+function getAuthenticatedUser() {
+  try {
+    const userStr = localStorage.getItem('meil_auth_user');
+    return userStr ? JSON.parse(userStr) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setAuthenticatedUser(user) {
+  const token = 'meil_sec_token_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+  localStorage.setItem('meil_auth_token', token);
+  localStorage.setItem('meil_auth_user', JSON.stringify(user));
+  updateUIForAuthUser(user);
+}
+
+function logoutUser() {
+  localStorage.removeItem('meil_auth_token');
+  localStorage.removeItem('meil_auth_user');
+  showNotification('Signed Out', 'Your secure statutory session has been terminated.');
+  navigateTo('login', true);
+}
+
+function updateUIForAuthUser(user) {
+  if (!user) return;
+  const nameEl = document.getElementById('userDisplayName');
+  const roleEl = document.getElementById('userRoleDisplay');
+  const roleSel = document.getElementById('roleSelector');
+
+  if (nameEl) nameEl.textContent = user.name || 'K. V. Rao';
+  if (roleEl) roleEl.textContent = user.role || 'Corporate ESG Admin';
+  if (roleSel && user.role) {
+    for (let i = 0; i < roleSel.options.length; i++) {
+      if (roleSel.options[i].text.toLowerCase().includes((user.role || '').toLowerCase().substring(0, 5))) {
+        roleSel.selectedIndex = i;
+        break;
+      }
+    }
+  }
+}
+
 const knownViews = [
   'home',
   'login',
@@ -53,11 +106,31 @@ function handleRoute() {
   if (!path) {
     path = 'home';
   }
+
+  // Auth Guard: If trying to access protected internal section without logging in, redirect to login
+  if (!PUBLIC_VIEWS.includes(path) && !isAuthenticated()) {
+    showNotification('Authentication Required', 'Please sign in to access confidential MEIL ESG modules.');
+    navigateTo('login', false);
+    return;
+  }
+
   navigateTo(path, false);
 }
 
 function navigateTo(path, updateHash = true) {
-  if (updateHash) {
+  // Auth Guard Enforcement
+  if (!PUBLIC_VIEWS.includes(path) && !isAuthenticated()) {
+    if (typeof showNotification === 'function') {
+      showNotification('Access Denied', 'Please log in to access this ESG module.');
+    }
+    if (typeof showAlert === 'function') {
+      showAlert('warning', 'Authentication Required', 'You must log in before accessing internal MEIL disclosures.');
+    }
+    path = 'login';
+    if (updateHash) {
+      window.location.hash = 'login';
+    }
+  } else if (updateHash) {
     window.location.hash = path;
   }
 
@@ -2057,33 +2130,58 @@ function selectSimulatorRole(roleKey) {
 function testSimulatedNavigation() {
   const config = roleDataMap[currentSimulatorRoleKey];
   const targetPath = config ? config.routePath : 'executive-dashboard';
-  showAlert('success', 'Route Resolved', 'Launching simulated session for ' + (config?.title || 'User') + '...');
+  const user = {
+    name: config?.title ? `${config.title} User` : 'MEIL Operator',
+    role: config?.title || 'Group ESG Admin',
+    email: 'simulator@meilgroup.com'
+  };
+  setAuthenticatedUser(user);
+  showAlert('success', 'Session Authenticated', 'Logged in as ' + (config?.title || 'User') + '. Opening target module...');
+  showNotification('Persona Authenticated', 'Access granted to: ' + targetPath);
   setTimeout(() => {
     navigateTo(targetPath);
   }, 1000);
 }
 
 function triggerSSOLogin() {
-  showAlert('success', 'MEIL SSO Handshake Initiated', 'Authenticated with Azure AD (Microsoft Entra ID). Initializing Executive Governance Console...');
+  const user = {
+    name: 'K. V. Rao',
+    role: 'Group ESG Admin',
+    email: 'cso@meilgroup.com'
+  };
+  setAuthenticatedUser(user);
+  showAlert('success', 'MEIL SSO Handshake Successful', 'Authenticated with Microsoft Entra ID as ' + user.name + '. Opening Executive Console...');
+  showNotification('Login Verified', 'Session initialized with Zero-Trust RBAC claims.');
   setTimeout(() => {
     navigateTo('executive-dashboard');
-  }, 1200);
+  }, 1000);
 }
 
 function handleCredentialSubmit(event) {
   event.preventDefault();
   const idInput = document.getElementById('identifier-input');
   const id = idInput ? idInput.value : '';
-  if (id.includes('auditor') || id.includes('kpmg') || id.includes('pwc')) {
-    showAlert('success', 'Statutory Token Verified', 'Hardware challenge token accepted. Initializing Auditor Working Paper Workspace...');
+  const isAuditor = (id.includes('auditor') || id.includes('kpmg') || id.includes('pwc'));
+  
+  const user = {
+    name: isAuditor ? 'P. Khurana (Auditor Lead)' : 'K. V. Rao',
+    role: isAuditor ? 'Independent Assurance Assessor' : 'Group ESG Admin',
+    email: id || 'user@meilgroup.com'
+  };
+  setAuthenticatedUser(user);
+
+  if (isAuditor) {
+    showAlert('success', 'Statutory Token Verified', 'Hardware challenge token accepted. Opening Auditor Workspace...');
+    showNotification('Auditor Access Granted', 'ISAE 3000 read-only assurance permissions active.');
     setTimeout(() => {
       navigateTo('evidence-assurance-vault');
-    }, 1200);
+    }, 1000);
   } else {
-    showAlert('success', 'Authentication Successful', 'Session initialized. Redirecting to Executive Governance Console...');
+    showAlert('success', 'Authentication Successful', 'Identity verified. Opening Executive Governance Console...');
+    showNotification('Welcome, ' + user.name, 'Session established under ISO 27001 policy.');
     setTimeout(() => {
       navigateTo('executive-dashboard');
-    }, 1200);
+    }, 1000);
   }
 }
 

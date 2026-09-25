@@ -499,6 +499,10 @@
         </div>
         <span class="font-label-sm text-label-sm font-semibold text-emerald-600 dark:text-emerald-400">v3.4 Active</span>
       </div>
+        <button onclick="logoutUser()" class="w-full mt-2 py-1.5 px-space-sm bg-surface-container hover:bg-error/10 text-on-surface-variant hover:text-error rounded flex items-center justify-center gap-2 transition-colors font-label-md text-xs font-semibold cursor-pointer">
+          <span class="material-symbols-outlined text-base">logout</span>
+          <span>Sign Out</span>
+        </button>
     </div>
   </aside>
 
@@ -583,9 +587,14 @@
             <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
           </div>
           <div class="hidden md:flex flex-col">
-            <span class="font-label-md text-label-md font-semibold text-on-surface leading-tight">K. V. Rao</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Chief Sustainability Officer</span>
+            <span class="font-label-md text-label-md font-semibold text-on-surface leading-tight" id="userDisplayName">K. V. Rao</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant leading-tight" id="userRoleDisplay">Chief Sustainability Officer</span>
           </div>
+          <!-- Sign Out Button -->
+          <button onclick="logoutUser()" title="Sign Out from Platform" class="ml-2 px-2.5 py-1 rounded bg-surface-container hover:bg-error/15 text-error transition-colors flex items-center gap-1 cursor-pointer font-label-sm text-xs font-semibold">
+            <span class="material-symbols-outlined text-[16px]">logout</span>
+            <span class="hidden xl:inline">Sign Out</span>
+          </button>
         </div>
       </div>
     </header>

@@ -1474,12 +1474,40 @@
 
   // Test Route Button Action
 
+  
+  const appRouteMap = {
+    'group-admin': 'index.html#executive-dashboard',
+    'bu-manager': 'index.html#reporting-cycles-and-status-matrix',
+    'project-coord': 'index.html#project-quick-entry-sheet',
+    'data-owner': 'index.html#brsr-section-c-principle-wise-performance',
+    'internal-auditor': 'index.html#audit-trail-ledger',
+    'external-assurance': 'index.html#evidence-assurance-vault',
+    'regulator-viewer': 'index.html#brsr-report-generator'
+  };
+
+  let activeSimRoleKey = 'group-admin';
+
+  const origSelectSimulatorRole = selectSimulatorRole;
+  selectSimulatorRole = function(roleKey) {
+    activeSimRoleKey = roleKey;
+    origSelectSimulatorRole(roleKey);
+  };
+
   function testSimulatedNavigation() {
-
-    const currentDest = document.getElementById('sim-destination').textContent;
-
-    showAlert('info', 'Simulated Route Selected', 'In production, authorization tokens will immediately route your session to: ' + currentDest);
-
+    const targetUrl = (typeof appRouteMap !== 'undefined' && appRouteMap[activeSimRoleKey]) ? appRouteMap[activeSimRoleKey] : 'index.html#executive-dashboard';
+    const roleTitle = (typeof roleDataMap !== 'undefined' && roleDataMap[activeSimRoleKey]?.title) ? roleDataMap[activeSimRoleKey].title : 'Group ESG Admin';
+    const user = {
+      name: roleTitle + ' User',
+      role: roleTitle,
+      email: 'simulator@meilgroup.com'
+    };
+    const token = 'meil_sec_token_' + Date.now();
+    localStorage.setItem('meil_auth_token', token);
+    localStorage.setItem('meil_auth_user', JSON.stringify(user));
+    showAlert('success', 'Route Resolved', 'Authenticated as ' + roleTitle + '. Launching session...');
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 1000);
   }
 
 
@@ -1487,9 +1515,18 @@
   // SSO Login Trigger
 
   function triggerSSOLogin() {
-
-    showAlert('success', 'MEIL SSO Handshake Initiated', 'Redirecting securely to login.microsoftonline.com with client tenant ID MEIL-ENTERPRISE-01...');
-
+    const user = {
+      name: 'K. V. Rao',
+      role: 'Group ESG Admin',
+      email: 'cso@meilgroup.com'
+    };
+    const token = 'meil_sec_token_' + Date.now();
+    localStorage.setItem('meil_auth_token', token);
+    localStorage.setItem('meil_auth_user', JSON.stringify(user));
+    showAlert('success', 'MEIL SSO Handshake Initiated', 'Authenticated with Microsoft Entra ID. Opening Executive Dashboard...');
+    setTimeout(() => {
+      window.location.href = 'index.html#executive-dashboard';
+    }, 1000);
   }
 
 
