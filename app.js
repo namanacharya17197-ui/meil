@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================= */
 const knownViews = [
   'home',
+  'login',
   'executive-dashboard',
   'brsr-section-c-principle-wise-performance',
   'calculation-and-emission-engine',
@@ -79,6 +80,22 @@ function navigateTo(path, updateHash = true) {
       mainContainer.classList.add('pt-20', 'px-0', 'py-0');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else if (path === 'login') {
+    if (sidebar) sidebar.classList.add('hidden');
+    if (mainViewport) {
+      mainViewport.classList.remove('pl-72');
+      mainViewport.classList.add('pl-0');
+    }
+    if (topExecutiveHeader) topExecutiveHeader.classList.add('hidden');
+    if (landingHeader) landingHeader.classList.add('hidden');
+    if (mainContainer) {
+      mainContainer.classList.remove('pt-16', 'pt-20', 'px-space-lg', 'py-space-lg');
+      mainContainer.classList.add('pt-0', 'px-0', 'py-0');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof selectSimulatorRole === 'function') {
+      setTimeout(() => selectSimulatorRole('group-admin'), 50);
+    }
   } else {
     if (sidebar) sidebar.classList.remove('hidden');
     if (mainViewport) {
@@ -1886,4 +1903,288 @@ function handleContactSubmit(e) {
     closeContactModal();
     if (msg) msg.classList.add('hidden');
   }, 2200);
+}
+
+/* =========================================================================
+   19. ENTERPRISE GATEWAY & RBAC SIMULATOR LOGIC
+   ========================================================================= */
+const roleDataMap = {
+  'group-admin': {
+    title: 'Group ESG Admin',
+    destination: '/console/group-admin/consolidated-disclosure',
+    routePath: 'executive-dashboard',
+    claims: '["org:meil-group", "scope:all", "write:master", "approval:statutory_signoff"]',
+    level: 'Tier 1 - Executive Master',
+    boundary: 'Global (All 18 BUs)',
+    status: 'VERIFIED'
+  },
+  'bu-manager': {
+    title: 'BU ESG Manager',
+    destination: '/dashboards/bu-approval-queue?unit=MEIL-INFRA',
+    routePath: 'reporting-cycles-and-status-matrix',
+    claims: '["org:meil-group", "bu:MEIL-INFRA", "write:bu_data", "variance_review:allowed"]',
+    level: 'Tier 2 - Operational Business Unit',
+    boundary: 'Subsidiary (Infrastructure & Roads)',
+    status: 'VERIFIED'
+  },
+  'project-coord': {
+    title: 'Project Coordinator',
+    destination: '/forms/project-raw-data-entry?site=PRJ-409',
+    routePath: 'project-quick-entry-sheet',
+    claims: '["site:PRJ-409-POLAVARAM", "write:telemetry", "upload:invoices", "approval:none"]',
+    level: 'Tier 4 - Raw Data Capture',
+    boundary: 'Site Level (Polavaram Project)',
+    status: 'VERIFIED'
+  },
+  'data-owner': {
+    title: 'Functional Data Owner',
+    destination: '/workspaces/topic-functional-review?pillar=hse-metrics',
+    routePath: 'brsr-section-c-principle-wise-performance',
+    claims: '["org:meil-group", "pillar:health_safety", "write:topic_metrics", "cross_bu:enabled"]',
+    level: 'Tier 3 - Corporate Functional Pillar',
+    boundary: 'HSE & Employee Well-being Matrix',
+    status: 'VERIFIED'
+  },
+  'internal-auditor': {
+    title: 'Internal Auditor',
+    destination: '/audit/internal-findings-log?scope=cycle-q3',
+    routePath: 'audit-trail-ledger',
+    claims: '["audit:internal", "scope:read_all_telemetry", "action:post_finding", "seal:draft"]',
+    level: 'Tier 2 - Audit Oversight',
+    boundary: 'Corporate Internal Audit Committee',
+    status: 'VERIFIED'
+  },
+  'external-assurance': {
+    title: 'External Assurance Partner',
+    destination: '/assurance/independent-working-papers?agency=KPMG-ASSURANCE',
+    routePath: 'evidence-assurance-vault',
+    claims: '["agency:kpmg", "isae:3000_limited", "scope:assurance_active", "opinion:sign"]',
+    level: 'Tier 1 - Statutory Assurance',
+    boundary: 'Assurance Scope Perimeter FY2023-24',
+    status: 'VERIFIED'
+  },
+  'regulator-viewer': {
+    title: 'Regulator / Lender Desk',
+    destination: '/viewer/statutory-final-kpi?filing=BRSR-2024-CORE',
+    routePath: 'brsr-report-generator',
+    claims: '["regulator:sebi_bse", "scope:certified_published_only", "export:xbrl_json"]',
+    level: 'Tier 0 - Statutory Consumer',
+    boundary: 'Certified Filings Only',
+    status: 'VERIFIED'
+  }
+};
+
+let currentSimulatorRoleKey = 'group-admin';
+
+function switchAuthTab(tab) {
+  const ssoBtn = document.getElementById('tab-sso');
+  const credBtn = document.getElementById('tab-cred');
+  const ssoSec = document.getElementById('section-sso');
+  const credSec = document.getElementById('section-cred');
+
+  if (!ssoBtn || !credBtn || !ssoSec || !credSec) return;
+
+  if (tab === 'sso') {
+    ssoBtn.className = "flex-1 py-2 px-space-md rounded text-center font-label-md text-label-md transition-all duration-200 bg-surface-container-lowest shadow-sm text-primary flex items-center justify-center gap-2";
+    credBtn.className = "flex-1 py-2 px-space-md rounded text-center font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-primary flex items-center justify-center gap-2";
+    ssoSec.classList.remove('hidden');
+    credSec.classList.add('hidden');
+  } else {
+    credBtn.className = "flex-1 py-2 px-space-md rounded text-center font-label-md text-label-md transition-all duration-200 bg-surface-container-lowest shadow-sm text-primary flex items-center justify-center gap-2";
+    ssoBtn.className = "flex-1 py-2 px-space-md rounded text-center font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-primary flex items-center justify-center gap-2";
+    credSec.classList.remove('hidden');
+    ssoSec.classList.add('hidden');
+  }
+}
+
+function togglePasswordVisibility() {
+  const input = document.getElementById('password-input');
+  const icon = document.getElementById('eye-icon');
+  if (!input || !icon) return;
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.textContent = 'visibility_off';
+  } else {
+    input.type = 'password';
+    icon.textContent = 'visibility';
+  }
+}
+
+function selectSimulatorRole(roleKey) {
+  currentSimulatorRoleKey = roleKey;
+  const config = roleDataMap[roleKey];
+  if (!config) return;
+
+  document.querySelectorAll('.role-pill').forEach(btn => {
+    btn.classList.remove('bg-primary', 'text-surface-container-lowest');
+    btn.classList.add('bg-surface-container', 'text-on-surface');
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (icon) {
+      icon.classList.remove('text-surface-container-lowest');
+      icon.classList.add('text-secondary');
+    }
+  });
+
+  const activeBtn = document.getElementById('role-btn-' + roleKey);
+  if (activeBtn) {
+    activeBtn.classList.remove('bg-surface-container', 'text-on-surface');
+    activeBtn.classList.add('bg-primary', 'text-surface-container-lowest');
+    const icon = activeBtn.querySelector('.material-symbols-outlined');
+    if (icon) {
+      icon.classList.remove('text-secondary');
+      icon.classList.add('text-surface-container-lowest');
+    }
+  }
+
+  const destEl = document.getElementById('sim-destination');
+  const claimsEl = document.getElementById('sim-claims');
+  const levelEl = document.getElementById('sim-access-level');
+  const boundaryEl = document.getElementById('sim-boundary');
+
+  if (destEl) {
+    destEl.style.opacity = '0.3';
+    setTimeout(() => {
+      destEl.textContent = config.destination;
+      if (claimsEl) claimsEl.textContent = config.claims;
+      if (levelEl) levelEl.textContent = config.level;
+      if (boundaryEl) boundaryEl.textContent = config.boundary;
+      destEl.style.opacity = '1';
+      if (claimsEl) claimsEl.style.opacity = '1';
+    }, 120);
+  }
+}
+
+function testSimulatedNavigation() {
+  const config = roleDataMap[currentSimulatorRoleKey];
+  const targetPath = config ? config.routePath : 'executive-dashboard';
+  showAlert('success', 'Route Resolved', 'Launching simulated session for ' + (config?.title || 'User') + '...');
+  setTimeout(() => {
+    navigateTo(targetPath);
+  }, 1000);
+}
+
+function triggerSSOLogin() {
+  showAlert('success', 'MEIL SSO Handshake Initiated', 'Authenticated with Azure AD (Microsoft Entra ID). Initializing Executive Governance Console...');
+  setTimeout(() => {
+    navigateTo('executive-dashboard');
+  }, 1200);
+}
+
+function handleCredentialSubmit(event) {
+  event.preventDefault();
+  const idInput = document.getElementById('identifier-input');
+  const id = idInput ? idInput.value : '';
+  if (id.includes('auditor') || id.includes('kpmg') || id.includes('pwc')) {
+    showAlert('success', 'Statutory Token Verified', 'Hardware challenge token accepted. Initializing Auditor Working Paper Workspace...');
+    setTimeout(() => {
+      navigateTo('evidence-assurance-vault');
+    }, 1200);
+  } else {
+    showAlert('success', 'Authentication Successful', 'Session initialized. Redirecting to Executive Governance Console...');
+    setTimeout(() => {
+      navigateTo('executive-dashboard');
+    }, 1200);
+  }
+}
+
+function triggerForgotPassAlert() {
+  showAlert('info', 'Credential Recovery', 'For security compliance under ISO 27001, credential resets for statutory accounts must be requested through your corporate IT service desk or esg-support@meilgroup.com.');
+}
+
+function showAlert(type, title, message) {
+  const banner = document.getElementById('auth-alert');
+  const icon = document.getElementById('alert-icon');
+  const titleEl = document.getElementById('alert-title');
+  const msgEl = document.getElementById('alert-message');
+
+  if (!banner || !icon || !titleEl || !msgEl) return;
+
+  banner.classList.remove('hidden', 'bg-surface-container-high', 'bg-secondary-container', 'bg-error-container');
+
+  if (type === 'success') {
+    banner.classList.add('bg-secondary-container');
+    icon.textContent = 'check_circle';
+    icon.className = 'material-symbols-outlined text-on-secondary-container text-[20px]';
+  } else if (type === 'warning') {
+    banner.classList.add('bg-surface-container-high');
+    icon.textContent = 'warning';
+    icon.className = 'material-symbols-outlined text-secondary text-[20px]';
+  } else {
+    banner.classList.add('bg-surface-container-high');
+    icon.textContent = 'info';
+    icon.className = 'material-symbols-outlined text-secondary text-[20px]';
+  }
+
+  titleEl.textContent = title;
+  msgEl.textContent = message;
+  banner.classList.remove('hidden');
+}
+
+function dismissAlert() {
+  const banner = document.getElementById('auth-alert');
+  if (banner) banner.classList.add('hidden');
+}
+
+function filterMatrix(category) {
+  const rows = document.querySelectorAll('.matrix-row');
+  const buttons = document.querySelectorAll('.filter-tab, #btn-filter-all');
+
+  buttons.forEach(b => {
+    b.classList.remove('bg-primary', 'text-on-primary');
+    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+  });
+
+  if (category === 'all') {
+    const btnAll = document.getElementById('btn-filter-all');
+    if (btnAll) {
+      btnAll.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      btnAll.classList.add('bg-primary', 'text-on-primary');
+    }
+    rows.forEach(r => r.style.display = '');
+  } else {
+    const activeBtn = document.getElementById('btn-filter-' + category);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      activeBtn.classList.add('bg-primary', 'text-on-primary');
+    }
+    rows.forEach(r => {
+      if (r.getAttribute('data-category') === category) {
+        r.style.display = '';
+      } else {
+        r.style.display = 'none';
+      }
+    });
+  }
+}
+
+function showModalInfo(type) {
+  const modal = document.getElementById('info-modal');
+  const title = document.getElementById('modal-title');
+  const content = document.getElementById('modal-content');
+
+  if (!modal || !title || !content) return;
+
+  if (type === 'internal-roles') {
+    title.textContent = 'MEIL Internal Entity Hierarchy';
+    content.innerHTML = `
+      <p><strong>Group ESG Administrator:</strong> Has consolidated oversight across all MEIL subsidiaries (Infrastructure, Hydro, Power, Solar, Electric Vehicles). Manages master indicator catalogues, boundary thresholds, and SEBI BRSR Core submissions.</p>
+      <p><strong>BU ESG Manager:</strong> Validates unit-level emission calculations, fuel logs, and water metrics before escalating them to corporate. Can reject or flag outlier entries with narrative justifications.</p>
+      <p><strong>Project ESG Coordinator:</strong> Directly bound to designated site execution scopes (e.g., Z-Morh Tunnel, Polavaram, Kaleshwaram). Records daily and monthly fuel intake, electricity bill scans, and equipment usage logs.</p>
+      <p><strong>Functional Pillar Leads:</strong> Cross-functional domain heads managing corporate safety statistics, gender pay ratios, CSR spending ledgers, and human rights compliance records.</p>
+    `;
+  } else if (type === 'assurance-partner') {
+    title.textContent = 'Independent Assurance Portal Registration';
+    content.innerHTML = `
+      <p>MEIL mandates independent limited or reasonable assurance in accordance with <strong>ISAE 3000 / ISAE 3410</strong> and the statutory roadmap prescribed by SEBI.</p>
+      <p>To request assurance workspace credentials for your audit engagement team (PwC, EY, KPMG, BSI, DNV), please transmit your formal engagement engagement letter reference to:</p>
+      <p class="font-mono text-primary font-bold bg-surface-container p-2 rounded">esg-assurance@meilgroup.com</p>
+      <p>Access requires mutual token authorization and verification of your organization's FIPS hardware key token.</p>
+    `;
+  }
+  modal.classList.remove('hidden');
+}
+
+function closeModalInfo() {
+  const modal = document.getElementById('info-modal');
+  if (modal) modal.classList.add('hidden');
 }

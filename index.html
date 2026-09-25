@@ -335,6 +335,10 @@
             <span class="material-symbols-outlined text-lg">public</span>
             <span>Public Landing Page</span>
           </a>
+          <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="login" href="#login">
+            <span class="material-symbols-outlined text-lg">key</span>
+            <span>Enterprise Gateway (Login)</span>
+          </a>
           <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded transition-all font-body-sm text-body-sm" data-path="executive-dashboard" href="#executive-dashboard">
             <span class="material-symbols-outlined text-lg">dashboard</span>
             <span>Executive Dashboard</span>
@@ -502,7 +506,7 @@
   <div id="mainViewport" class="pl-72 flex flex-col min-h-screen transition-all duration-200">
     
     <!-- Top Executive Header -->
-    <header id="landingHeader" class="hidden fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="h-10 bg-primary px-2 py-1 rounded flex items-center justify-center shadow-sm"><img alt="MEIL Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSt0SXNJEmGvsfIPZXaHqlLUJJ-7Gme4Qca1PBFssthdfJLMHSSrHudJw03f30xsO7nFnzpiHOBg2SAAyfglrLZYKAXP8DXChARB2DklZE2k6Kp04Rgjw1z9vK7QzfRbD_C79A6RQznuJS2fyUCsbeXb8LtRW0b7qBV9fwmaPkAsj0NulULJDc9Eou_vnEUe_f2PaEbByGzw0xqNYi_vXrpTz5CgQXSc9kBKtT0y1cT2mr1OyNFQVYtxaB_QcZ9bCFoEg"></div><div class="flex flex-col ml-1"><span class="font-title-md text-title-md text-primary tracking-tight font-bold">MEIL Group</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">ESG Reporting Platform</span></div></div></div><nav class="hidden xl:flex items-center gap-gutter" data-active-classes="text-primary font-title-md"><a aria-current="page" class="transition-colors text-primary font-title-md" href="#hero">Home</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#about">About</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#roles-and-access">Roles &amp; Access</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">Reports</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">Contact</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded-lg"><span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span><span class="font-label-sm text-label-sm uppercase text-secondary">ISO 27001 / SOC 2</span></div><a class="inline-flex items-center justify-center px-space-md py-space-sm bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg transition-colors shadow-[0_1px_3px_0_rgba(16,42,67,0.06)]" href="#executive-dashboard" onclick="navigateTo('executive-dashboard')">Sign In</a><button id="themeToggleLanding" onclick="toggleTheme()" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors cursor-pointer" title="Toggle Dark / Light Mode"><span class="material-symbols-outlined text-[18px]" id="themeIconLanding">dark_mode</span></button>
+    <header id="landingHeader" class="hidden fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="h-10 bg-primary px-2 py-1 rounded flex items-center justify-center shadow-sm"><img alt="MEIL Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSt0SXNJEmGvsfIPZXaHqlLUJJ-7Gme4Qca1PBFssthdfJLMHSSrHudJw03f30xsO7nFnzpiHOBg2SAAyfglrLZYKAXP8DXChARB2DklZE2k6Kp04Rgjw1z9vK7QzfRbD_C79A6RQznuJS2fyUCsbeXb8LtRW0b7qBV9fwmaPkAsj0NulULJDc9Eou_vnEUe_f2PaEbByGzw0xqNYi_vXrpTz5CgQXSc9kBKtT0y1cT2mr1OyNFQVYtxaB_QcZ9bCFoEg"></div><div class="flex flex-col ml-1"><span class="font-title-md text-title-md text-primary tracking-tight font-bold">MEIL Group</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">ESG Reporting Platform</span></div></div></div><nav class="hidden xl:flex items-center gap-gutter" data-active-classes="text-primary font-title-md"><a aria-current="page" class="transition-colors text-primary font-title-md" href="#hero">Home</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#about">About</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#roles-and-access">Roles &amp; Access</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">Reports</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">Contact</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded-lg"><span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span><span class="font-label-sm text-label-sm uppercase text-secondary">ISO 27001 / SOC 2</span></div><a class="inline-flex items-center justify-center px-space-md py-space-sm bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg transition-colors shadow-[0_1px_3px_0_rgba(16,42,67,0.06)]" href="#login" onclick="navigateTo('login')">Sign In</a><button id="themeToggleLanding" onclick="toggleTheme()" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors cursor-pointer" title="Toggle Dark / Light Mode"><span class="material-symbols-outlined text-[18px]" id="themeIconLanding">dark_mode</span></button>
 <a href="#executive-dashboard" onclick="navigateTo('executive-dashboard')" title="Launch Executive Dashboard" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:opacity-90 transition-opacity"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></a></div></div></header>
 
     <header id="topExecutiveHeader" class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg">
@@ -1648,6 +1652,1163 @@
 
 </div>
 <footer class="w-full bg-surface-container-low"><div class="w-full px-margin py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg"><div class="lg:col-span-2 flex flex-col gap-space-md pr-margin"><div class="flex items-center gap-space-sm"><div class="h-9 bg-primary px-2 py-1 rounded flex items-center justify-center shadow-sm"><img alt="MEIL Corporate Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcE4b0KMRs4rUONRp3oNPoHtM0sBRqXLozmsitBE9A6efUXmM9jDCG--Ambbk0TpBILh6Dj7FGuOVOtlglxO2aJZ8ta403SQkyRR5aSgRZU_Wnjtv51IBLH0fx3e_CPKTblNR2dTIsSA-IE3ZVkrtr3DPqLtaU-Cm4vdDpVzdnVMTvH9nE24x65Xm1A-_7UMBypcJ15BE9F2TiWfhhkeSyJGQ5x0Q9O4YrKX1d5OUMAcgHs-6NBjncTORn8x_4ucoNrfQ"></div><span class="font-title-md text-title-md text-primary font-bold">MEIL ESG</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-md">Empowering infrastructure and industrial engineering with immutable ESG disclosures, statutory BRSR compliance, and multi-framework sustainability audit trails across MEIL Group global operations.</p><div class="flex items-center gap-space-sm mt-space-sm"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-highest rounded-lg"><span class="material-symbols-outlined text-[14px] text-secondary">gavel</span><span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Statutory Regulatory Audit Ready</span></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Platform &amp; Solutions</span><div class="flex flex-col gap-space-xs mt-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Carbon Accounting</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">BRSR Disclosure Engine</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#roles-and-access">Role-Based Governance</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Supply Chain Materiality</a></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Governance &amp; Frameworks</span><div class="flex flex-col gap-space-xs mt-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">BRSR Core (SEBI)</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">GRI Universal Standards</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">CSRD &amp; ESRS Alignment</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#brsr-report-generator" onclick="navigateTo('brsr-report-generator')">UN SDG Mapping</a></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Auditors &amp; Legal</span><div class="flex flex-col gap-space-xs mt-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#roles-and-access">Independent Assessor Portal</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">Statutory Filings Desk</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#hero">Audit Trail Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#hero">Security &amp; Privacy Policy</a></div></div></div><div class="mt-space-2xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-high/40 p-space-md rounded-xl"><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 MEIL Group (Megha Engineering &amp; Infrastructures Ltd). All rights reserved. Strict compliance and audit controls enabled.</div><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm uppercase text-secondary">SOC 2 Type II Certified</span><span class="font-label-sm text-label-sm uppercase text-secondary">•</span><span class="font-label-sm text-label-sm uppercase text-secondary">ISO 27001:2022</span><span class="font-label-sm text-label-sm uppercase text-secondary">•</span><span class="font-label-sm text-label-sm uppercase text-secondary">SEBI Assurance Ready</span></div></div></div></footer>
+      </section>
+
+            <!-- ========================================================================= -->
+      <!-- SCREEN 0.5: ENTERPRISE GATEWAY & INSTITUTIONAL LOGIN PORTAL -->
+      <!-- ========================================================================= -->
+      <section id="view-login" class="page-view flex flex-col w-full">
+        <!-- Back to Home Bar on top of Login View -->
+        <div class="w-full bg-surface-container-lowest border-b border-surface-container px-gutter-lg py-3 flex items-center justify-between shadow-sm sticky top-0 z-30">
+          <div class="flex items-center gap-space-md cursor-pointer" onclick="navigateTo('home')">
+            <span class="material-symbols-outlined text-secondary hover:text-primary transition-colors text-2xl">arrow_back</span>
+            <span class="font-title-md text-title-md text-primary font-bold">MEIL ESG Gateway</span>
+            <span class="font-label-sm text-label-sm uppercase bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">Enterprise Portal</span>
+          </div>
+          <div class="flex items-center gap-space-md">
+            <a href="#home" onclick="navigateTo('home')" class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">home</span>
+              <span>Public Landing</span>
+            </a>
+            <a href="#executive-dashboard" onclick="navigateTo('executive-dashboard')" class="px-space-md py-1.5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded transition-colors flex items-center gap-1">
+              <span>Executive Dashboard</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+<div class="flex flex-col w-full">
+
+<!-- Subtle Architectural Grid Background Elements -->
+
+<div class="relative w-full overflow-hidden">
+
+<!-- Ambient Structural Glow -->
+
+<div class="absolute -top-40 right-1/4 w-96 h-96 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+<div class="absolute top-80 -left-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+<!-- Institutional Regulatory Scrim Banner -->
+
+<div class="w-full bg-surface-container-high py-2.5 px-margin-mobile md:px-margin-tablet lg:px-margin">
+
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-y-2 text-on-surface-variant font-label-sm text-label-sm">
+
+<div class="flex items-center gap-space-sm flex-wrap">
+
+<span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm text-primary font-bold">
+
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+
+            BRSR Core / CSRD / GRI 2024 Standards Aligned
+
+          </span>
+
+<span class="text-outline-variant hidden sm:inline">•</span>
+
+<span class="flex items-center gap-1">
+
+<span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>
+
+            Zero-Trust RBAC Policy Enforced
+
+          </span>
+
+<span class="text-outline-variant hidden sm:inline">•</span>
+
+<span class="flex items-center gap-1">
+
+<span class="material-symbols-outlined text-[15px] text-secondary">lock_clock</span>
+
+            Statutory Cryptographic Handshake Active
+
+          </span>
+
+</div>
+
+<div class="flex items-center gap-space-md">
+
+<span class="font-mono text-primary text-[10px] tracking-widest bg-surface-container px-2 py-0.5 rounded">SESSION-SEC: TLS_ECDHE_RSA_WITH_AES_256_GCM</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Main Workspace Container -->
+
+<div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+
+<!-- Page Header & Hierarchy (Editorial Architecture) -->
+
+<div class="mb-space-xl max-w-3xl">
+
+<div class="flex items-center gap-space-xs mb-space-xs">
+
+<span class="font-label-sm text-label-sm uppercase bg-primary-container text-surface-container-lowest px-2 py-0.5 rounded tracking-widest font-semibold">Institutional Access Portal</span>
+
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">NODE: HYD-DC-04</span>
+
+</div>
+
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight mb-space-xs">MEIL ESG Reporting Platform</h1>
+
+<p class="font-body-lg text-body-lg text-secondary">Statutory disclosure engine and carbon accounting governance console for internal company entities, accredited statutory auditors, and regulatory bodies.</p>
+
+</div>
+
+<!-- Center Grid: Authentication & Interactive Simulator Split -->
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start mb-space-2xl">
+
+<!-- Left Column: Unified Enterprise Login Card (7 cols) -->
+
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-md p-space-lg md:p-space-xl">
+
+<!-- Tabbed Mode Switcher -->
+
+<div class="flex items-center justify-between pb-space-md mb-space-lg bg-surface-container-low p-1.5 rounded-lg">
+
+<button class="flex-1 py-2 px-space-md rounded text-center font-label-md text-label-md transition-all duration-200 bg-surface-container-lowest shadow-sm text-primary flex items-center justify-center gap-2" id="tab-sso" onclick="switchAuthTab('sso')">
+
+<span class="material-symbols-outlined text-[18px]">corporate_fare</span>
+
+<span>Enterprise SSO (MEIL Personnel)</span>
+
+</button>
+
+<button class="flex-1 py-2 px-space-md rounded text-center font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-primary flex items-center justify-center gap-2" id="tab-cred" onclick="switchAuthTab('cred')">
+
+<span class="material-symbols-outlined text-[18px]">key</span>
+
+<span>Credentials (Auditors &amp; Regulators)</span>
+
+</button>
+
+</div>
+
+<!-- Alert Notification Tray -->
+
+<div class="hidden mb-space-md p-space-md rounded bg-surface-container-high transition-all duration-300" id="auth-alert">
+
+<div class="flex items-start gap-space-sm">
+
+<span class="material-symbols-outlined text-secondary text-[20px]" id="alert-icon">info</span>
+
+<div class="flex-1">
+
+<p class="font-title-md text-title-md text-primary leading-tight" id="alert-title">Notice</p>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="alert-message">Default notice message</p>
+
+</div>
+
+<button class="text-on-surface-variant hover:text-primary" onclick="dismissAlert()">
+
+<span class="material-symbols-outlined text-[16px]">close</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Enterprise SSO Form Block -->
+
+<div class="space-y-space-md" id="section-sso">
+
+<div class="bg-surface-container-low p-space-lg rounded-xl">
+
+<div class="flex items-start gap-space-md mb-space-md">
+
+<div class="w-12 h-12 rounded-lg bg-primary-container text-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm">
+
+<span class="material-symbols-outlined text-[28px]">shield_person</span>
+
+</div>
+
+<div>
+
+<h2 class="font-title-md text-title-md text-primary mb-1">MEIL Corporate Identity Provider</h2>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant">Federated authentication via Microsoft Entra ID (Azure Active Directory) with multi-factor policy verification and contextual device posture evaluation.</p>
+
+</div>
+
+</div>
+
+<div class="grid grid-cols-2 gap-space-sm mb-space-lg py-space-sm bg-surface-container-lowest px-space-md rounded">
+
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+
+<span>MEIL Group Core Directory</span>
+
+</div>
+
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+
+<span>Whitelisted Corporate Subnets</span>
+
+</div>
+
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+
+<span>FIDO2 / Authenticator MFA</span>
+
+</div>
+
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+
+<span>Automated RBAC Claims Token</span>
+
+</div>
+
+</div>
+
+<button class="w-full py-3 px-space-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md rounded shadow-sm hover:shadow transition-all flex items-center justify-center gap-space-sm group" onclick="triggerSSOLogin()">
+
+<span class="material-symbols-outlined text-[20px] group-hover:scale-105 transition-transform">lock</span>
+
+<span>Continue with MEIL Enterprise SSO</span>
+
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+
+</button>
+
+</div>
+
+<!-- SSO Status Indicators -->
+
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+
+<span class="flex items-center gap-1.5">
+
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+
+                IdP Gateway: <strong class="text-primary font-semibold">login.meilgroup.com</strong>
+
+</span>
+
+<span class="text-outline">SAML 2.0 &amp; OIDC Core 1.0</span>
+
+</div>
+
+</div>
+
+<!-- Credential Login Form (Auditors, Statutory Partners, Regulators) -->
+
+<form class="hidden space-y-space-md" id="section-cred" onsubmit="handleCredentialSubmit(event)">
+
+<div>
+
+<label class="block font-label-md text-label-md text-primary mb-1.5" for="identifier-input">Corporate Email, Auditor ID, or Partner UID</label>
+
+<div class="relative flex items-center">
+
+<span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">badge</span>
+
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded shadow-inner outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all placeholder:text-outline" id="identifier-input" placeholder="e.g. j.sharma@meilgroup.com or auditor.pwc@partner.meil" required="" type="text" value="lead.auditor@kpmg-assurance.com"/>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="flex items-center justify-between mb-1.5">
+
+<label class="block font-label-md text-label-md text-primary" for="password-input">Cryptographic Passphrase / PIN</label>
+
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary underline" href="javascript:void(0)" onclick="triggerForgotPassAlert()">Forgot credentials?</a>
+
+</div>
+
+<div class="relative flex items-center">
+
+<span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">key</span>
+
+<input class="w-full pl-10 pr-11 py-2.5 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded shadow-inner outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all placeholder:text-outline" id="password-input" placeholder="Enter institutional passphrase" required="" type="password" value="EnterpriseSessionKey#2024"/>
+
+<button class="absolute right-3 text-on-surface-variant hover:text-primary focus:outline-none" onclick="togglePasswordVisibility()" type="button">
+
+<span class="material-symbols-outlined text-[20px]" id="eye-icon">visibility</span>
+
+</button>
+
+</div>
+
+</div>
+
+<div class="flex items-center justify-between pt-1">
+
+<label class="flex items-center gap-2 cursor-pointer select-none">
+
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" id="remember-device" type="checkbox"/>
+
+<span class="font-body-sm text-body-sm text-on-surface-variant">Remember hardware fingerprint (30 days with Token Binding)</span>
+
+</label>
+
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-low px-2 py-0.5 rounded font-mono">FIPS-140-3</span>
+
+</div>
+
+<button class="w-full py-3 px-space-lg bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md rounded shadow-sm hover:shadow transition-all flex items-center justify-center gap-space-sm group" type="submit">
+
+<span class="material-symbols-outlined text-[20px] group-hover:scale-105 transition-transform">security</span>
+
+<span>Authenticate with Statutory Token</span>
+
+<span class="material-symbols-outlined text-[18px]">verified</span>
+
+</button>
+
+</form>
+
+<!-- Audit Logging Warning Footer -->
+
+<div class="mt-space-lg pt-space-md bg-surface-container-low/60 p-space-md rounded-lg flex items-start gap-space-sm">
+
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">verified_user</span>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+
+<strong class="text-primary font-semibold">Statutory Oversight Notice:</strong> This terminal accesses confidential ESG financial disclosure streams, greenhouse gas emissions data, and project telemetry. Every session initialization, permission grant, and route transition is recorded immutably under ISO 27001, SOC 2 Type II, and MeitY regulatory standards.
+
+            </p>
+
+</div>
+
+</div>
+
+<!-- Right Column: Interactive Role Simulator & Telemetry Visualizer (5 cols) -->
+
+<div class="lg:col-span-5 space-y-space-md">
+
+<!-- Simulation Console Card -->
+
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg">
+
+<div class="flex items-center justify-between mb-space-md">
+
+<div class="flex items-center gap-2">
+
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+
+<h2 class="font-title-md text-title-md text-primary">RBAC Route &amp; Scope Simulator</h2>
+
+</div>
+
+<span class="font-label-sm text-label-sm uppercase bg-surface-container px-2 py-0.5 rounded text-on-surface-variant font-mono">LIVE PREVIEW</span>
+
+</div>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+
+              Verify how the MEIL Zero-Trust token pipeline injects authorization claims, scopes, and destination controllers based on designated role profiles.
+
+            </p>
+
+<!-- Role Selector Pills -->
+
+<label class="block font-label-sm text-label-sm uppercase text-on-surface-variant mb-2 tracking-wider">Select Persona Archetype:</label>
+
+<div class="grid grid-cols-2 gap-1.5 mb-space-md" id="role-selector-container">
+
+<button class="role-pill text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-group-admin" onclick="selectSimulatorRole('group-admin')">
+
+<span>Group ESG Admin</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">admin_panel_settings</span>
+
+</button>
+
+<button class="role-pill text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-bu-manager" onclick="selectSimulatorRole('bu-manager')">
+
+<span>BU ESG Manager</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">domain</span>
+
+</button>
+
+<button class="role-pill text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-project-coord" onclick="selectSimulatorRole('project-coord')">
+
+<span>Project Coordinator</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">edit_note</span>
+
+</button>
+
+<button class="role-pill text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-data-owner" onclick="selectSimulatorRole('data-owner')">
+
+<span>Functional Owner</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">dataset</span>
+
+</button>
+
+<button class="role-pill text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-internal-auditor" onclick="selectSimulatorRole('internal-auditor')">
+
+<span>Internal Auditor</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">fact_check</span>
+
+</button>
+
+<button class="role-pill text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-external-assurance" onclick="selectSimulatorRole('external-assurance')">
+
+<span>External Assurance</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">assured_workload</span>
+
+</button>
+
+<button class="role-pill col-span-2 text-left px-2.5 py-2 rounded text-on-surface font-label-md text-label-md bg-surface-container hover:bg-secondary-fixed transition-colors flex items-center justify-between" id="role-btn-regulator-viewer" onclick="selectSimulatorRole('regulator-viewer')">
+
+<span>Regulator / Statutory Lender</span>
+
+<span class="material-symbols-outlined text-[16px] text-secondary">gavel</span>
+
+</button>
+
+</div>
+
+<!-- Dynamically Rendered Diagnostic Console -->
+
+<div class="bg-primary text-surface-container-lowest p-space-md rounded-xl font-mono text-[12px] space-y-space-sm shadow-inner">
+
+<div class="flex items-center justify-between pb-2 bg-primary-container px-2 py-1.5 rounded">
+
+<span class="text-on-primary-container uppercase font-bold text-[10px]">Target Routing Resolver</span>
+
+<span class="px-1.5 py-0.5 rounded text-[10px] uppercase font-bold bg-secondary-container text-on-secondary-container" id="sim-status-chip">VERIFIED</span>
+
+</div>
+
+<div>
+
+<span class="text-outline-variant text-[11px] block">Target Destination URI:</span>
+
+<span class="text-secondary-fixed font-bold text-[13px] tracking-wide break-all" id="sim-destination">/console/group-admin/consolidated-disclosure</span>
+
+</div>
+
+<div>
+
+<span class="text-outline-variant text-[11px] block">Decoded RBAC Scope Claims:</span>
+
+<div class="text-surface-variant font-mono text-[11px] bg-primary-container p-2 rounded mt-1 break-all" id="sim-claims">
+
+                  ["org:meil-group", "scope:all", "write:master", "approval:statutory_signoff"]
+
+                </div>
+
+</div>
+
+<div class="grid grid-cols-2 gap-2 pt-1 text-[11px]">
+
+<div>
+
+<span class="text-outline-variant block">Access Level:</span>
+
+<span class="text-on-primary font-semibold" id="sim-access-level">Tier 1 - Executive Master</span>
+
+</div>
+
+<div>
+
+<span class="text-outline-variant block">Data Boundary:</span>
+
+<span class="text-on-primary font-semibold" id="sim-boundary">Global (All 18 BUs)</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-space-md flex items-center justify-between">
+
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded flex items-center justify-center gap-2 transition-colors" onclick="testSimulatedNavigation()">
+
+<span class="material-symbols-outlined text-[18px]">launch</span>
+
+<span>Launch Mock Route Session</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Quick Security Badge Panel with Real Micro-metrics -->
+
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between shadow-sm">
+
+<div class="flex items-center gap-space-sm">
+
+<span class="material-symbols-outlined text-secondary text-[24px]">vpn_lock</span>
+
+<div>
+
+<p class="font-title-md text-title-md text-primary leading-tight">Zero Trust Architecture</p>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous mTLS &amp; JWT Expiration (15m)</p>
+
+</div>
+
+</div>
+
+<div class="text-right">
+
+<span class="font-label-sm text-label-sm font-mono text-secondary bg-surface-container px-2 py-1 rounded">REV: 2024.3</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Three High-Level Utility Architecture Tiles -->
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg mb-space-2xl">
+
+<!-- Tile 1: Internal Company User Workflow -->
+
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow">
+
+<div>
+
+<div class="flex items-center justify-between mb-space-sm">
+
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high text-primary font-bold px-2 py-0.5 rounded">MEIL Internal</span>
+
+<span class="material-symbols-outlined text-secondary">apartment</span>
+
+</div>
+
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-xs">Company User Provisioning</h3>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+
+              Group ESG Officers, Subsidiary Heads, Project Engineers, and Functional Leads are assigned specific operational scopes via MEIL Active Directory synchronization.
+
+            </p>
+
+<ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+
+<li class="flex items-center gap-2">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">done</span>
+
+                Automated HRMS profile mapping
+
+              </li>
+
+<li class="flex items-center gap-2">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">done</span>
+
+                BU hierarchy inheritance
+
+              </li>
+
+<li class="flex items-center gap-2">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">done</span>
+
+                BRSR Core quantitative form gates
+
+              </li>
+
+</ul>
+
+</div>
+
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" onclick="showModalInfo('internal-roles')">
+
+<span>Explore Internal Role Hierarchy</span>
+
+<span class="material-symbols-outlined text-[16px]">info</span>
+
+</button>
+
+</div>
+
+<!-- Tile 2: Auditor & Assurance Partner Workflow -->
+
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow">
+
+<div>
+
+<div class="flex items-center justify-between mb-space-sm">
+
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high text-primary font-bold px-2 py-0.5 rounded">Independent Audit</span>
+
+<span class="material-symbols-outlined text-secondary">verified</span>
+
+</div>
+
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-xs">External Assurance Desk</h3>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+
+              Dedicated isolated access gateway for third-party assurance teams (PwC, EY, KPMG, BSI) to review source document evidentiary trails, sample emissions logs, and append digital opinions.
+
+            </p>
+
+<div class="bg-surface-container-low p-space-sm rounded mb-space-md space-y-1">
+
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+
+<span>Working Paper Ledger:</span>
+
+<span class="font-bold text-primary">Read-Only Immutable</span>
+
+</div>
+
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+
+<span>Sample Sampling Engine:</span>
+
+<span class="font-bold text-primary">ISAE 3000 Standard</span>
+
+</div>
+
+</div>
+
+</div>
+
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" onclick="showModalInfo('assurance-partner')">
+
+<span>Request Statutory Auditor Access</span>
+
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+
+</button>
+
+</div>
+
+<!-- Tile 3: Regulator / Lender Direct Oversight -->
+
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow">
+
+<div>
+
+<div class="flex items-center justify-between mb-space-sm">
+
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high text-primary font-bold px-2 py-0.5 rounded">Statutory &amp; Capital</span>
+
+<span class="material-symbols-outlined text-secondary">account_balance</span>
+
+</div>
+
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-xs">Regulator &amp; Lender Desk</h3>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+
+              Direct, sandboxed query access for SEBI, NSE/BSE stock exchanges, green bond lenders, and consortium institutions to verify certified disclosures in XBRL/JSON formats.
+
+            </p>
+
+<div class="space-y-1 text-on-surface-variant font-body-sm text-body-sm mb-space-md">
+
+<div class="flex items-center gap-2">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">shield</span>
+
+<span>Cryptographically locked read-only KPIs</span>
+
+</div>
+
+<div class="flex items-center gap-2">
+
+<span class="material-symbols-outlined text-secondary text-[16px]">file_download</span>
+
+<span>SEBI BRSR XBRL package exports</span>
+
+</div>
+
+</div>
+
+</div>
+
+<a class="w-full py-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded flex items-center justify-center gap-1.5 transition-colors" href="mailto:esg-statutory@meilgroup.com?subject=Statutory%20Oversight%20Portal%20Access%20Request">
+
+<span>Contact ESG Regulatory Liaison</span>
+
+<span class="material-symbols-outlined text-[16px]">mail</span>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- Publication-Grade RBAC Routing & Permission Matrix Table -->
+
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden mb-space-2xl">
+
+<div class="p-space-lg bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+
+<div>
+
+<div class="flex items-center gap-space-xs mb-1">
+
+<span class="material-symbols-outlined text-primary text-[20px]">table_chart</span>
+
+<h2 class="font-headline-sm text-headline-sm text-primary">Master RBAC Permission &amp; Route Matrix</h2>
+
+</div>
+
+<p class="font-body-sm text-body-sm text-on-surface-variant">Statutory mapping of all 7 authenticated user classes, boundary claims, landing consoles, and credential policies.</p>
+
+</div>
+
+<div class="flex items-center gap-space-sm">
+
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-1 rounded">Matrix Revision: MEIL-RBAC-2024-V4</span>
+
+<button class="px-3 py-1 bg-primary text-on-primary rounded font-label-sm text-label-sm" id="btn-filter-all" onclick="filterMatrix('all')">Show All (7)</button>
+
+</div>
+
+</div>
+
+<!-- Filter Sub-Tabs for Matrix -->
+
+<div class="px-space-lg py-space-sm bg-surface-container-lowest flex flex-wrap gap-2">
+
+<button class="filter-tab px-3 py-1 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:text-primary" id="btn-filter-internal" onclick="filterMatrix('internal')">Internal MEIL Users (4)</button>
+
+<button class="filter-tab px-3 py-1 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:text-primary" id="btn-filter-audit" onclick="filterMatrix('audit')">Independent Assurance &amp; Audit (2)</button>
+
+<button class="filter-tab px-3 py-1 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:text-primary" id="btn-filter-regulator" onclick="filterMatrix('regulator')">Regulatory &amp; Capital Partners (1)</button>
+
+</div>
+
+<div class="overflow-x-auto">
+
+<table class="w-full text-left border-collapse" id="rbac-matrix-table">
+
+<thead>
+
+<tr class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+
+<th class="py-3.5 px-space-md">User Class &amp; Designation</th>
+
+<th class="py-3.5 px-space-md">Target Landing Route</th>
+
+<th class="py-3.5 px-space-md">Data Scope &amp; Rights</th>
+
+<th class="py-3.5 px-space-md">Decoded JWT RBAC Claims</th>
+
+<th class="py-3.5 px-space-md">Auth Channel</th>
+
+</tr>
+
+</thead>
+
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+
+<!-- 1. Group ESG Admin -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="internal">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Group ESG Administrator</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">Corporate Sustainability Directorate</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/console/group-admin/consolidated-disclosure</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Full aggregate consolidation &amp; board sign-off</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">ALL-BU READ / WRITE / APPROVE / PUBLISH</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Entity-wide consolidation authority</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:esg_admin; scope:*</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">security</span>
+
+                    Azure AD SSO + FIDO2
+
+                  </span>
+
+</td>
+
+</tr>
+
+<!-- 2. Subsidiary / BU ESG Manager -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="internal">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Subsidiary / BU ESG Manager</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">MEIL Hydro / Hydrocarbons / Infra / Power</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/dashboards/bu-approval-queue</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Unit validation, variance justification</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">BU READ / WRITE / VERIFY</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Scoped strictly to designated Subsidiary</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:bu_manager; bu:INFRA-01</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">corporate_fare</span>
+
+                    Azure AD SSO + MFA
+
+                  </span>
+
+</td>
+
+</tr>
+
+<!-- 3. Project ESG Coordinator / Data Entry -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="internal">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Project ESG Coordinator</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">Site Operational Units &amp; Plant Logistics</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/forms/project-raw-data-entry</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Monthly utility bills, diesel receipts, water intake</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">PROJECT-LEVEL READ / WRITE</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Upload telemetry, evidence slips, meter receipts</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:site_coord; prj:PRJ-409</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">corporate_fare</span>
+
+                    MEIL SSO / OTP Push
+
+                  </span>
+
+</td>
+
+</tr>
+
+<!-- 4. Functional Data Owner (HSE, HR, Supply Chain) -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="internal">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Functional Topic Lead</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">Corporate HSE / Central HR / Procurement</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/workspaces/topic-functional-review</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Safety incident index, gender diversity metrics</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">TOPIC-SPECIFIC READ / WRITE</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Assigned to BRSR Principle 3 &amp; 5 specifically</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:topic_lead; pillar:safety</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">corporate_fare</span>
+
+                    Azure AD SSO
+
+                  </span>
+
+</td>
+
+</tr>
+
+<!-- 5. Internal Auditor -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="audit">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Corporate Internal Auditor</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">Board Audit Committee Representative</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/audit/internal-findings-log</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Internal variance audits &amp; sampling verification</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">ALL-BU READ / AUDIT LOG WRITE</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Read unadjusted raw logs; register findings</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:internal_audit; scope:read_all</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">key</span>
+
+                    SSO + Audit Security Ring
+
+                  </span>
+
+</td>
+
+</tr>
+
+<!-- 6. External Assurance Provider -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="audit">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Independent Assurance Assessor</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">Accredited Agency (PwC / EY / KPMG / BSI)</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/assurance/independent-working-papers</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Reasonable/Limited Assurance sign-off console</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">READ-ONLY ALL RAW / OPINION APPEND</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Lock evidence packages, issue certificate</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:external_assurance; period:FY24</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+
+                    Partner Credentials + Hardware MFA
+
+                  </span>
+
+</td>
+
+</tr>
+
+<!-- 7. Regulator / Lender Viewer -->
+
+<tr class="matrix-row hover:bg-surface-container-low transition-colors" data-category="regulator">
+
+<td class="py-3 px-space-md">
+
+<div class="font-title-md text-title-md text-primary">Regulator &amp; Lender Viewer</div>
+
+<div class="font-label-sm text-label-sm text-on-surface-variant">SEBI / SBI Capital / Green Bond Syndicate</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<div class="font-mono text-primary font-semibold">/viewer/statutory-final-kpi</div>
+
+<div class="font-label-sm text-label-sm text-secondary">Certified disclosures &amp; XBRL payload download</div>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-block bg-surface-container px-2 py-0.5 rounded text-primary font-semibold text-[11px]">READ CERTIFIED PUBLISHED DISCLOSURES</span>
+
+<div class="text-[11px] text-on-surface-variant mt-0.5">Restricted strictly to final audited metrics</div>
+
+</td>
+
+<td class="py-3 px-space-md font-mono text-[11px] text-on-surface-variant">
+
+<code class="bg-surface-container px-1 py-0.5 rounded text-primary">role:regulator_read; scope:published</code>
+
+</td>
+
+<td class="py-3 px-space-md">
+
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold bg-surface-container px-2 py-0.5 rounded">
+
+<span class="material-symbols-outlined text-[14px] text-secondary">lock</span>
+
+                    Gov Credential Gateway + Dual OTP
+
+                  </span>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Interactive Information Modal (Hidden by Default) -->
+
+<div class="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm hidden flex items-center justify-center p-4" id="info-modal">
+
+<div class="bg-surface-container-lowest max-w-xl w-full rounded-xl shadow-xl p-space-lg relative">
+
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+
+<h3 class="font-headline-sm text-headline-sm text-primary" id="modal-title">Provisioning Overview</h3>
+
+<button class="text-on-surface-variant hover:text-primary p-1" onclick="closeModalInfo()">
+
+<span class="material-symbols-outlined text-[20px]">close</span>
+
+</button>
+
+</div>
+
+<div class="font-body-md text-body-md text-on-surface-variant space-y-space-sm leading-relaxed mb-space-lg" id="modal-content">
+
+<!-- Content inserted dynamically -->
+
+</div>
+
+<div class="flex justify-end">
+
+<button class="px-space-md py-2 bg-primary text-on-primary font-label-md text-label-md rounded" onclick="closeModalInfo()">Acknowledge &amp; Return</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Micro-Interactions & RBAC Simulation Script -->
+
+
       </section>
 
       <!-- SCREEN 1: EXECUTIVE DASHBOARD -->
